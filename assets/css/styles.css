@@ -1,0 +1,43 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	padding: 55px 0 0 0;
+}
+
+legend {
+    width: auto; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+fieldset {
+	width: 300px;
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: auto;
+}
+
+legend {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+
+}
+
+label {
+	display: block;
+	vertical-align: top;
+	font-weight: bold;
+	width: 170px;
+}
+
+h1, h2, h3, h4{
+	text-align: center;
+}
+
+h3 {
+	font-size: 1em;
+	color: red;
+}
