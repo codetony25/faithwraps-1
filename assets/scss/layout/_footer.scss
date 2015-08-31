@@ -1,0 +1,60 @@
+/*==============================
+=            Footer            =
+==============================*/
+
+footer {
+    background-color: $mineShaft;
+    color: #eee;
+    font-size: 12px;
+    padding: 20px;
+    margin-top: 50px;
+    h6 {
+        text-align: center;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li a {
+        color: black;
+    }
+    i {
+        color: white;
+    }
+    .form input {
+        margin-bottom: 10px;
+    }
+    .contact, .about {
+        display: none;
+    }
+    @media (min-width: $break-small) {
+        .socialiconsmobile {
+            display: none;
+        }
+        .socialiconstablet li i:first-child, .socialiconstablet li i:nth-child(3) {
+            margin-right: 18px;
+        }
+        .socialiconstablet {
+            display: block;
+            text-align: center;
+            width: 100%;
+            li {
+                display: inline-block;
+            }
+        }
+        .contact h3 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+        .contact a {
+            color: skyblue;
+        }
+    }
+    @media (min-width: $break-medium) {
+        & .socialiconstablet li i:first-child, & .socialiconstablet li i:nth-child(3) {
+            margin-right: 26px;
+        }
+    }
+}
+
+/*=====  End of Footer  ======*/

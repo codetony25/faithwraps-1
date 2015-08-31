@@ -1,0 +1,67 @@
+/*=================================
+=            Main Page            =
+=================================*/
+
+.mainpics {
+    display: block;
+    img {
+        margin: 0 auto;
+    }
+}
+
+.slogan {
+    padding: 20px;
+    h1 {
+        margin-top: 0;
+    }
+    @media (min-width: $break-small) {
+        margin-top: 50px;
+    }
+}
+
+.slick-prev:before, .slick-next:before { 
+    color: white !important;
+}
+
+.products {
+    margin-bottom: 50px;
+    display: block;
+    text-align: center;
+    h4 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 7px;
+        font-size: 1.1em;
+    }
+    img {
+        margin: 0 auto;
+        transition: 0.2s;
+    }
+    p {
+        margin: 0;
+        margin-top: 7px; 
+    }
+    a {
+        color: black;
+        transition: 0.2s;
+        &:hover {
+            color: $gray;
+            text-decoration: none;
+        }
+    }
+    @media (min-width: $break-small) {
+    	h4 {
+    		font-size: 1.4em;
+    	}
+        & .slick-prev:before, & .slick-next:before {
+            color: gray !important;
+        }
+    }
+    @media (min-width: $break-medium) {
+        h4 {
+            font-size: 1.4em;
+        }
+    }
+}
+
+/*=====  End of Main Page  ======*/
