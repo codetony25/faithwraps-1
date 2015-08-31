@@ -1,0 +1,112 @@
+/*===========================
+=            Nav            =
+===========================*/
+
+nav {
+    position: relative;
+    z-index: 10;
+    li a {
+        font-size: 0.9em;
+    }
+    @media (min-width: $break-medium) {
+        li a {
+            font-size: 1.2em;
+        }
+    }
+}
+
+.logo {
+    margin-left: 20%;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+}
+
+.logotablet {
+    display: none;
+}
+
+.mobile-nav {
+    background-color: $mineShaft;
+}
+
+.shoppingcarttablet {
+    display: none;
+    @media (min-width: $break-small) {
+        display: inline-block;
+        h3 {
+            display: inline-block;
+            margin: 0;
+            margin-top: 13px;
+            color: gray;
+            font-size: 1.6em;
+        }
+        a {
+            color: gray;
+            transition: 0.2s;
+            &:hover {
+                color: tomato;
+            }
+        }
+    }
+    @media (min-width: $break-medium) {
+        margin-left: 30px;
+    }
+}
+
+.shoppingcart {
+    text-align: right;
+    h3 {
+        display: inline-block;
+        margin: 0;
+        margin-top: 13px;
+        font-size: 1.6em;
+    }
+    a {
+        color: gray;
+        transition: 0.2s;
+        &:hover {
+            color: tomato;
+        }
+    }
+    @media (min-width: $break-small) {
+        display: none;
+    }
+}
+
+/* Nav styles for 768px */
+@media (min-width: $break-small) {
+    .main-nav {
+        text-align: center;
+    }
+    main {
+        margin-bottom: 50px;
+    }
+    .navbar {
+        .navbar-nav {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+        }
+        & > .container-fluid .navbar-brand {
+            margin: 0;
+        }
+        @media (min-width: $break-large) {
+            & > .container-fluid .navbar-brand {
+                margin: 0 50px;
+            }
+        }
+    }
+    .logo {
+        display: none;
+    }
+    .logotablet {
+        display: inline-block;
+        margin: 0 50px;
+        font-size: 1.4em;
+    }
+}
+
+
+/*=====  End of Nav  ======*/

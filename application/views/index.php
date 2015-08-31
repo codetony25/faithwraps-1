@@ -9,12 +9,12 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="js/vendor/slick/slick.css">
-    <link rel="stylesheet" href="js/vendor/slick/slick-theme.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/assets/js/vendor/slick/slick.css">
+    <link rel="stylesheet" href="/assets/js/vendor/slick/slick-theme.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -59,9 +59,9 @@
                 <div class="col-sm-6">
                     <header>
                         <div class="mainpics">
-                            <div><img src="img/main/01.jpg" title="Bottle Ring Strength" /></div>
-                            <div><img src="img/main/02.jpg" title="Mother Wonderland" /></div>
-                            <div><img src="img/main/03.jpg" title="Tranformation Mistloe" /></div>
+                            <div><img src="/assets/img/main/01.jpg" title="Bottle Ring Strength" /></div>
+                            <div><img src="/assets/img/main/02.jpg" title="Mother Wonderland" /></div>
+                            <div><img src="/assets/img/main/03.jpg" title="Tranformation Mistloe" /></div>
                         </div><!-- END OF MAINPICS -->
                     </header>
                 </div><!-- END OF COL-SM-6 -->
@@ -74,32 +74,32 @@
 
             <div class="products">
                 <div>
-                    <a href="#"><h4>Bottle Set Trust</h4><img src="img/bottleset_trust.jpg"  /></a>
+                    <a href="#"><h4>Bottle Set Trust</h4><img src="/assets/img/bottleset_trust.jpg"  /></a>
                     <p>$59.99</p>
                     <button class="btn btn-info">Buy Now!</button>
                 </div>
                 <div>
-                    <a href="#"><h4>Tigresscuff</h4><img src="img/tigresscuff.jpg"  /></a>
+                    <a href="#"><h4>Tigresscuff</h4><img src="/assets/img/tigresscuff.jpg"  /></a>
                     <p>$59.99</p>
                     <button class="btn btn-info">Buy Now!</button>
                 </div>
                 <div>
-                    <a href="#"><h4>Transformation Mistletoe</h4><img src="img/transformation_mistletoe.jpg" /></a>
+                    <a href="#"><h4>Transformation Mistletoe</h4><img src="/assets/img/transformation_mistletoe.jpg" /></a>
                     <p>$59.99</p>
                     <button class="btn btn-info">Buy Now!</button>
                 </div>
                 <div>
-                    <a href="#"><h4>Black Earrings</h4><img src="img/blackearrings.jpg" /></a>
+                    <a href="#"><h4>Black Earrings</h4><img src="/assets/img/blackearrings.jpg" /></a>
                     <p>$59.99</p>
                     <button class="btn btn-info">Buy Now!</button>
                 </div>
                 <div>
-                    <a href="#"><h4>Relaxation Riverstone</h4><img src="img/relaxation_riverstone.jpg" /></a>
+                    <a href="#"><h4>Relaxation Riverstone</h4><img src="/assets/img/relaxation_riverstone.jpg" /></a>
                     <p>$59.99</p>
                     <button class="btn btn-info">Buy Now!</button>
                 </div>
                 <div>
-                    <a href="#"><h4>Bottle Set Scroll</h4><img src="img/bottlescroll_trust.jpg" /></a>
+                    <a href="#"><h4>Bottle Set Scroll</h4><img src="/assets/img/bottlescroll_trust.jpg" /></a>
                     <p>$59.99</p>
                     <button class="btn btn-info">Buy Now!</button>
                 </div>
@@ -156,14 +156,14 @@
     </div><!-- END OF CONTAINER -->
 </footer>
 
-    <script src="js/vendor/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/vendor/slick/slick.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/slick/slick.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
+    <script>/assets/
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];

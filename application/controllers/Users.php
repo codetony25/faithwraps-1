@@ -11,7 +11,10 @@ class Users extends CI_Controller {
 		$this->load->model("Product");
 	}
 
-
+	public function index()
+	{
+		$this->load->view('index');
+	}
 }
 
 ?>
