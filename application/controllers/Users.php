@@ -13,8 +13,14 @@ class Users extends CI_Controller {
 
 	public function index()
 	{
+		$this->template->load('bootstrap', 'users/index', array(
+			'title' => 'Login Registration'
+		));
+	}
 
-		$this->load->view('users/index');
+	public function register()
+	{
+		
 	}
 }
 
