@@ -13,7 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Latest compiled and minified Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,10 +27,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <?php echo $body; ?>
 
-    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="/assets/js/bootstrap.min.js"></script>
 
-    <script src='/assets/js/scripts.js'></script>
+    <script src='/assets/js/plugins.js'></script>
+    <script src='/assets/js/main.js'></script>
   </body>
 </html>
