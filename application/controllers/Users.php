@@ -27,12 +27,12 @@ class Users extends CI_Controller {
 
 	public function register()
 	{
-		if ($registration_feedback = $this->User->validate_registration())
+		if ($this->User->validate_registration())
 		{
 			if ($user_id = $this->User->create_user($this->input->post()))
 			{
 				// if ($email_sent = $this->User->send_verification_email($user_id))
-				// 	$registration_feedback = "Verification email sent. Please check your inbox";
+					$registration_feedback = "Verification email sent. Please check your inbox";
 				// else
 				// 	$registration_feedback = "Error: Email could not be sent to that address";
 			}

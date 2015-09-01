@@ -33,10 +33,13 @@ class User extends CI_model {
 
 	function verify_login($post)
 	{
-		$this->db->set('email', $post['email']);
-		$this->db->set('password', password_hash($post['email'], PASSWORD_DEFAULT));
+		$this->db->where('email', $post['email']);
+		$user = $this->db->get(self::TABLE)->row_array();
 
-		return $this->db->get(self::TABLE)->row_array();
+		if (password_verify($post['password'], $user['password']))
+			return $user;
+		else
+			return FALSE;
 	}
 	
 	/**
