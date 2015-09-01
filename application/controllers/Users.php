@@ -9,10 +9,7 @@ class Users extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('Google_OAuth2', 'g_auth');
-		$this->load->model("Product");
-		$this->output->enable_profiler();
-	
-		// $this->session->unset_userdata('google_access_token');
+		// $this->output->enable_profiler();
 	}
 
 	/**
@@ -27,7 +24,7 @@ class Users extends CI_Controller {
 
 	public function register()
 	{
-		if ($this->User->validate_registration())
+		if ($registration_feedback = $this->form_validation->run('register'))
 		{
 			if ($user_id = $this->User->create_user($this->input->post()))
 			{
@@ -49,7 +46,7 @@ class Users extends CI_Controller {
 
 	public function login()
 	{
-		if ($login_feedback = $this->User->validate_login())
+		if ($login_feedback = $this->form_validation->run('login'))
 		{
 			if ($user = $this->User->verify_login($this->input->post()))
 			{
@@ -64,6 +61,25 @@ class Users extends CI_Controller {
 		$this->session->set_flashdata('registration_feedback', $login_feedback);
 
 		redirect('/');
+	}
+
+	function forgot_password()
+	{
+		$this->template->load('bootstrap', 'users/forgot_password', array(
+			'title' => 'Forgot Password'
+		));
+	}
+
+	function reset_password()
+	{
+		if ($reset_feedback = $this->form_validation->run('password_reset'))
+		{
+
+		}
+		else
+		{
+			$
+		}
 	}
 
 	public function confirm($code)
