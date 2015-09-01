@@ -20,7 +20,7 @@ class Users extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->template->load('bootstrap', 'users/index', array(
+		$this->template->load('bootstrap', 'users/signin', array(
 			'title' => 'Login Registration'
 		));
 	}
