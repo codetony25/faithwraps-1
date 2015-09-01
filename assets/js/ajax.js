@@ -3,8 +3,9 @@ $(document).ready(function() {
 	function draw_sub_nav(formScope) {
 	// Draws the proper sub navigation
 		jsonUrl = '/admins/get_admin/' + formScope;
-		// Everytime we draw a sub navigation clear the edit_form div
+		// Everytime we draw a sub navigation clear the #form_holder and #messages
 		$('#form_holder').html('');
+		$('#messages').html('');
 
 		$.get(jsonUrl, function(list) {
 			var buf = "<ul>";
@@ -27,6 +28,7 @@ $(document).ready(function() {
 	$(document).on('click', "li[data-scope]", function(e) {
 		var id = $(this).data('id');
 		var scope = $(this).data('scope');
+		$('#messages').html('');
 		$.get('/admins/make_form/' + scope + '/' + id, function(res) {
 			console.log('INSIDE ' + scope + ' FORM BUILDER');
 			$('#form_holder').html(res);
@@ -37,7 +39,7 @@ $(document).ready(function() {
 		var scope = $(this).data('scope');
 		var url = '/admins/control_edit/' + scope;
 			console.log($(this).serialize());
-	
+
 		$.post(url, $(this).serialize(), function(res) {
 			console.log('INSIDE ' + url + ' RESPONSE');
 			if (res.success) {
