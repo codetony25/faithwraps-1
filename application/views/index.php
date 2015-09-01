@@ -1,76 +1,22 @@
-<!doctype html>
-<html class="no-js" lang="">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Faith Wraps - Home</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/js/vendor/slick/slick.css">
-    <link rel="stylesheet" href="/assets/js/vendor/slick/slick-theme.css">
-    <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
-<body>
-    <div class="container">
-    <!-- NAVBAR FOR MOBILE DEVICES -->
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top mobile-nav">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand logo" href="#header"><i>FaithWraps</i></a>
-                        <div class="shoppingcart">
-                            <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
-                        </div><!-- END OF SHOPPINGCART -->
-                    </div><!-- END OF NAVBAR-HEADER -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav navbar-center">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">FaithWraps</a></li>
-                        <li><a href="#">Limited Ed.</a></li>
-                        <a class="navbar-brand logotablet" href="#header"><i>FaithWraps</i></a>
-                        <li><a href="#">Leather & Feather</a></li>
-                        <li><a href="#">Affirmations in a Bottle</a></li>
-                      </ul>
-                      <div class="shoppingcarttablet">
-                          <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
-                        </div>
-                    </div><!-- END OF END OF SHOPPINGCARTTABLET -->
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav><!-- END OF NAV -->
+<div class="row">
+    <div class="col-sm-6">
+        <header>
+            <div class="mainpics">
+                <div><img src="/assets/img/main/01.jpg" title="Bottle Ring Strength" /></div>
+                <div><img src="/assets/img/main/02.jpg" title="Mother Wonderland" /></div>
+                <div><img src="/assets/img/main/03.jpg" title="Tranformation Mistloe" /></div>
+            </div><!-- END OF MAINPICS -->
+        </header>
+    </div><!-- END OF COL-SM-6 -->
+    <div class="col-sm-6 slogan">
+        <h1 class="text-center">Welcome to FaithWraps</h1>
+        <p>The FaithWrap is style meant to stimulate the mind, body and soul. This unique collection created by designer Faith Benoit is not only fashionable, but composed to unleash energy we all harbor to better our daily lives. Each piece is hand-crafted with a natural gem, selected for its distinguishing attributes to enhance specific qualities within us. Are you looking to ease your anxiety, find some inner-peace and love, enable the adventurer within, or just make a fashion statement? With this special collection, there's a Wrap for everyone.</p>
+    </div><!-- END OF SLOGAN -->
+</div><!-- END OF ROW -->
 
-        <main>
-            <div class="row">
-                <div class="col-sm-6">
-                    <header>
-                        <div class="mainpics">
-                            <div><img src="/assets/img/main/01.jpg" title="Bottle Ring Strength" /></div>
-                            <div><img src="/assets/img/main/02.jpg" title="Mother Wonderland" /></div>
-                            <div><img src="/assets/img/main/03.jpg" title="Tranformation Mistloe" /></div>
-                        </div><!-- END OF MAINPICS -->
-                    </header>
-                </div><!-- END OF COL-SM-6 -->
-                <div class="col-sm-6 slogan">
-                    <h1 class="text-center">Welcome to FaithWraps</h1>
-                    <p>The FaithWrap is style meant to stimulate the mind, body and soul. This unique collection created by designer Faith Benoit is not only fashionable, but composed to unleash energy we all harbor to better our daily lives. Each piece is hand-crafted with a natural gem, selected for its distinguishing attributes to enhance specific qualities within us. Are you looking to ease your anxiety, find some inner-peace and love, enable the adventurer within, or just make a fashion statement? With this special collection, there's a Wrap for everyone.</p>
-                </div><!-- END OF SLOGAN -->
-            </div><!-- END OF ROW -->
 
+<<<<<<< HEAD
 
             <div class="products">
                 <div>
@@ -173,3 +119,37 @@
     </script>
 </body>
 </html>
+=======
+<div class="products">
+    <div>
+        <a href="#"><h4>Bottle Set Trust</h4><img src="/assets/img/bottleset_trust.jpg"  /></a>
+        <p>$59.99</p>
+        <button class="btn btn-info">Buy Now!</button>
+    </div>
+    <div>
+        <a href="#"><h4>Tigresscuff</h4><img src="/assets/img/tigresscuff.jpg"  /></a>
+        <p>$59.99</p>
+        <button class="btn btn-info">Buy Now!</button>
+    </div>
+    <div>
+        <a href="#"><h4>Transformation Mistletoe</h4><img src="/assets/img/transformation_mistletoe.jpg" /></a>
+        <p>$59.99</p>
+        <button class="btn btn-info">Buy Now!</button>
+    </div>
+    <div>
+        <a href="#"><h4>Black Earrings</h4><img src="/assets/img/blackearrings.jpg" /></a>
+        <p>$59.99</p>
+        <button class="btn btn-info">Buy Now!</button>
+    </div>
+    <div>
+        <a href="#"><h4>Relaxation Riverstone</h4><img src="/assets/img/relaxation_riverstone.jpg" /></a>
+        <p>$59.99</p>
+        <button class="btn btn-info">Buy Now!</button>
+    </div>
+    <div>
+        <a href="#"><h4>Bottle Set Scroll</h4><img src="/assets/img/bottlescroll_trust.jpg" /></a>
+        <p>$59.99</p>
+        <button class="btn btn-info">Buy Now!</button>
+    </div>
+</div><!-- END OF PRODUCTS -->
+>>>>>>> f15e768fde400c7afa42658fc12a50adbf961153
