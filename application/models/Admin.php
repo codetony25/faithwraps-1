@@ -5,6 +5,11 @@ class Admin extends CI_model {
 
 	/**************** CRUD FUNCTIONS ********************/
 
+	public function get_by($table, $field, $value) {
+		$this->db->where($field, $value);
+		return $this->db->get($table)->result_array();
+	}
+
 	public function get_all_items($table) {
 		// Takes in a table as paremeter and returns all data to be parsed as
 		// JSON to be used in the admin dashboard.
@@ -77,6 +82,7 @@ class Admin extends CI_model {
 					'desc' => 'Needs a Description',
 					'price' => '35.00',
 					'shipping' => '3.99',
+					'qty' => '5',
 					'combined_shipping' => '1.00');
 				$data = array('is_new' => TRUE,
 					'product' => $product,
@@ -109,8 +115,7 @@ class Admin extends CI_model {
 		elseif ($form_scope == "product_styles") {
 			if (($id == "add") || (!$this->Product->get_by($form_scope, 'id', $id))) {
 				$product_style = array('name' => 'Needs a Name',
-					'image' => '/assets/img/styles/',
-					'qty' => '5');
+					'image' => '');
 				$data = array('is_new' => TRUE,
 					'product_style' => $product_style,
 					'products' => $this->Product->get_all_products());
@@ -121,6 +126,17 @@ class Admin extends CI_model {
 			}
 			return $data;
 		}
+		elseif ($form_scope == "galleries") {
+			if (($id == "add") || (!$this->Product->get_by($form_scope, 'id', $id))) {
+				$gallery = array('name' => 'Needs a Name',
+					'desc' => 'Needs a Desc');
+				$data = array('is_new' => TRUE,
+					'gallery' => $gallery);
+			} else {
+				$data = array('is_new' => FALSE,
+					'gallery' => $this->Product->get_by($form_scope,'id', $id));
+			}
+			return $data;
+		}
 	}
 }
-

@@ -11,14 +11,14 @@ $(document).ready(function() {
 			var buf = "<ul>";
 			buf += "<li data-id='add' data-scope='" + formScope + "'><b>Add New</b></li>";
 			for(var i=0; i<list.length; i++) {
-				buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>" + list[i].name + "</li>";
+					buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>" + list[i].name + "</li>";
 			}
 			buf += "</ul>";
 			$('#sub_nav').html(buf);
 		}, 'json');
 	}
 
-	$(document).on('click', '#products, #product_styles, #gems, #galleries', function(e){
+	$(document).on('click', '#products, #gems, #galleries', function(e){
 		url = '/admins/get_admin/' + e.target.id;
 		scope = e.target.id;
 		draw_sub_nav(scope);
