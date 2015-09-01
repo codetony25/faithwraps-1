@@ -74,12 +74,18 @@ class Users extends CI_Controller {
 	{
 		if ($reset_feedback = $this->form_validation->run('password_reset'))
 		{
+			$info = array('email' => $this->input->post('email'));
 
+			if ($user = $this->User->fetch_user($info))
+			{
+
+			}
 		}
 		else
-		{
-			$
-		}
+		
+		$this->session->set_flashdata('reset_feedback', $reset_feedback);
+
+		redirect('/users/forgot_password');
 	}
 
 	public function confirm($code)
