@@ -8,7 +8,7 @@ class Users extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->library('google_oauth2', '','g_auth');
+		$this->load->model('Google_OAuth2', 'g_auth');
 		$this->load->model("Product");
 		$this->output->enable_profiler();
 	
@@ -88,7 +88,32 @@ class Users extends CI_Controller {
 			$this->g_auth->client->setAccessToken($access_token);
 			$auth = new Google_Service_Oauth2( $this->g_auth->client );
 			
-			$this->g_auth->login($auth->userinfo_v2_me->get());
+			$user = $auth->userinfo_v2_me->get();
+			
+			if (! $account_info = $this->g_auth->fetch_account($user['id']))
+				$new_user_id = $this->g_auth->create_account($user);
+
+			if($account_info)
+			{
+				$session_data = array(
+					'first_name' => $account_info['first_name'],
+					'last_name' => $account_info['last_name'],
+					'email' => $account_info['email']
+				);
+			}
+			else
+			{
+				$session_data = array(
+					'first_name' => $user['givenName'],
+					'last_name' => $user['family_name'],
+					'email' => $user['email']
+				);
+			}
+
+			$this->session->set_userdata('is_logged_in', TRUE);
+			$this->session->set_userdata('user', $session_data);
+
+			redirect('/members');
 		}
 		else
 		{

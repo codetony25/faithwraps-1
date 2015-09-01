@@ -23,7 +23,7 @@
 			</form>
 
 			<form action="users/google_login" method="post">
-				<input type="submit">
+				<input type="submit" value="Login with Google">
 			</form>
 		</div>
 	</div><!-- /.row -->

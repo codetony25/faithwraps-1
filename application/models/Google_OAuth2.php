@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Google_OAuth2 extends CI_Model{
+class Google_OAuth2 extends CI_Model {
 
 	const TABLE = 'oauth_users';
 	const OAUTH_TYPE = 1;
@@ -33,12 +33,15 @@ class Google_OAuth2 extends CI_Model{
 	{
 		$this->db->set('created_at', 'NOW()', FALSE);
 
+		$verified_email = $user['verifiedEmail'] ? '1' : '0';
+
 		$data = array(
 			'email' => $user['email'],
-			'verified_email' => $user['verifiedEmail'],
+			'verified_email' => $verified_email,
 			'first_name' => $user['givenName'],
 			'last_name' => $user['family_name'],
 			'picture' => $user['picture'],
+			'oauth_id' => $user['id'],
 			'oauth_type_id' => self::OAUTH_TYPE
 		);
 
