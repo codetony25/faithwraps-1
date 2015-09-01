@@ -10,25 +10,9 @@ class User extends CI_model {
 		parent::__construct();
 	}
 
-	function fetch_user($user_id)
+	function fetch_user(array $data)
 	{
-		return $this->get_where(self::TABLE, array('id' => $user_id), 1)->row_array();
-	}
-
-	function validate_registration()
-	{
-		if ($this->form_validation->run('register') == FALSE)
-			return validation_errors();
-		else
-			return TRUE;
-	}
-
-	function validate_login()
-	{
-		if ($this->form_validation->run('login') == FALSE)
-			return validation_errors();
-		else
-			return TRUE;
+		return $this->get_where(self::TABLE, $data, 1)->row_array();
 	}
 
 	function verify_login($post)

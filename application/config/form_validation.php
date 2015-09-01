@@ -11,7 +11,7 @@ $config = array(
 			'label' => 'Password',
 			'rules' => 'required|trim|min_length[8]|max_length[255]'
 			 )
-		),
+	),
 	"register" => array(
 		array(
 			'field' => 'email',
@@ -28,8 +28,12 @@ $config = array(
 			'label' => 'Password Confirmation',
 			'rules' => 'required|trim|min_length[8]|max_length[255]|matches[password]'
 			 )
+	),
+	'password_reset' => array(
+		array(
+			'field' => 'email',
+			'label' => 'Account Email',
+			'rules' => 'required|trim|valid_email'
 		)
-
+	)
 );
-
-?>
