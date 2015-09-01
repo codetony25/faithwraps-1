@@ -20,7 +20,7 @@ class Admins extends CI_Controller {
 
 	public function index() {
 		$product_data = $this->Product->get_all_products();
-		$this->template->load('bootstrap', 'admin/dashboard', array('title'=>'Admin Dashboard', 'products' => $product_data));
+		$this->template->load('bootstrap', 'admin/dashboard', array('title'=>'Admin Dashboard', 'products' => $product_data, 'js_files' => array('ajax.js')));
 	}
 
 	public function is_admin() {

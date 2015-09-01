@@ -115,6 +115,12 @@
     <script src="/assets/js/vendor/slick/slick.js"></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
-    <script src='/assets/js/ajax.js'></script>
+    <?php
+        if (isset($js_files)) {
+            foreach ($js_files as $file) {
+                echo "<script src='/assets/js/{$file}'></script>";
+            }
+        }
+    ?>
   </body>
 </html>
