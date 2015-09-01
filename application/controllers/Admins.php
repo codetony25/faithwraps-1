@@ -12,10 +12,6 @@ class Admins extends CI_Controller {
 		// if (!is_admin()) {
 		// 	redirect('/');
 		// }
-
-		// Eventually move all model loads to autload config
-		$this->load->model('Product');
-		$this->load->model('Admin');
 	}
 
 	public function index() {
