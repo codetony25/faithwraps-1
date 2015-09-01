@@ -518,9 +518,6 @@ footer .socialiconsmobile li i:last-child:hover {
 .signin {
   margin-top: 40px; }
 
-body {
-  padding-top: 90px; }
-
 .panel-login {
   border-color: #ccc;
   -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
@@ -627,6 +624,9 @@ body {
 /*=============================================
 =            Shipping/Billing Page            =
 =============================================*/
+.shippinginfo {
+  margin-top: 80px; }
+
 /*=====  End of Shipping/Billing Page  ======*/
 /*===================================
 =            Review Page            =

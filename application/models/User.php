@@ -4,15 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_model {
 
 	const TABLE = 'users';
+	const RESET_TABLE = 'password_resets';
 
 	function __construct() 
 	{
 		parent::__construct();
+		date_default_timezone_set('America/Los_Angeles');
 	}
 
 	function fetch_user(array $data)
 	{
-		return $this->get_where(self::TABLE, $data, 1)->row_array();
+		return $this->db->get_where(self::TABLE, $data, 1)->row_array();
 	}
 
 	function verify_login($post)
@@ -25,6 +27,15 @@ class User extends CI_model {
 		else
 			return FALSE;
 	}
+
+	function send_reset_email($data)
+	{
+		$token = $this->_generate_token();
+
+		$this->_record_reset_token($token, $data);
+
+		// return $this->send_reset_email($token, $data);
+	}
 	
 	/**
 	 * 
@@ -34,7 +45,7 @@ class User extends CI_model {
 		$this->db->set('email', $post['email']);
 		$this->db->set('password', password_hash($post['password'], PASSWORD_DEFAULT));
 		$this->db->set('created_at', 'NOW()', FALSE);
-		$this->db->set('confirmation_code', md5(uniqid(rand())));
+		$this->db->set('confirmation_code', $this->_generate_token());
 
 		$this->db->insert(self::TABLE);
 
@@ -52,12 +63,14 @@ class User extends CI_model {
 	function activate($code)
 	{
 		$this->db->set('updated_at', 'NOW()', FALSE);
-		$this->db->set('is_active', '1');
+		$this->db->set('is_confirmed', '1');
 		$this->db->set('confirmation_code', NULL);
 		$this->db->where('confirmation_code', $code);
 		$this->db->limit(1);
 
-		return $this->db->update(self::TABLE);
+		$this->db->update(self::TABLE);
+
+		return $this->db->affected_rows();
 	}
 
 	/**
@@ -65,28 +78,69 @@ class User extends CI_model {
 	 */
 	function send_verification_email($user_id)
 	{
+		$this->load->library('email');
+
 		$this->db->select('first_name, email, confirmation_code');
 		$user = $this->db->get_where(self::TABLE, array('id' => $user_id), 1)->row_array();
 
-		$this->load->library('email');
-
-		$this->email->from('admin@website.com', 'Admin');
+		$this->email->from('andrew.a.lee@gmail.com', 'andrew');
 		$this->email->to($user['email']);
 
 		$this->email->subject('Please verify your account');
-		$this->email->message('Testing');
+		$this->email->message("<a href='/users/confirm/{$user['confirmation_code']}'>Confirm</a>");
+
+		// return $this->email->send();
+	}
+
+	function send_password_reset_email($token, $data)
+	{
+		$this->load->library('email');
+
+		$this->email->from('andrew.a.lee@gmail.com', 'andrew');
+		$this->email->to($data['email']);
+
+		$this->email->subject("Reset your password");
+		$this->email->message("<a href='/users/password_reset/$token>'>Reset my password</a>");
 
 		return $this->email->send();
 	}
 
-
-	public function gauth($code)
+	function reset_password($data)
 	{
+		$token = $data['token'];
+		$new_password = $data['password'];
 
-		$this->Google->setAccessToken( $this->Google->getAccessToken() );
+		$row = $this->db->get_where(self::RESET_TABLE, array('token' => $token), 1)->row_array();
 
-		$auth = new Google_Service_Oauth2( $this->Google );
+		if ($row && time() <= strtotime($row['expiry']))
+		{
+			$this->db->set('updated_at', 'NOW()', FALSE);
+			$this->db->set('password', password_hash($new_password, PASSWORD_DEFAULT));
+			$this->db->where('id', $row['user_id']);
+			$this->db->update(self::TABLE);
 
-		var_dump($auth->userinfo_v2_me->get());
+			return $this->db->affected_rows();
+		}
+
+		return FALSE;
+	}
+
+	protected function _record_reset_token($token, $data)
+	{
+		$insert = array(
+			'user_id' => $data['id'],
+			'token' => $token
+		);
+
+		$this->db->set('expiry', 'DATE_ADD(NOW(), INTERVAL 1 HOUR)', FALSE);
+
+		$this->db->insert(self::RESET_TABLE, $insert);
+
+		return $this->db->insert_id();
+	}
+
+	protected function _generate_token()
+	{
+		return md5(uniqid(rand()));
 	}
 }
