@@ -8,7 +8,6 @@ class User extends CI_model {
 	function __construct() 
 	{
 		parent::__construct();
-		// $this->load->library('email');
 	}
 
 	function fetch_user($user_id)
@@ -91,5 +90,16 @@ class User extends CI_model {
 		$this->email->message('Testing');
 
 		return $this->email->send();
+	}
+
+
+	public function gauth($code)
+	{
+
+		$this->Google->setAccessToken( $this->Google->getAccessToken() );
+
+		$auth = new Google_Service_Oauth2( $this->Google );
+
+		var_dump($auth->userinfo_v2_me->get());
 	}
 }

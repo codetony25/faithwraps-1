@@ -8,7 +8,11 @@ class Users extends CI_Controller {
 	{
 		parent::__construct();
 
+		$this->load->library('google_oauth2', '','g_auth');
 		$this->load->model("Product");
+		$this->output->enable_profiler();
+	
+		// $this->session->unset_userdata('google_access_token');
 	}
 
 	/**
@@ -76,6 +80,51 @@ class Users extends CI_Controller {
 
 		redirect('/');
 	}
+
+	function google_login()
+	{
+		if ($access_token = $this->session->userdata('google_access_token'))
+		{
+			$this->g_auth->client->setAccessToken($access_token);
+			$auth = new Google_Service_Oauth2( $this->g_auth->client );
+			
+			$this->g_auth->login($auth->userinfo_v2_me->get());
+		}
+		else
+		{
+			redirect('/users/google_verify');
+		}
+	}
+
+	function google_verify()
+	{
+		if (! isset($_GET['code']))
+		{		
+			$state = sha1(openssl_random_pseudo_bytes(1024));
+			$this->session->set_userdata('g_auth_state', $state);
+			$this->g_auth->client->setState($state);	
+
+			$auth_url = filter_var($this->g_auth->get_auth_url(), FILTER_SANITIZE_URL);
+			redirect($auth_url);
+		}
+		else
+		{
+			if ($_GET['state'] != $this->session->userdata('g_auth_state'))
+			{
+				$this->session->set_flashdata('Invalid state parameter');
+				redirect('/');
+			}
+
+			$this->g_auth->client->authenticate($_GET['code']);
+			
+			if ($access_token = $this->g_auth->client->getAccessToken())
+			{
+				$this->session->set_userdata('google_access_token', $access_token);
+				redirect('/users/google_login');
+			}
+		}
+	}
+
 }
 
 ?>

@@ -21,6 +21,10 @@
 					<button type="submit" class="btn btn-primary">Register</button>
 				</div>
 			</form>
+
+			<form action="users/google_login" method="post">
+				<input type="submit">
+			</form>
 		</div>
 	</div><!-- /.row -->
 </div><!-- /.container -->
