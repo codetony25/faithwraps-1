@@ -82,6 +82,9 @@ class Users extends CI_Controller {
 			}
 		}
 		else
+		{
+			
+		}
 		
 		$this->session->set_flashdata('reset_feedback', $reset_feedback);
 
