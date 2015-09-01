@@ -1,4 +1,4 @@
-<form role='form' id='product_form'>
+<form role='form' method='post' id='edit_form' data-scope='products'>
 	<div class='form-group'>
 		<label for='name'>Name</label>
 		<input class='form-control' type='text' name='name' value='<?= $product['name'] ?>'>
@@ -41,7 +41,7 @@
 		<label for='combined_shipping'>Combined Shipping</label>
 		<input class='form-control' type='text' name='combined_shipping' value='<?= $product['combined_shipping'] ?>'>				
 	</div>
-	<?php if ($is_new) { ?>s
+	<?php if ($is_new) { ?>
 		<div class='form-group'>
 			<input type='hidden' name='action' value='create'>
 			<button class='btn btn-primary'>Create Product</button>
@@ -50,7 +50,7 @@
 		<input type='hidden' name='id' value='<?= $product['id'] ?>'>
 		<input type='hidden' name='action' value='update'>
 		<div class='form-group'>
-			<button data-id='<?= $product['id'] ?>' type='button' class='btn btn-danger del-product'>Delete Product</button>
+			<button data-id='<?= $product['id'] ?>' type='button' data-scope='products' class='btn btn-danger del-item'>Delete Product</button>
 			<button class='btn btn-primary'>Update Product</button>
 		</div>
 	<?php } ?> 

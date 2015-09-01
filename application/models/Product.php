@@ -19,9 +19,9 @@ class Product extends CI_model {
 		return $this->db->get('gems')->result_array();
 	}	
 
-	public function get_product_by($field, $value) {
+	public function get_by($table, $field, $value) {
 		$this->db->where($field, $value);
-		return $this->db->get('products')->row_array();
+		return $this->db->get($table)->row_array();
 	}
 
 
