@@ -1,25 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/bootstrap-theme.min.css">	
-	<link rel="stylesheet" href="/assets/css/styles.css">
-</head>
-<body>
+<style>
+	#main_nav, #sub_nav, #edit_form {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 30px;
+	}
+
+</style>
 <div class="container">
 	<h1>Admin Dashboard</h1>
-	<h3>Edit a Product</h3>
-	<h3>Edit a Product Style</h3>
-	<h3>Edit Users</h3>
-	<h3>Edit Gems</h3>
-	<h3>Edit Galleries</h3>
-	<h3>Manage Orders</h3>
+	<div id="messages"></div>
+	<div id="main_nav">
+		<ul>
+			<li id="products">Edit a Product</li>
+			<li id="styles">Edit a Product Style</li>
+			<li id="gems">Edit Gems</li>
+			<li id="galleries">Edit Galleries</li>
+			<hr>
+			<li id="edit_users">Edit Users</li>
+			<li id="manage_orders">Manage Orders</li>
+		</ul>
+	</div>
+	<div id="sub_nav">
+		
+	</div>
+	<div id="edit_form">
 
+	</div>
 </div>
-	<script src="/assets/js/jquery.min.js"></script>
-	<script src="/assets/js/bootstrap.min.js"></script>
-</body>
-</html>

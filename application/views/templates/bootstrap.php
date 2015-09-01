@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/js/vendor/slick/slick.css">
     <link rel="stylesheet" href="/assets/js/vendor/slick/slick-theme.css">
     <link rel="stylesheet" href="/assets/css/normalize.css">
@@ -111,7 +111,13 @@
     <script src="/assets/js/vendor/slick/slick.js"></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
-
+    <?php
+        if (isset($js_files)) {
+            foreach ($js_files as $file) {
+                echo "<script src='/assets/js/{$file}'></script>";
+            }
+        }
+    ?>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
