@@ -624,6 +624,9 @@ footer .socialiconsmobile li i:last-child:hover {
 /*=============================================
 =            Shipping/Billing Page            =
 =============================================*/
+.shippinginfo {
+  margin-top: 80px; }
+
 /*=====  End of Shipping/Billing Page  ======*/
 /*===================================
 =            Review Page            =
