@@ -32,7 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Latest compiled and minified JavaScript -->
     <script src="/assets/js/bootstrap.min.js"></script>
 
-    <script src='/assets/js/plugins.js'></script>
+    <!--<script src='/assets/js/plugins.js'></script> -->
     <script src='/assets/js/main.js'></script>
+    <script src='/assets/js/ajax.js'></script>
   </body>
 </html>
