@@ -6,21 +6,26 @@ nav {
     position: relative;
     z-index: 10;
     li a {
-        font-size: 0.9em;
+        font-size: 0.75em;
     }
     @media (min-width: $break-medium) {
         li a {
-            font-size: 1.2em;
+            font-size: 1.0em;
         }
     }
 }
-
+.navbar {
+    padding: 0;
+}
 .logo {
     margin-left: 20%;
     position: absolute;
     left: 50%;
     margin-left: -50px !important;  /* 50% of your logo width */
     display: block;
+    i {
+        font-size: 1.3em;
+    }
 }
 
 .logotablet {
@@ -84,6 +89,7 @@ nav {
         margin-bottom: 50px;
     }
     .navbar {
+        padding: 0;
         .navbar-nav {
             display: inline-block;
             float: none;

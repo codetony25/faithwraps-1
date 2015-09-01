@@ -23,6 +23,7 @@
 
 // Place any jQuery/helper plugins in here.
 
+//Sliding Pictures feature
 $(function(){
 
     $('.products').slick({

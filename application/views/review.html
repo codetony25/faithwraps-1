@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= $title ?></title>
+    <title>Faith Wraps - Sign In</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/js/vendor/slick/slick.css">
-    <link rel="stylesheet" href="/assets/js/vendor/slick/slick-theme.css">
-    <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="js/vendor/slick/slick.css">
+    <link rel="stylesheet" href="js/vendor/slick/slick-theme.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -25,16 +25,16 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand logo" href="#header"><i>FaithWraps</i></a>
-                        <div class="shoppingcart">
-                            <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
-                        </div><!-- END OF SHOPPINGCART -->
+                      </button>
+                      <a class="navbar-brand logo" href="#header"><i>FaithWraps</i></a>
+                      <div class="shoppingcart">
+                          <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
+                      </div><!-- END OF SHOPPINGCART -->
                     </div><!-- END OF NAVBAR-HEADER -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
@@ -45,20 +45,90 @@
                         <a class="navbar-brand logotablet" href="#header"><i>FaithWraps</i></a>
                         <li><a href="#">Leather & Feather</a></li>
                         <li><a href="#">Affirmations in a Bottle</a></li>
+                        <li><a href="#">Sign In</a></li>
                       </ul>
                       <div class="shoppingcarttablet">
                           <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
-                        </div>
-                    </div><!-- END OF END OF SHOPPINGCARTTABLET -->
+                        </div><!-- END OF SHOPPINGCARTTABLET -->
+                    </div><!-- END OF MAIN-NAV -->
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav><!-- END OF NAV -->
 
+
+
         <main>
+            <div class="review">
+                <h2 class="text-center">Review Order</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr> 
+                            <th>Name</th>
+                            <th>Shipping Information</th>
+                            <th>Billing Information</th>
+                            <th>Credit Card Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Anthony Benoit</td>
+                            <td>490 E Main Street, Norwich CT 06360</td>
+                            <td>490 E Main Street, Norwich CT 06360</td>
+                            <td>Credit Card Number: ****-****-****-4319</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Transformation Mistletoe</td>
+                            <td>$59.99</td>
+                            <td>2</td>
+                            <td>$119.98</td>
+                        </tr>
+                        <tr>
+                            <td>Black Earrings</td>
+                            <td>$59.99</td>
+                            <td>2</td>
+                            <td>$119.98</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right">Sub Total: $239.96</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right">
+                                <p>Select Shipping Method</p>
+                                <form action="/" method="post">
+                                    <select name="shippingprice">
+                                        <option value="#">USPS</option>
+                                        <option value="#">UPS</option>
+                                        <option value="#">FedEx</option>
+                                    </select>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right">Grand Total with Shipping and Tax: <strong>$259.12</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right"><a href="#"><button class="btn btn-success">Edit</button></a><a href="#"><button class="btn btn-info">Proccess Order</button></a></td>
+                        </tr>
+                    </tbody>
+                </table>  
+            </div>
+        </main>
 
-    <?php echo $body; ?>
 
-         </main>
+
+
     </div><!-- END OF CONTAINER -->
 
     <footer>
@@ -106,16 +176,16 @@
         </div><!-- END OF CONTAINER -->
     </footer>
 
-    <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/vendor/slick/slick.js"></script>
-    <script src="/assets/js/plugins.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vendor/slick/slick.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
         e.src='https://www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));

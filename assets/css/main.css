@@ -224,10 +224,13 @@ nav {
   position: relative;
   z-index: 10; }
   nav li a {
-    font-size: 0.9em; }
+    font-size: 0.75em; }
   @media (min-width: 992px) {
     nav li a {
-      font-size: 1.2em; } }
+      font-size: 1.0em; } }
+
+.navbar {
+  padding: 0; }
 
 .logo {
   margin-left: 20%;
@@ -236,6 +239,8 @@ nav {
   margin-left: -50px !important;
   /* 50% of your logo width */
   display: block; }
+  .logo i {
+    font-size: 1.3em; }
 
 .logotablet {
   display: none; }
@@ -287,15 +292,17 @@ nav {
   main {
     margin-bottom: 50px; }
 
-  .navbar .navbar-nav {
-    display: inline-block;
-    float: none;
-    vertical-align: top; }
-  .navbar > .container-fluid .navbar-brand {
-    margin: 0; } }
-@media (min-width: 768px) and (min-width: 1200px) {
-  .navbar > .container-fluid .navbar-brand {
-    margin: 0 50px; } }
+  .navbar {
+    padding: 0; }
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top; }
+    .navbar > .container-fluid .navbar-brand {
+      margin: 0; } }
+  @media (min-width: 768px) and (min-width: 1200px) {
+    .navbar > .container-fluid .navbar-brand {
+      margin: 0 50px; } }
 
 @media (min-width: 768px) {
   .logo {
@@ -333,8 +340,6 @@ footer {
     color: white; }
   footer .form input {
     margin-bottom: 10px; }
-  footer .contact, footer .about {
-    display: none; }
   @media (min-width: 768px) {
     footer .socialiconsmobile {
       display: none; }
@@ -492,5 +497,125 @@ footer .socialiconsmobile li i:last-child:hover {
   margin-top: 50px; }
 
 /*=====  End of Items Page  ======*/
+/*==========================================
+=            Shopping Cart Page            =
+==========================================*/
+.orders {
+  margin-top: 100px;
+  text-align: center; }
+  .orders img {
+    display: none; }
+  .orders .order-img {
+    display: none; }
+  @media (min-width: 768px) {
+    .orders img {
+      display: inline-block; } }
+
+/*=====  End of Shopping Cart Page  ======*/
+/*===============================================
+=            Sign in / Register Page            =
+===============================================*/
+.signin {
+  margin-top: 60px; }
+
+.registration {
+  margin-top: 60px;
+  display: none; }
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto; }
+
+.form-signin .checkbox {
+  font-weight: normal; }
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px; }
+
+.form-signin .form-control:focus {
+  z-index: 2; }
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.form-signin input[type="password"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+/*=====  End of Sign in / Register Page  ======*/
+/*=====================================
+=            Checkout Page            =
+=====================================*/
+.checkout {
+  margin-top: 80px; }
+
+.registrationcheckout {
+  display: none; }
+
+.guestcheckout {
+  text-align: center; }
+
+/*=====  End of Checkout Page  ======*/
+/*=============================================
+=            Shipping/Billing Page            =
+=============================================*/
+.shippinginfo {
+  margin-top: 80px; }
+
+/*=====  End of Shipping/Billing Page  ======*/
+/*===================================
+=            Review Page            =
+===================================*/
+.review {
+  margin-top: 80px; }
+  .review select {
+    display: inline-block; }
+
+/*=====  End of Review Page  ======*/
+/*=========================================
+=            Contact Info Page            =
+=========================================*/
+.contactus {
+  margin-top: 80px; }
+
+/*=====  End of Contact Info Page  ======*/
+/*==================================
+=            About Page            =
+==================================*/
+.aboutus {
+  margin-top: 80px; }
+
+/*=====  End of About Page  ======*/
+/*================================
+=            Faq Page            =
+================================*/
+.faq {
+  margin-top: 80px; }
+
+/*=====  End of Faq Page  ======*/
+/*====================================
+=            Privacy Page            =
+====================================*/
+.privacy {
+  margin-top: 80px; }
+
+/*=====  End of Privacy Page  ======*/
+/*=================================================
+=            Terms and Conditions Page            =
+=================================================*/
+.terms {
+  margin-top: 80px; }
+
+/*=====  End of Terms and Conditions Page  ======*/
 
 /*# sourceMappingURL=main.css.map */

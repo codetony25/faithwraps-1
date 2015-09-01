@@ -1,0 +1,22 @@
+/*==========================================
+=            Shopping Cart Page            =
+==========================================*/
+
+.orders {
+	margin-top: 100px;
+	text-align: center;
+	img {
+		display: none;
+	}
+	.order-img {
+		display: none;
+	}
+	@media (min-width: $break-small){
+		img {
+			display: inline-block;
+		}
+	}
+}
+
+
+/*=====  End of Shopping Cart Page  ======*/
