@@ -41,7 +41,7 @@
 		<label for='combined_shipping'>Combined Shipping</label>
 		<input class='form-control' type='text' name='combined_shipping' value='<?= $product['combined_shipping'] ?>'>				
 	</div>
-	<?php if ($is_new) { ?>
+	<?php if ($is_new) { ?>s
 		<div class='form-group'>
 			<input type='hidden' name='action' value='create'>
 			<button class='btn btn-primary'>Create Product</button>

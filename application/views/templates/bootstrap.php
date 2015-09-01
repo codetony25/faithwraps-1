@@ -115,23 +115,6 @@
     <script src="/assets/js/vendor/slick/slick.js"></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
-
-<<<<<<< HEAD
-    <!--<script src='/assets/js/plugins.js'></script> -->
-    <script src='/assets/js/main.js'></script>
     <script src='/assets/js/ajax.js'></script>
   </body>
 </html>
-=======
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>/assets/
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-    </script>
-</body>
-</html>
->>>>>>> f15e768fde400c7afa42658fc12a50adbf961153
