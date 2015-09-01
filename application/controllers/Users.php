@@ -14,7 +14,8 @@ class Users extends CI_Controller {
 	public function index()
 	{
 
-		$this->load->view('users/index');
+		$this->template->load('bootstrap', 'terms', array(
+			'title'=>'FaithWraps - Home', 'js_files' => array('/subfolder/ajax.js','')));
 	}
 }
 

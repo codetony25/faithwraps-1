@@ -1,7 +1,7 @@
 <div class="aboutus text-center">
     <div class="row">
         <div class="col-sm-6">
-            <img src="img/info_banner.jpg">
+            <img src="/assets/img/info_banner.jpg">
         </div>
         <div class="col-sm-6">
             <h2 class="text-center">About Us</h2>
