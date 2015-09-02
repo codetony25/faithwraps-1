@@ -5,15 +5,11 @@
 nav {
     position: relative;
     z-index: 10;
-    -webkit-box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
-    box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
-    li {
-        color: black;
-    }
+    -webkit-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
     li a {
         font-size: 0.75em;
-        color: black;
     }
     @media (min-width: $break-medium) {
         li a {
@@ -22,39 +18,18 @@ nav {
     }
 }
 
-main {
-    margin-top: 100px;
+// .nav a {
+//     color: #FF9BCD;
+// }
+
+.navbar-brand a {
+    color: #FF9BCD;
 }
 
-.logotablet {
-    display: none;
-}
-
-.mobile-nav {
-    background-color: $mineShaft;
-}
-
-.shoppingcarttablet {
+.shoppingcartmobile i {
     display: none;
     @media (min-width: $break-small) {
         display: inline-block;
-        h3 {
-            display: inline-block;
-            margin: 0;
-            margin-top: 13px;
-            color: gray;
-            font-size: 1.6em;
-        }
-        a {
-            color: gray;
-            transition: 0.2s;
-            &:hover {
-                color: tomato;
-            }
-        }
-    }
-    @media (min-width: $break-medium) {
-        margin-left: 30px;
     }
 }
 
@@ -93,8 +68,16 @@ main {
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -100px;
         text-align: center;
+        color: pink;
     }
 }
 
+
+.slick-prev:before,
+.slick-next:before {
+   display: inline-block;
+   position: relative;
+   bottom: 60px;
+}
 
 /*=====  End of Nav  ======*/

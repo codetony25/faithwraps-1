@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand navbar-brand-centered">FaithWraps</div>
+                        <div class="navbar-brand navbar-brand-centered"><a href="/">FaithWraps</a></div>
                         <div class="shoppingcart">
                             <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
                         </div><!-- END OF SHOPPINGCART -->
@@ -43,11 +43,11 @@
                             <li><a href="/categories/1">FaithWraps</a></li>
                             <li><a href="/categories/2">Limited Ed.</a></li>
                           </ul>
-                          <ul class="nav navbar-nav navbar-right">
+                          <ul class="nav navbar-nav navbar-right">            
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
-                            <li><a href="/signin">Sign In</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>               
+                            <li><a href="/login">Sign In</a></li>
+                            <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->

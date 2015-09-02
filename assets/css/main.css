@@ -223,46 +223,23 @@ textarea {
 nav {
   position: relative;
   z-index: 10;
-  -webkit-box-shadow: -2px 11px 11px -12px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -2px 11px 11px -12px rgba(0, 0, 0, 0.75);
-  box-shadow: -2px 11px 11px -12px rgba(0, 0, 0, 0.75); }
-  nav li {
-    color: black; }
+  -webkit-box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75); }
   nav li a {
-    font-size: 0.75em;
-    color: black; }
+    font-size: 0.75em; }
   @media (min-width: 992px) {
     nav li a {
       font-size: 1.0em; } }
 
-main {
-  margin-top: 100px; }
+.navbar-brand a {
+  color: #FF9BCD; }
 
-.logotablet {
-  display: none; }
-
-.mobile-nav {
-  background-color: #333; }
-
-.shoppingcarttablet {
+.shoppingcartmobile i {
   display: none; }
   @media (min-width: 768px) {
-    .shoppingcarttablet {
-      display: inline-block; }
-      .shoppingcarttablet h3 {
-        display: inline-block;
-        margin: 0;
-        margin-top: 13px;
-        color: gray;
-        font-size: 1.6em; }
-      .shoppingcarttablet a {
-        color: gray;
-        transition: 0.2s; }
-        .shoppingcarttablet a:hover {
-          color: tomato; } }
-  @media (min-width: 992px) {
-    .shoppingcarttablet {
-      margin-left: 30px; } }
+    .shoppingcartmobile i {
+      display: inline-block; } }
 
 .shoppingcart {
   text-align: right; }
@@ -294,11 +271,21 @@ main {
   .navbar > .container .navbar-brand-centered,
   .navbar > .container-fluid .navbar-brand-centered {
     margin-left: -100px;
-    text-align: center; } }
+    text-align: center;
+    color: pink; } }
+.slick-prev:before,
+.slick-next:before {
+  display: inline-block;
+  position: relative;
+  bottom: 60px; }
+
 /*=====  End of Nav  ======*/
 /*==============================
 =            Header            =
 ==============================*/
+body {
+  background-color: #F6F0E4; }
+
 /*=====  End of Header  ======*/
 /*==============================
 =            Footer            =
@@ -341,6 +328,13 @@ footer {
       margin-right: 26px; } }
 
 /*=====  End of Footer  ======*/
+/*=================================
+=            Container            =
+=================================*/
+main {
+  margin-top: 100px; }
+
+/*=====  End of Container  ======*/
 /*===============================
 =            Buttons            =
 ===============================*/
@@ -389,16 +383,8 @@ footer .socialiconsmobile li i:last-child:hover {
   .mainpics img {
     margin: 0 auto; }
 
-.slogan {
-  padding: 20px; }
-  .slogan h1 {
-    margin-top: 0; }
-  @media (min-width: 768px) {
-    .slogan {
-      margin-top: 50px; } }
-
 .slick-prev:before, .slick-next:before {
-  color: white !important; }
+  color: #F6F0E4; }
 
 .products {
   margin-bottom: 50px;
@@ -447,12 +433,14 @@ footer .socialiconsmobile li i:last-child:hover {
   margin-top: 10px;
   margin-bottom: 10px; }
 
+.productimgs {
+  text-align: center; }
+
 /*=====  End of Products Page  ======*/
 /*==================================
 =            Items Page            =
 ==================================*/
 .item {
-  text-align: center;
   margin-top: 80px; }
   .item p {
     padding: 10px;
