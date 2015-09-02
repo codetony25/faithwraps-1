@@ -6,4 +6,52 @@
 	margin-top: 80px;
 }
 
+.billingslide {
+	margin-top: 80px;
+	h2 {
+		margin-bottom: 20px;
+	}
+}
+
+.shipping {
+	margin: 0 auto;
+	button {
+		margin-top: 10px;
+	}
+	label {
+		padding-right: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 2px;
+	}
+	@media (min-width: $break-small) {
+		width: 50%;
+	}
+}
+
+.billing {
+	margin: 0 auto;
+	button {
+		margin-top: 10px;
+	}
+	label {
+		padding-right: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 2px;
+	}
+}
+
+.credit h2 {
+	margin-bottom: 30px;
+}
+
+.checkbox {
+	margin-left: 20px;
+}
+
+form label.error{
+    color:#ED7476;
+}
+
 /*=====  End of Shipping/Billing Page  ======*/

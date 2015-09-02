@@ -1,7 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+include APPPATH . 'traits/DB_Trait.php';
+
 class User extends CI_model {
+
+	use DB_Trait;
 
 	const TABLE = 'users';
 	const RESET_TABLE = 'password_resets';
@@ -12,33 +16,31 @@ class User extends CI_model {
 		date_default_timezone_set('America/Los_Angeles');
 	}
 
-	function fetch_user(array $data)
-	{
-		return $this->db->get_where(self::TABLE, $data, 1)->row_array();
-	}
-
+	/**
+	 * Verify credentials entered by user for local account login.
+	 * 
+	 * Email Password combination must match, and user must have confirmed.
+	 * 
+	 * @param 	array 	$post 	Information from login form
+	 * @return 	mixed 			On successful verification, return array of $user data
+	 * 							On failure, return FALSE
+	 */
 	function verify_login($post)
 	{
 		$this->db->where('email', $post['email']);
 		$user = $this->db->get(self::TABLE)->row_array();
 
-		if (password_verify($post['password'], $user['password']))
+		if (password_verify($post['password'], $user['password']) && $user['is_confirmed'])
 			return $user;
 		else
 			return FALSE;
 	}
 
-	function send_reset_email($data)
-	{
-		$token = $this->_generate_token();
-
-		$this->_record_reset_token($token, $data);
-
-		// return $this->send_reset_email($token, $data);
-	}
-	
 	/**
+	 * Inserts data into users table to create a new account. Confirmation token is generated at this point
 	 * 
+	 * @param 	array 	$post 	Information from login form
+	 * @return 	int 			Returns last row ID from users table
 	 */
 	function create_user($post)
 	{
@@ -100,10 +102,23 @@ class User extends CI_model {
 		$this->email->to($data['email']);
 
 		$this->email->subject("Reset your password");
-		$this->email->message("<a href='/users/password_reset/$token>'>Reset my password</a>");
+		$this->email->message("<a href='/password_reset/$token>'>Reset my password</a>");
 
 		return $this->email->send();
 	}
+
+	/**
+	 * 
+	 */
+	function send_reset_email($data)
+	{
+		$token = $this->_generate_token();
+
+		$this->_record_reset_token($token, $data);
+
+		return $this->send_password_reset_email($token, $data);
+	}
+	
 
 	function reset_password($data)
 	{

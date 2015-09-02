@@ -14,34 +14,13 @@
     </div><!-- END OF SLOGAN -->
 </div><!-- END OF ROW -->
 <div class="products">
-    <div>
-        <a href="#"><h4>Bottle Set Trust</h4><img src="/assets/img/bottleset_trust.jpg"  /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
-    </div>
-    <div>
-        <a href="#"><h4>Tigresscuff</h4><img src="/assets/img/tigresscuff.jpg"  /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
-    </div>
-    <div>
-        <a href="#"><h4>Transformation Mistletoe</h4><img src="/assets/img/transformation_mistletoe.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
-    </div>
-    <div>
-        <a href="#"><h4>Black Earrings</h4><img src="/assets/img/blackearrings.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
-    </div>
-    <div>
-        <a href="#"><h4>Relaxation Riverstone</h4><img src="/assets/img/relaxation_riverstone.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
-    </div>
-    <div>
-        <a href="#"><h4>Bottle Set Scroll</h4><img src="/assets/img/bottlescroll_trust.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
-    </div>
+    <?php foreach($products as $product): ?>
+        <div>
+            <a href="/products/<?= $product['id'] ;?>">
+                <img src="/assets/img/products/<?= $product['image']; ?>"  />
+                <h4><?= $product['name']; ?></h4>
+            </a>
+            <button class="btn btn-info">Buy Now! $<?=$product['price'];?></button>
+        </div>
+    <?php endforeach; ?>
 </div><!-- END OF PRODUCTS -->

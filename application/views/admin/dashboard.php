@@ -12,7 +12,6 @@
 	<div id="main_nav">
 		<ul>
 			<li id="products">Edit a Product</li>
-			<li id="product_styles">Edit a Product Style</li>
 			<li id="gems">Edit Gems</li>
 			<li id="galleries">Edit Galleries</li>
 			<hr>

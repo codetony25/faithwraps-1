@@ -22,24 +22,27 @@ class Admins extends CI_Controller {
 		return ($this->session->userdata('level') == 5);
 	}
 
-	public function get_admin($table) {
-		echo json_encode($this->Admin->get_all_items($table));
-	}
-
 	public function make_form($form_scope, $id) {
 		$data = $this->Admin->create_form($form_scope, $id);
-		echo $this->load->view('admin/partials/edit_' . $form_scope . '_form', $data, TRUE);
+			echo $this->load->view('admin/partials/edit_' . $form_scope . '_form', $data, TRUE);
 	}
+
+	/****************
+	* JSON Response functions
+	****/
 
 	public function control_edit($form_scope) {
 	// Calls on the model to edit/insert a product and returns a JSON response
-		$json = $this->Admin->do_edit($form_scope, $this->input->post());
-		echo json_encode($json);
+		echo json_encode($this->Admin->do_edit($form_scope, $this->input->post()));
 	}
 
 	public function control_delete($form_scope, $id) {
 	// Calls on the Admin model to delete a product and returns a json response
-		$json = $this->Admin->delete_item($form_scope, $id);
-		echo json_encode($json);
+		echo json_encode($this->Admin->delete_item($form_scope, $id));
+	}
+
+	public function control_get($table, $field = "", $value = "", $limit = FALSE) {
+	// Calls on the Admin model to fetch items
+		echo json_encode($this->Admin->admin_get($table, $field, $value, $limit));
 	}
 }

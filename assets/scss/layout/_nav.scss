@@ -5,6 +5,9 @@
 nav {
     position: relative;
     z-index: 10;
+    -webkit-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
     li a {
         font-size: 0.75em;
     }
@@ -14,49 +17,19 @@ nav {
         }
     }
 }
-.navbar {
-    padding: 0;
-}
-.logo {
-    margin-left: 20%;
-    position: absolute;
-    left: 50%;
-    margin-left: -50px !important;  /* 50% of your logo width */
-    display: block;
-    i {
-        font-size: 1.3em;
-    }
+
+// .nav a {
+//     color: #FF9BCD;
+// }
+
+.navbar-brand a {
+    color: #FF9BCD;
 }
 
-.logotablet {
-    display: none;
-}
-
-.mobile-nav {
-    background-color: $mineShaft;
-}
-
-.shoppingcarttablet {
+.shoppingcartmobile i {
     display: none;
     @media (min-width: $break-small) {
         display: inline-block;
-        h3 {
-            display: inline-block;
-            margin: 0;
-            margin-top: 13px;
-            color: gray;
-            font-size: 1.6em;
-        }
-        a {
-            color: gray;
-            transition: 0.2s;
-            &:hover {
-                color: tomato;
-            }
-        }
-    }
-    @media (min-width: $break-medium) {
-        margin-left: 30px;
     }
 }
 
@@ -82,37 +55,29 @@ nav {
 
 /* Nav styles for 768px */
 @media (min-width: $break-small) {
-    .main-nav {
-        text-align: center;
-    }
-    main {
-        margin-bottom: 50px;
-    }
-    .navbar {
-        padding: 0;
-        .navbar-nav {
-            display: inline-block;
-            float: none;
-            vertical-align: top;
-        }
-        & > .container-fluid .navbar-brand {
-            margin: 0;
-        }
-        @media (min-width: $break-large) {
-            & > .container-fluid .navbar-brand {
-                margin: 0 50px;
-            }
-        }
-    }
     .logo {
         display: none;
     }
-    .logotablet {
-        display: inline-block;
-        margin: 0 50px;
-        font-size: 1.4em;
+    .navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        display: block;
+        text-align: center;
+    }
+    .navbar>.container .navbar-brand-centered, 
+    .navbar>.container-fluid .navbar-brand-centered {
+        margin-left: -100px;
+        text-align: center;
+        color: pink;
     }
 }
 
+
+.slick-prev:before,
+.slick-next:before {
+   display: inline-block;
+   position: relative;
+   bottom: 60px;
+}
 
 /*=====  End of Nav  ======*/

@@ -30,6 +30,10 @@
 		<textarea class='form-control' name='desc'><?= $product['desc'] ?></textarea>
 	</div>
 	<div class='form-group'>
+		<label for='qty'>Quantity Available</label>
+		<input class='form-control' type='text' name='qty' value='<?= $product['qty'] ?>'>				
+	</div>	
+	<div class='form-group'>
 		<label for='price'>Price</label>
 		<input class='form-control' type='text' name='price' value='<?= $product['price'] ?>'>	
 	</div>
@@ -55,3 +59,59 @@
 		</div>
 	<?php } ?> 
 </form>
+<h1>Styles</h1>
+<div id='this_product_style_form'>
+</div>
+<div id='this_product_styles'>
+</div>
+<script>
+	function draw_styles() {
+		$.get('/admins/control_get/product_styles/product_id/' + <?= $product['id'] ?>, function(list) {
+			$('#this_product_style_form').html('');
+			var buf = "<ul>";
+			buf += "<li data-id='add' data-innerscope='product_styles'><b>Add New</b></li>";
+			for(var i=0; i<list.length; i++) {
+					buf += "<li data-id='" + list[i].id + "' data-innerscope='product_styles'>" + list[i].name + "</li>";
+			}
+			buf += "</ul>";
+			$('#this_product_styles').html(buf);
+		}, 'json');
+	}
+
+	draw_styles();
+
+	// Creating the add/edit form for styles
+	$(document).on('click', "li[data-innerscope]", function(e) {
+		var id = $(this).data('id');
+		$('#messages').html('');
+		$.get('/admins/make_form/product_styles/' + id, function(res) {
+			console.log('INSIDE ' + scope + ' FORM BUILDER');
+			$('#this_product_style_form').html(res);
+			$('#edit_styles_form').find('#input_product_id').val(<?= $product['id']; ?>);
+		}, 'html');
+	});
+
+	$(document).on('submit',"#edit_styles_form", function(e) {
+		$.post('/admins/control_edit/product_styles', $(this).serialize(), function(res) {
+			if (res.success) {
+				// Redraw the styles for inserted items
+				draw_styles();
+			}
+			$('#messages').html(res.message);
+		}, 'json');
+		return false;
+	});
+
+	$(document).on('click','.del-style', function(e) {
+		if (confirm('Are you sure you want to delete this?')) {
+			var this_id = $(this).data('id');
+			$.get('/admins/control_delete/product_styles/' + this_id, function(res) {
+				if (res.success) {
+					// Redraw the styles for inserted items
+					draw_styles();
+				}
+				$('#messages').html(res.message);
+			}, 'json');
+		}
+	});
+</script>

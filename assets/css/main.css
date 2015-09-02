@@ -222,51 +222,24 @@ textarea {
 ===========================*/
 nav {
   position: relative;
-  z-index: 10; }
+  z-index: 10;
+  -webkit-box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75); }
   nav li a {
     font-size: 0.75em; }
   @media (min-width: 992px) {
     nav li a {
       font-size: 1.0em; } }
 
-.navbar {
-  padding: 0; }
+.navbar-brand a {
+  color: #FF9BCD; }
 
-.logo {
-  margin-left: 20%;
-  position: absolute;
-  left: 50%;
-  margin-left: -50px !important;
-  /* 50% of your logo width */
-  display: block; }
-  .logo i {
-    font-size: 1.3em; }
-
-.logotablet {
-  display: none; }
-
-.mobile-nav {
-  background-color: #333; }
-
-.shoppingcarttablet {
+.shoppingcartmobile i {
   display: none; }
   @media (min-width: 768px) {
-    .shoppingcarttablet {
-      display: inline-block; }
-      .shoppingcarttablet h3 {
-        display: inline-block;
-        margin: 0;
-        margin-top: 13px;
-        color: gray;
-        font-size: 1.6em; }
-      .shoppingcarttablet a {
-        color: gray;
-        transition: 0.2s; }
-        .shoppingcarttablet a:hover {
-          color: tomato; } }
-  @media (min-width: 992px) {
-    .shoppingcarttablet {
-      margin-left: 30px; } }
+    .shoppingcartmobile i {
+      display: inline-block; } }
 
 .shoppingcart {
   text-align: right; }
@@ -286,38 +259,32 @@ nav {
 
 /* Nav styles for 768px */
 @media (min-width: 768px) {
-  .main-nav {
-    text-align: center; }
-
-  main {
-    margin-bottom: 50px; }
-
-  .navbar {
-    padding: 0; }
-    .navbar .navbar-nav {
-      display: inline-block;
-      float: none;
-      vertical-align: top; }
-    .navbar > .container-fluid .navbar-brand {
-      margin: 0; } }
-  @media (min-width: 768px) and (min-width: 1200px) {
-    .navbar > .container-fluid .navbar-brand {
-      margin: 0 50px; } }
-
-@media (min-width: 768px) {
   .logo {
     display: none; }
 
-  .logotablet {
-    display: inline-block;
-    margin: 0 50px;
-    font-size: 1.4em; } }
+  .navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    text-align: center; }
+
+  .navbar > .container .navbar-brand-centered,
+  .navbar > .container-fluid .navbar-brand-centered {
+    margin-left: -100px;
+    text-align: center;
+    color: pink; } }
+.slick-prev:before,
+.slick-next:before {
+  display: inline-block;
+  position: relative;
+  bottom: 60px; }
+
 /*=====  End of Nav  ======*/
 /*==============================
 =            Header            =
 ==============================*/
-header {
-  margin-top: 70px; }
+body {
+  background-color: #F6F0E4; }
 
 /*=====  End of Header  ======*/
 /*==============================
@@ -361,6 +328,13 @@ footer {
       margin-right: 26px; } }
 
 /*=====  End of Footer  ======*/
+/*=================================
+=            Container            =
+=================================*/
+main {
+  margin-top: 100px; }
+
+/*=====  End of Container  ======*/
 /*===============================
 =            Buttons            =
 ===============================*/
@@ -409,16 +383,8 @@ footer .socialiconsmobile li i:last-child:hover {
   .mainpics img {
     margin: 0 auto; }
 
-.slogan {
-  padding: 20px; }
-  .slogan h1 {
-    margin-top: 0; }
-  @media (min-width: 768px) {
-    .slogan {
-      margin-top: 50px; } }
-
 .slick-prev:before, .slick-next:before {
-  color: white !important; }
+  color: #F6F0E4; }
 
 .products {
   margin-bottom: 50px;
@@ -463,12 +429,18 @@ footer .socialiconsmobile li i:last-child:hover {
   .items img {
     width: 80%; }
 
+.items button {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.productimgs {
+  text-align: center; }
+
 /*=====  End of Products Page  ======*/
 /*==================================
 =            Items Page            =
 ==================================*/
 .item {
-  text-align: center;
   margin-top: 80px; }
   .item p {
     padding: 10px;
@@ -516,7 +488,7 @@ footer .socialiconsmobile li i:last-child:hover {
 =            Sign in / Register Page            =
 ===============================================*/
 .signin {
-  margin-top: 40px; }
+  margin-top: 120px; }
 
 .panel-login {
   border-color: #ccc;
@@ -620,12 +592,52 @@ footer .socialiconsmobile li i:last-child:hover {
 .guestcheckout {
   text-align: center; }
 
+.checkout {
+  margin-top: 30px; }
+
 /*=====  End of Checkout Page  ======*/
 /*=============================================
 =            Shipping/Billing Page            =
 =============================================*/
 .shippinginfo {
   margin-top: 80px; }
+
+.billingslide {
+  margin-top: 80px; }
+  .billingslide h2 {
+    margin-bottom: 20px; }
+
+.shipping {
+  margin: 0 auto; }
+  .shipping button {
+    margin-top: 10px; }
+  .shipping label {
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px; }
+  @media (min-width: 768px) {
+    .shipping {
+      width: 50%; } }
+
+.billing {
+  margin: 0 auto; }
+  .billing button {
+    margin-top: 10px; }
+  .billing label {
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px; }
+
+.credit h2 {
+  margin-bottom: 30px; }
+
+.checkbox {
+  margin-left: 20px; }
+
+form label.error {
+  color: #ED7476; }
 
 /*=====  End of Shipping/Billing Page  ======*/
 /*===================================

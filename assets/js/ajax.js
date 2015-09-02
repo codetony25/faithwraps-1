@@ -2,7 +2,7 @@ $(document).ready(function() {
 	
 	function draw_sub_nav(formScope) {
 	// Draws the proper sub navigation
-		jsonUrl = '/admins/get_admin/' + formScope;
+		jsonUrl = '/admins/control_get/' + formScope;
 		// Everytime we draw a sub navigation clear the #form_holder and #messages
 		$('#form_holder').html('');
 		$('#messages').html('');
@@ -11,15 +11,15 @@ $(document).ready(function() {
 			var buf = "<ul>";
 			buf += "<li data-id='add' data-scope='" + formScope + "'><b>Add New</b></li>";
 			for(var i=0; i<list.length; i++) {
-				buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>" + list[i].name + "</li>";
+					buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>" + list[i].name + "</li>";
 			}
 			buf += "</ul>";
 			$('#sub_nav').html(buf);
 		}, 'json');
 	}
 
-	$(document).on('click', '#products, #product_styles, #gems, #galleries', function(e){
-		url = '/admins/get_admin/' + e.target.id;
+	$(document).on('click', '#products, #gems, #galleries', function(e){
+		url = '/admins/control_get/' + e.target.id;
 		scope = e.target.id;
 		draw_sub_nav(scope);
 	});
