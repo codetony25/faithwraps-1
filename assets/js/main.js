@@ -65,6 +65,7 @@ $(function(){
 	});
 
 //Sticky footer
+<<<<<<< HEAD
    var docHeight = $(window).height();
    var footerHeight = $('footer').height();
    var footerBottom = $('footer').position().top + footerHeight;
@@ -72,5 +73,16 @@ $(function(){
    if (footerBottom < docHeight) {
     	$('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
    }
+=======
+	var docHeight = $(window).height();
+	var footerHeight = $('footer').height();
+	var footerBottom = $('footer').position().top + footerHeight;
 	
-});
+   if (footerBottom < docHeight) {
+   	console.log('running');
+    $('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
+   }
+
+>>>>>>> c7ab8079a155ce88ba5b1f5c78de3462077abddf
+	
+});//end ready
