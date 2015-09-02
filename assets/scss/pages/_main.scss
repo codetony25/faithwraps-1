@@ -9,18 +9,8 @@
     }
 }
 
-.slogan {
-    padding: 20px;
-    h1 {
-        margin-top: 0;
-    }
-    @media (min-width: $break-small) {
-        margin-top: 50px;
-    }
-}
-
 .slick-prev:before, .slick-next:before { 
-    color: white !important;
+    color: #F6F0E4;
 }
 
 .products {

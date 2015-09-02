@@ -66,6 +66,8 @@ $(function(){
         fade: true
     });//end of mainpics
 
+    
+
 
 //Form validations
 

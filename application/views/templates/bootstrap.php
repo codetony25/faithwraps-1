@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand navbar-brand-centered">FaithWraps</div>
+                        <div class="navbar-brand navbar-brand-centered"><a href="/">FaithWraps</a></div>
                         <div class="shoppingcart">
                             <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
                         </div><!-- END OF SHOPPINGCART -->
