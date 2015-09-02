@@ -10,6 +10,11 @@ class OAuth2_Google extends CI_Model {
 	const TABLE = 'oauth_users';
 	const OAUTH_TYPE = 1;
 
+	function __construct()
+	{
+		//do nothing
+	}
+
 	/**
 	 * @param 	array 	$user 	Array containing data retrieved from user's Google account
 	 * @return 	int 			Returns row ID after table insertion
