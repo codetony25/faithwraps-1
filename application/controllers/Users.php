@@ -8,7 +8,6 @@ class Users extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model('Google_OAuth2', 'g_auth');
 		$this->output->enable_profiler();
 	}
 
@@ -166,84 +165,6 @@ class Users extends CI_Controller {
 
 		redirect('/users/login');
 	}
-
-	/**
-	  * Endpoint for Login with Google button
-	  */ 
-	function google_login()
-	{
-		if ($access_token = $this->session->userdata('google_access_token'))
-		{
-			$this->g_auth->client->setAccessToken($access_token);
-			$auth = new Google_Service_Oauth2( $this->g_auth->client );
-			
-			$user = $auth->userinfo_v2_me->get();
-			
-			// If user's information already exists in DB, grab it. If not, create it
-			if (! $account_info = $this->g_auth->fetch( array('oauth_id' => $user['id'])))
-				$new_user_id = $this->g_auth->create_account($user);
-
-			if($account_info) // Existing db info
-			{
-				$session_data = array(
-					'first_name' => $account_info['first_name'],
-					'last_name' => $account_info['last_name'],
-					'email' => $account_info['email']
-				);
-			}
-			else // New info
-			{
-				$session_data = array(
-					'first_name' => $user['givenName'],
-					'last_name' => $user['family_name'],
-					'email' => $user['email']
-				);
-			}
-
-			$this->session->set_userdata('is_logged_in', 1);
-			$this->session->set_userdata('user', $session_data);
-
-			redirect('/'); // TO DO: redirect to their last page
-		}
-		else
-		{
-			redirect('/users/google_verify');
-		}
-	}
-
-	/**
-	 * Sends user to Google authorization page for login.
-	 * Handles authenication and exchanging of access token
-	 */
-	function google_verify()
-	{
-		if (! isset($_GET['code']))
-		{		
-			$state = sha1(openssl_random_pseudo_bytes(1024));
-			$this->session->set_userdata('g_auth_state', $state);
-			$this->g_auth->client->setState($state);	
-
-			$auth_url = filter_var($this->g_auth->get_auth_url(), FILTER_SANITIZE_URL);
-			redirect($auth_url);
-		}
-		else
-		{
-			if ($_GET['state'] != $this->session->userdata('g_auth_state'))
-			{
-				$this->session->set_flashdata('Invalid state parameter');
-				redirect('/users/login');
-			}
-
-			$this->g_auth->client->authenticate($_GET['code']);
-			
-			if ($access_token = $this->g_auth->client->getAccessToken())
-			{
-				$this->session->set_userdata('google_access_token', $access_token);
-				redirect('/users/google_login');
-			}
-		}
-	}
-
 }
 
 ?>

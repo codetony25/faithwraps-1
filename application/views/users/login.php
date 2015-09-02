@@ -41,7 +41,7 @@
                                             <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href="/users/google_login"><img src="/assets/img/signin_google.png" alt="" style="display: block; width: 100%; height: auto;"></a>
+                                            <a href="/google_auth/authenticate"><img src="/assets/img/signin_google.png" alt="" style="display: block; width: 100%; height: auto;"></a>
                                         </div>
                                     </div>
                                 </div>
