@@ -11,10 +11,12 @@ class Categories extends CI_controller {
 	public function show($id) {
 		$category = $this->Category->fetch(array('id',$id));
 		$products = $this->Product->fetch_all_where(array('gallery_id',$category['id']));
+		$style = $this->
 		$this->template->load('bootstrap', 'categories/category', array(
 			'title' => 'Login Registration',
 			'category' => $category,
-			'products' => $products
+			'products' => $products,
+			'style' => $style
 		));
 	}
 
