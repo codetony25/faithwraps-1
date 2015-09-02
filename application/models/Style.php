@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Style extends CI_model {
-
+class Product_Style extends CI_model {
+	const TABLE = 'product_styles';
 }
