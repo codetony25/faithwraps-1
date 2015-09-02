@@ -27,9 +27,10 @@
 $(function(){
 
     $('.products').slick({
-            arrows: true,
+          dots: true,
+          arrows: true,
           infinite: true,
-          speed: 300,
+          speed: 750,
           autoplay: true,
           slidesToShow: 4,
           slidesToScroll: 4,
@@ -53,7 +54,8 @@ $(function(){
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            arrows: false
           }
         }
          ]
@@ -88,7 +90,7 @@ $(function(){
         email: true,
         maxlength: 255
       },
-      password: {
+      login_password: {
         required: true,
         minlength: 8,
         max_length: 255

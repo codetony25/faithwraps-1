@@ -35,5 +35,17 @@ $config = array(
 			'label' => 'Account Email',
 			'rules' => 'required|trim|valid_email'
 		)
+	),
+	'product' => array(
+		array(
+			'field' => 'product_style',
+			'label' => 'Product Style',
+			'rules' => 'required|trim|integer|greater_than[0]'
+		),
+		array(
+			'field' => 'product_qty',
+			'label' => 'Quantity',
+			'rules' => 'required|trim|integer|greater_than[0]'
+		)
 	)
 );

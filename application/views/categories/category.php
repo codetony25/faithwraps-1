@@ -10,11 +10,11 @@
         ?>		
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
         		<div class="itembox">
-        			<a href='/products/<?= $product['id']; ?>'>
-        			<img src='/assets/img/products/<?= $product['image']; ?>'  />
-        			<h4><?= $product['name']; ?></h4>
+        			<a href='/products/<?= xss_clean($product['id']); ?>'>
+        			<img src='/assets/img/products/<?= xss_clean($product['image']); ?>'  />
+        			<h4><?= xss_clean(ucwords($product['name'])); ?></h4>
         			</a>
-	                <p>$<?= $product['price']; ?></p>
+                    <p>$<?= xss_clean($product['price']); ?></p>
         		</div>
         </div><!-- END OF COLUMN -->
         <?php	} ?>

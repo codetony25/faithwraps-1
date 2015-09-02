@@ -26,9 +26,9 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="product_style">Style:</label>
-                        <div class="col-sm-4">
-                            <select name="product_style" id="product_style" class="form-control">
-                                <option value=""></option>
+                        <div class="col-sm-6">
+                            <select name="product_style" id="product_style" class="form-control" required>
+                                <option value="">- Please Choose -</option>
                                 <?php foreach($styles as $style): ?>
                                     <option value="<?= $style['id']; ?>"><?= $style['name']; ?></option>
                                 <?php endforeach; ?>
@@ -38,7 +38,7 @@
                     <div class="form-group qty">
                         <label class="col-sm-2 control-label" for="product_qty">Qty:</label>
                         <div class="col-sm-2">
-                            <input type="number" class="form-control" name="product_qty" min="0" max="<?= $product['qty'];?>" step="1">
+                            <input type="number" class="form-control" name="product_qty" min="1" max="<?= $product['qty'];?>" step="1" required >
                         </div>
                         <?php if ($product['qty'] <= 5 ): ?>
                             <em>Only <?=$product['qty'];?> left in stock!</em>

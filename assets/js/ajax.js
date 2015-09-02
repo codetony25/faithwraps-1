@@ -18,7 +18,27 @@ $(document).ready(function() {
 		}, 'json');
 	}
 
-	$(document).on('click', '#products, #gems, #galleries', function(e){
+	function draw_order_nav() {
+	// Draws the proper sub navigation
+		jsonUrl = '/admins/control_get/' + formScope;
+		// Everytime we draw a sub navigation clear the #form_holder and #messages
+		$('#form_holder').html('');
+		$('#messages').html('');
+
+		$.get(jsonUrl, function(list) {
+			var buf = "<ul>";
+			buf += "<li data-id='add' data-scope='" + formScope + "'><b>Add New</b></li>";
+			for(var i=0; i<list.length; i++) {
+					buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>" + list[i].name + "</li>";
+			}
+			buf += "</ul>";
+			$('#sub_nav').html(buf);
+		}, 'json');
+	}
+
+	}
+	
+	$(document).on('click', '#products, #gems, #galleries, #orders', function(e){
 		url = '/admins/control_get/' + e.target.id;
 		scope = e.target.id;
 		draw_sub_nav(scope);
