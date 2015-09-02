@@ -37,9 +37,9 @@ trait DB_Trait {
 	 * @param 	array 	$data 	Key => value pair. Key needs to be an existing table column
 	 * @return 	array 			Returns an associative array containing all rows from a table
 	 */
-	function fetch_all_where()
+	function fetch_all_where(array $data)
 	{
-		return $this->db->get_where(self::TABLE)->result_array();
+		return $this->db->get_where(self::TABLE, $data)->result_array();
 	}
 
 }
