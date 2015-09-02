@@ -8,12 +8,8 @@ nav {
     -webkit-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
     box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
-    li {
-        color: black;
-    }
     li a {
         font-size: 0.75em;
-        color: black;
     }
     @media (min-width: $break-medium) {
         li a {
@@ -22,8 +18,12 @@ nav {
     }
 }
 
-main {
-    margin-top: 100px;
+// .nav a {
+//     color: #FF9BCD;
+// }
+
+.navbar-brand a {
+    color: #FF9BCD;
 }
 
 .shoppingcartmobile i {
@@ -68,13 +68,16 @@ main {
     .navbar>.container-fluid .navbar-brand-centered {
         margin-left: -100px;
         text-align: center;
+        color: pink;
     }
 }
 
 
 .slick-prev:before,
 .slick-next:before {
-   display:none;
+   display: inline-block;
+   position: relative;
+   bottom: 60px;
 }
 
 /*=====  End of Nav  ======*/

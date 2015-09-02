@@ -1,13 +1,13 @@
 <div class="item">
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-6 productimgs">
             <img src="/assets/img/products/<?= $styles[0]['image']; ?>" class="mainitemimg" alt="">
             <div class="itemthumbnail">
                 <div class="row">
                     <?php foreach($styles as $style): ?>
                         <div class="col-xs-3">
-                            <img src="/assets/img/products/<?= $style['image']; ?>" class="thumbnail" alt="">
+                            <img src="/assets/img/products/<?= $style['image']; ?>" class="thumbnail product" alt="">
                         </div>
                     <?php endforeach; ?>
                 </div><!-- END OF ROW -->
