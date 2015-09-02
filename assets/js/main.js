@@ -63,7 +63,8 @@ $(function(){
 		$(this).addClass('active');
 		e.preventDefault();
 	});
-
+	
+// Make footer stay on the bottom
 	var docHeight = $(window).height();
 	var footerHeight = $('footer').height();
 	var footerBottom = $('footer').position().top + footerHeight;
@@ -72,17 +73,6 @@ $(function(){
    	console.log('running');
     $('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
    }
-
-//Getting values from shipping and display on billing "Same as Shipping" is checked.
-
-	$('.shipping button').click(function (){
-		shipval.setItem("firstname", $('input[name=first-name]'));
-	});
-
-
-	$('.billing input:checkbox:checked').click(function (){
-		$('.billing input[name=first_name]').val(shipval.getItem("firstname"));
-	});
 	
 });//end ready
 

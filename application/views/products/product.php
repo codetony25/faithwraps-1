@@ -1,82 +1,93 @@
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<?php var_dump($product); ?>
-
 <div class="item">
     <div class="row">
+
         <div class="col-md-6">
-            <img src="/assets/img/bottleset_trust.jpg" class="mainitemimg" alt="">
+            <img src="/assets/img/products/<?= $styles[0]['image']; ?>" class="mainitemimg" alt="">
             <div class="itemthumbnail">
                 <div class="row">
-                    <div class="col-xs-3">
-                        <img src="/assets/img/items/bottlenecklace_trust.jpg" class="thumbnail" alt="">
-                    </div>
-                    <div class="col-xs-3">
-                        <img src="/assets/img/items/bottlescroll_trust.jpg" class="thumbnail" alt="">
-                    </div>
-                    <div class="col-xs-3">
-                        <img src="/assets/img/items/bottlenecklacemodel_trust.jpg" class="thumbnail" alt="">
-                    </div>
-                    <div class="col-xs-3">
-                        <img src="/assets/img/items/bottlering_trust.jpg" class="thumbnail" alt="">
-                    </div>
+                    <?php foreach($styles as $style): ?>
+                        <div class="col-xs-3">
+                            <img src="/assets/img/products/<?= $style['image']; ?>" class="thumbnail" alt="">
+                        </div>
+                    <?php endforeach; ?>
                 </div><!-- END OF ROW -->
             </div><!-- END OF ITEMTHUMBNAIL -->
         </div><!-- END OF COL-MD-6 -->
+
         <div class="col-md-6">
-            <h4><?= ucwords($product['name']); ?></h4>
+            <h2 style="font-size: 2em; text-align: left;"><?= ucwords($product['name']); ?></h2>
             <div class="itemabout">
-                <p><?= xss_clean($product['desc']); ?></p>
-                <form action="/" method="post">
-                <h4 class="text-center">Select Your Item:</h4>
-                <select name="item" class="form-control">
-                    <option value="Trust In A Bottle Set">Trust In A Bottle Set</option>
-                    <option value="Trust In A Bottle Neckless">Trust In A Bottle Neckless</option>
-                    <option value="Inside The Scroll">Inside The Scroll</option>
-                    <option value="Trust In A Bottle Ring">Trust In A Bottle Ring</option>
-                </select>
-                <button class="btn btn-info form-control">Buy Now</button> 
-            </form>
-                <h4 class="text-center">About The Gem</h4>
-                <p><strong>Color: </strong>Purple</p>
-                <p><strong>Energies:  </strong>Intuition, Balance, Serenity, Inner Strength, Emotional Stability, Lucid Dreaming </p>
-                <p><strong>Chakra: </strong>Crown and Third Eye</p>
+                <p style="font-size: 1em; border-bottom: 1px solid #eee; padding-bottom: 2em"><?= xss_clean($product['desc']); ?></p>
+
+                <?= form_open('/shop/add_to_cart', 'class="form-horizontal" style="padding: 1.5em 0; border-bottom: 1px solid #eee;"'); ?>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Price:</label>
+                        <div class="col-sm-4"><h4>$ <?= $product['price']; ?></h4></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="product_style">Style:</label>
+                        <div class="col-sm-4">
+                            <select name="product_style" id="product_style" class="form-control">
+                                <option value=""></option>
+                                <?php foreach($styles as $style): ?>
+                                    <option value="<?= $style['id']; ?>"><?= $style['name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="product_qty">Qty:</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control" name="product_qty" min="0" max="<?= $product['qty'];?>" step="1">
+                        </div>
+                        <?php if ($product['qty'] <= 5 ): ?>
+                            <em style="color: red;">Only <?=$product['qty'];?> left in stock!</em>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button class="btn btn-info form-control">Buy Now</button> 
+                        </div>
+                    </div>
+                </form>
+
+                <div class="product-details">
+                    <h4>About The Gem</h4>
+
+                    <style type="text/css">
+                        dl dt { width: 100px !important; }
+                        dl dd { margin-left: 120px !important; }
+                    </style>
+
+                    <dl class="dl-horizontal">
+                        <dt>Color</dt>
+                        <dd><?= $gem['colors']; ?></dd>
+                        <dt>Energies</dt>
+                        <dd><?= $gem['energies']; ?></dd>
+                        <dt>Chakra</dt>
+                        <dd><?= $gem['chakras']; ?></dd>
+                    </dl>
+                    <p style="font-size: 1em;"><?= $gem['desc']; ?></p>
+                </div>
+                
             </div>
-            <p>Amethyst is a beautiful spiritual stone, perfect for meditation and its calming affects. It works to provide the wearer with intuition, balance, peace, patience, and serenity. The stone brings inner strength and emotional stability. Amethyst is a great tool for anyone dealing with grief or loss. The stone is also used for bringing pleasant dreams and understanding them. </p>
+            
         </div><!-- END OF COL-MD-6 -->
+
     </div><!-- END OF ROW -->
-</div><!-- END OF ITEM -->
+</div><!-- END OF PRODUCT -->
 
 <div class="similaritems">
     <h2 class="text-center">Similar Items</h2>
     <div class="products">
-        <div>
-            <a href="#"><h4>Bottle Set Trust</h4><img src="/assets/img/bottleset_trust.jpg"  /></a>
-            <button class="btn btn-info">Buy Now! $59.99</button>
-        </div>
-        <div>
-            <a href="#"><h4>Tigresscuff</h4><img src="/assets/img/tigresscuff.jpg"  /></a>
-            <button class="btn btn-info">Buy Now! $59.99</button>
-        </div>
-        <div>
-            <a href="#"><h4>Transformation Mistletoe</h4><img src="/assets/img/transformation_mistletoe.jpg" /></a>
-            <button class="btn btn-info">Buy Now! $59.99</button>
-        </div>
-        <div>
-            <a href="#"><h4>Black Earrings</h4><img src="/assets/img/blackearrings.jpg" /></a>
-            <button class="btn btn-info">Buy Now! $59.99</button>
-        </div>
-        <div>
-            <a href="#"><h4>Relaxation Riverstone</h4><img src="/assets/img/relaxation_riverstone.jpg" /></a>
-            <button class="btn btn-info">Buy Now! $59.99</button>
-        </div>
-        <div>
-            <a href="#"><h4>Bottle Set Scroll</h4><img src="/assets/img/bottlescroll_trust.jpg" /></a>
-            <button class="btn btn-info">Buy Now! $59.99</button>
-        </div>
+        <?php foreach($similar as $product): ?>
+            <div>
+                <a href="/products/<?= $product['id'] ;?>">
+                    <img src="/assets/img/products/<?= $product['image']; ?>"  />
+                    <h4><?= $product['name']; ?></h4>
+                </a>
+                <button class="btn btn-info">Buy Now! $<?=$product['price'];?></button>
+            </div>
+        <?php endforeach; ?>
     </div><!-- END OF PRODUCTS -->
 </div><!-- END OF SIMILARITEMS-->

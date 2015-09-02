@@ -15,10 +15,10 @@ class Users extends CI_Controller {
 	/**
 	 * Loads default view: user registration/login
 	 */
-	public function index()
+	public function login()
 	{
-		$this->template->load('bootstrap', 'index', array(
-			'title' => 'Login Registration'
+		$this->template->load('bootstrap', 'users/login', array(
+			'title' => 'Login/Registration'
 		));
 	}
 
@@ -44,13 +44,13 @@ class Users extends CI_Controller {
 		redirect('/users');
 	}
 
-	public function login()
+	public function user_login()
 	{
 		if ($login_feedback = $this->form_validation->run('login'))
 		{
 			if ($user = $this->User->verify_login($this->input->post()))
 			{
-				redirect('/members');
+				redirect('/');
 			}
 			else
 			{

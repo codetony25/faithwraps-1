@@ -5,8 +5,15 @@
 nav {
     position: relative;
     z-index: 10;
+    -webkit-box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
+    box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
+    li {
+        color: black;
+    }
     li a {
         font-size: 0.75em;
+        color: black;
     }
     @media (min-width: $break-medium) {
         li a {
@@ -14,18 +21,9 @@ nav {
         }
     }
 }
-.navbar {
-    padding: 0;
-}
-.logo {
-    margin-left: 20%;
-    position: absolute;
-    left: 50%;
-    margin-left: -50px !important;  /* 50% of your logo width */
-    display: block;
-    i {
-        font-size: 1.3em;
-    }
+
+main {
+    margin-top: 100px;
 }
 
 .logotablet {
@@ -82,35 +80,19 @@ nav {
 
 /* Nav styles for 768px */
 @media (min-width: $break-small) {
-    .main-nav {
-        text-align: center;
-    }
-    main {
-        margin-top: 100px;
-    }
-    .navbar {
-        padding: 0;
-        .navbar-nav {
-            display: inline-block;
-            float: none;
-            vertical-align: top;
-        }
-        & > .container-fluid .navbar-brand {
-            margin: 0;
-        }
-        @media (min-width: $break-large) {
-            & > .container-fluid .navbar-brand {
-                margin: 0 50px;
-            }
-        }
-    }
     .logo {
         display: none;
     }
-    .logotablet {
-        display: inline-block;
-        margin: 0 50px;
-        font-size: 1.4em;
+    .navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        display: block;
+        text-align: center;
+    }
+    .navbar>.container .navbar-brand-centered, 
+    .navbar>.container-fluid .navbar-brand-centered {
+        margin-left: -100px;
+        text-align: center;
     }
 }
 
