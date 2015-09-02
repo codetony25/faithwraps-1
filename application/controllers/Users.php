@@ -41,7 +41,7 @@ class Users extends CI_Controller {
 
 		$this->session->set_flashdata('login_feedback', $registration_feedback);
 
-		redirect('/users');
+		redirect('/users/login');
 	}
 
 	public function user_login()
@@ -50,9 +50,14 @@ class Users extends CI_Controller {
 		{
 			if ($user = $this->User->verify_login($this->input->post()))
 			{
-				$this->template->load('bootstrap', 'users/login', array(
-					'title' => 'Login/Registration'
+				$this->session->set_userdata('is_logged_in', 1);
+				$this->session->set_userdata('user', array(
+					'id' => $user['id'],
+					'first_name' => ucfirst($user['first_name']),
+					'last_name' => ucfirst($user['last_name']),
+					'email' => $user['email']
 				));
+				redirect('/users/login');
 			}
 			else
 			{
@@ -62,7 +67,7 @@ class Users extends CI_Controller {
 
 		$this->session->set_flashdata('login_feedback', $login_feedback);
 
-		redirect('/users');
+		redirect('/'); // TO DO: redirect to their last page
 	}
 
 	/**
@@ -90,7 +95,7 @@ class Users extends CI_Controller {
 			}
 
 			$this->session->set_flashdata('login_feedback', "A password reset email was sent to $email. The link is valid for an hour");
-			redirect('/users');
+			redirect('/users/login');
 		}
 
 		$this->session->set_flashdata('reset_feedback', $reset_feedback);
@@ -110,7 +115,7 @@ class Users extends CI_Controller {
 
 		$this->session->set_flashdata('login_feedback', $feedback);
 
-		redirect('/users');
+		redirect('/users/login');
 	}
 
 	/**
@@ -147,7 +152,7 @@ class Users extends CI_Controller {
 
 		$this->session->set_flashdata('login_feedback', $feedback);
 
-		redirect('/users');
+		redirect('/users/login');
 	}
 
 	function google_login()
@@ -182,7 +187,7 @@ class Users extends CI_Controller {
 			$this->session->set_userdata('is_logged_in', TRUE);
 			$this->session->set_userdata('user', $session_data);
 
-			redirect('/members');
+			redirect('/'); // TO DO: redirect to their last page
 		}
 		else
 		{
@@ -206,7 +211,7 @@ class Users extends CI_Controller {
 			if ($_GET['state'] != $this->session->userdata('g_auth_state'))
 			{
 				$this->session->set_flashdata('Invalid state parameter');
-				redirect('/');
+				redirect('/users/login');
 			}
 
 			$this->g_auth->client->authenticate($_GET['code']);
