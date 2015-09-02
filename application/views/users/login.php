@@ -26,10 +26,10 @@
                         <div class="col-lg-12">
                             <form id="login-form" action="/users/user_login" method="post" role="form" style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="E-mail" value="">
+                                    <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="E-mail">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="login_password" tabindex="2" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="remember" id="remember">

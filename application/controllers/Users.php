@@ -50,7 +50,9 @@ class Users extends CI_Controller {
 		{
 			if ($user = $this->User->verify_login($this->input->post()))
 			{
-				redirect('/');
+				$this->template->load('bootstrap', 'users/login', array(
+					'title' => 'Login/Registration'
+				));
 			}
 			else
 			{

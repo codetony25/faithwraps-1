@@ -46,7 +46,7 @@
                           <ul class="nav navbar-nav navbar-right">            
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
-                            <li><a href="/signin">Sign In</a></li>
+                            <li><a href="/login">Sign In</a></li>
                             <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->

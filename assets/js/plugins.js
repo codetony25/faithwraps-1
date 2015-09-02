@@ -90,7 +90,7 @@ $(function(){
         email: true,
         maxlength: 255
       },
-      password: {
+      login_password: {
         required: true,
         minlength: 8,
         max_length: 255
