@@ -9,7 +9,7 @@ class Google_Auth extends CI_Controller
 		parent::__construct();
 		$this->load->library('google');
 		$this->load->model('OAuth2_Google', 'G_Auth');
-		$this->output->enable_profiler();
+		// $this->output->enable_profiler();
 	}
 
 	function authenticate()
@@ -22,8 +22,8 @@ class Google_Auth extends CI_Controller
 			$user = $auth->userinfo_v2_me->get();
 			
 			// If user's information already exists in DB, grab it. If not, create it
-			if (! $account_info = $this->google->fetch( array('oauth_id' => $user['id'])))
-				$new_user_id = $this->google->create_account($user);
+			if (! $account_info = $this->G_Auth->fetch( array('oauth_id' => $user['id'])))
+				$new_user_id = $this->G_Auth->create_account($user);
 
 			if($account_info) // Existing db info
 			{
@@ -63,11 +63,13 @@ class Google_Auth extends CI_Controller
 		}
 		else if (! isset($_GET['code']))
 		{		
+
 			$state = $this->G_Auth->generate_state();
 			$this->session->set_userdata('g_auth_state', $state);
 			$this->google->client->setState($state);	
 
-			$auth_url = filter_var($this->google->client->createAuthUrl, FILTER_SANITIZE_URL);
+			$auth_url = filter_var($this->google->client->createAuthUrl(), FILTER_SANITIZE_URL);
+
 			redirect($auth_url);
 		}
 		else if (!$this->session->userdata('g_auth_state') || ($_GET['state'] !== $this->session->userdata('g_auth_state'))) 
@@ -82,7 +84,7 @@ class Google_Auth extends CI_Controller
 			
 			if ($access_token = $this->google->client->getAccessToken())
 			{
-				$this->session->set_userdata('g_auth_state', $access_token);
+				$this->session->set_userdata('gauth_token', $access_token);
 				redirect('/Google_Auth/authenticate');
 			}
 		}
