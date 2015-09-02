@@ -45,6 +45,7 @@
                         <a class="navbar-brand logotablet" href="#header"><i>FaithWraps</i></a>
                         <li><a href="#">Leather & Feather</a></li>
                         <li><a href="#">Affirmations in a Bottle</a></li>
+                        <li><a href="#">Log In</a>
                       </ul>
                       <div class="shoppingcarttablet">
                           <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
