@@ -20,36 +20,35 @@
 <body>
     <div class="container">
     <!-- NAVBAR FOR MOBILE DEVICES -->
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top mobile-nav">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#navbar-brand-centered" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand logo" href="#header"><i>FaithWraps</i></a>
+                        <div class="navbar-brand navbar-brand-centered">FaithWraps</div>
                         <div class="shoppingcart">
                             <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
                         </div><!-- END OF SHOPPINGCART -->
                     </div><!-- END OF NAVBAR-HEADER -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
-                      <ul class="nav navbar-nav navbar-center">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">FaithWraps</a></li>
-                        <li><a href="#">Limited Ed.</a></li>
-                        <a class="navbar-brand logotablet" href="#header"><i>FaithWraps</i></a>
-                        <li><a href="#">Leather & Feather</a></li>
-                        <li><a href="#">Affirmations in a Bottle</a></li>
-                        <li><a href="#">Log In</a>
-                      </ul>
-                      <div class="shoppingcarttablet">
-                          <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
-                        </div>
+                     <div class="collapse navbar-collapse" id="navbar-brand-centered">
+                          <ul class="nav navbar-nav">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">FaithWraps</a></li>
+                            <li><a href="#">Limited Ed.</a></li>
+                          </ul>
+                          <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Leather & Feather</a></li>
+                            <li><a href="#">Affirmations in a Bottle</a></li>
+                            <li><a href="#">Sign In</a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>               
+                          </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
