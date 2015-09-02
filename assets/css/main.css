@@ -463,6 +463,10 @@ footer .socialiconsmobile li i:last-child:hover {
   .items img {
     width: 80%; }
 
+.items button {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
 /*=====  End of Products Page  ======*/
 /*==================================
 =            Items Page            =
@@ -516,7 +520,7 @@ footer .socialiconsmobile li i:last-child:hover {
 =            Sign in / Register Page            =
 ===============================================*/
 .signin {
-  margin-top: 40px; }
+  margin-top: 120px; }
 
 .panel-login {
   border-color: #ccc;
@@ -620,12 +624,52 @@ footer .socialiconsmobile li i:last-child:hover {
 .guestcheckout {
   text-align: center; }
 
+.checkout {
+  margin-top: 30px; }
+
 /*=====  End of Checkout Page  ======*/
 /*=============================================
 =            Shipping/Billing Page            =
 =============================================*/
 .shippinginfo {
   margin-top: 80px; }
+
+.billingslide {
+  margin-top: 80px; }
+  .billingslide h2 {
+    margin-bottom: 20px; }
+
+.shipping {
+  margin: 0 auto; }
+  .shipping button {
+    margin-top: 10px; }
+  .shipping label {
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px; }
+  @media (min-width: 768px) {
+    .shipping {
+      width: 50%; } }
+
+.billing {
+  margin: 0 auto; }
+  .billing button {
+    margin-top: 10px; }
+  .billing label {
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2px; }
+
+.credit h2 {
+  margin-bottom: 30px; }
+
+.billinginfo {
+  display: none; }
+
+.checkbox {
+  margin-left: 20px; }
 
 /*=====  End of Shipping/Billing Page  ======*/
 /*===================================

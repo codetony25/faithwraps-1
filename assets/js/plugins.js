@@ -57,11 +57,81 @@ $(function(){
           }
         }
          ]
-    });
+    });//end of products
 
     $('.mainpics').slick({
         autoplay: true,
         fade: true
-    });
+    });//end of mainpics
 
-});
+
+//Form validations
+
+//Set Defaults for validations
+  $.validator.setDefaults({
+      submitHandler: function() {
+          alert("submitted!");
+      }
+
+  $("#newsletter").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+        maxlength: 255
+      }
+    }
+  });
+
+  $( "#login-form" ).validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+        maxlength: 255
+      },
+      password: {
+        required: true,
+        minlength: 8,
+        max_length: 255
+      }
+    }
+  });//end of login form
+
+  $("#register-form").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+        maxlength: 255
+      },
+      password: {
+        required: true,
+        maxlength: 255,
+        minlength: 8
+      },
+      confirm_password: {
+        required: true,
+        minlength: 8,
+        equalTo: "#password"
+      }
+    }
+    messages: {
+      confirm_password: "Passwords do not match, please try again."
+    }
+  });//end of register form
+
+}); //end of ready
+
+
+
+
+
+
+
+
+
+
+
+
+

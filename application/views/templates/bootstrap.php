@@ -67,7 +67,7 @@
                 <div class="col-sm-4 form">
                     <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
                     <p class="text-center">Subscribe now to receive newsletters!</p>
-                    <form action="" method="post">
+                    <form action="" method="post" id="newsletter">
                         <input type="text" name="email" class="form-control" placeholder="example@example.com">
                         <button class="btn btn-info form-control">Submit</button>
                     </form>
@@ -108,6 +108,7 @@
 
     <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/jquery.validate.js"></script>
     <script src="/assets/js/vendor/slick/slick.js"></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
