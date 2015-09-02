@@ -1,0 +1,59 @@
+/*=======================================
+=            Categories Page            =
+=======================================*/
+
+.categorydesc {
+	text-align: center;
+	color: $pink;
+}
+
+.items {
+	text-align: center;
+	img {
+		width: 80%;
+	}
+}
+
+.items button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.productimgs {
+	text-align: center;
+}
+
+.items img {
+	border-radius: 5px;
+}
+
+.itembox h4 {
+	font-size: 0.7em;
+	margin-bottom: 0;
+	margin-top: 3px;
+	color: $pink;
+	@media (min-width: $break-small) {
+		font-size: 0.9em;
+	}
+	@media (min-width: $break-large) {
+		font-size: 1.2em;
+	}
+}
+
+
+.itembox {
+	margin-bottom: 25px;
+	a {
+		transition: 0.4s;
+		opacity: 1;
+	}
+	a:hover {
+		text-decoration: none;
+		opacity: 0.8;
+	}
+}
+
+
+
+/*=====  End of Categories Page  ======*/
+

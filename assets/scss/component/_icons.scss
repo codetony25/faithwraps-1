@@ -16,17 +16,19 @@ footer .socialiconsmobile li,  footer .socialiconstablet {
 }
 
 footer .socialiconsmobile li i, footer .socialiconstablet li i {
-    color: white;
+    color: #73685B;
+    opacity: 0.9;
     transition: 0.2s;
 }
 
 footer .socialiconsmobile li i:first-child, footer .socialiconsmobile li i:nth-child(3) {
+    margin-left: 16px;
     margin-right: 16px;
+    opacity: 1;
 }
 
 footer .socialiconsmobile li i:first-child:hover {
     color: #59ADEB;
-    font-size: 1.9em;
 }
 
 footer .socialiconsmobile li i:last-child:hover {

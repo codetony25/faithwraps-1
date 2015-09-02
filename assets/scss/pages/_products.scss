@@ -2,25 +2,89 @@
 =            Products Page            =
 =====================================*/
 
-.productdesc {
-	margin-top: 100px;
-	text-align: center;
-}
-
-.items {
-	text-align: center;
+.item {
+	margin-top: 80px;
+	p {
+		padding: 10px;
+		font-size: 1.2em;
+	}
+	form button {
+		margin-top: 10px;
+	}
+	.itemabout {
+		text-align: left;
+	}
+	.mainitemimg img {
+		position: absolute;
+	}
+	.itemthumbnail {
+		text-align: center;
+		margin-top: 10px;
+		img {
+			max-width: 130px;
+			cursor: pointer;
+		}
+	}
 	img {
-		width: 80%;
+		width: 100%;
+		max-width: 400px;
+		margin-bottom: 10px;
+	@media (min-width: $break-small) {
+		max-width: 600px;
+		}
 	}
 }
 
-.items button {
-	margin-top: 10px;
-	margin-bottom: 10px;
+.similaritems {
+	margin-top: 50px;
 }
 
-.productimgs {
-	text-align: center;
+.productdesc h2 {
+	margin-top: 0;
+	font-size: 2em;
+	text-align: left;
+	font-family: 'Alex Brush', cursive;
+	color: $pink;
 }
+
+.productdesc p {
+	letter-spacing: 1px;
+    line-height: 1.6em;
+}
+
+.itemabout p {
+	font-size: 1em;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 2em;
+}
+
+.qty em {
+	color: red;
+}
+
+.product-details {
+	dl dt {
+		width: 100px;
+	}
+	dl dd {
+		margin-left: 120px;
+	}
+	p {
+		font-size: 1em;
+	}
+}
+
+
+
+//Force Faux Crop image size
+// .productthumb {
+// 	width: 130px;
+// 	height: 138px;
+// 	overflow: hidden;
+// 	img {
+// 		width: 100%;
+// 	}
+// }
 
 /*=====  End of Products Page  ======*/
+
