@@ -7,5 +7,14 @@
 	},
 	"require-dev": {
 		"mikey179/vfsStream": "1.1.*"
+	},
+	"require": {
+		"league/oauth2-client": "1.0.*"
+	},
+	"require": {
+		"league/oauth2-google": "1.0.*"
+	},
+	"require": {
+		"league/oauth2-facebook": "1.0.*"
 	}
 }
