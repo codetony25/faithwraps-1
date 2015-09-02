@@ -9,7 +9,7 @@ class Users extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('Google_OAuth2', 'g_auth');
-		// $this->output->enable_profiler();
+		$this->output->enable_profiler();
 	}
 
 	/**
@@ -22,28 +22,44 @@ class Users extends CI_Controller {
 		));
 	}
 
+	/**
+	 * Displays the forgot password page to request an email
+	 */
+	function forgot_password()
+	{
+		$this->template->load('bootstrap', 'users/forgot_password', array(
+			'title' => 'Forgot Password'
+		));
+	}
+
+	/**
+	 * Endpoint for registration form.
+	 */
 	public function register()
 	{
-		if ($registration_feedback = $this->form_validation->run('register'))
+		if ($feedback = $this->form_validation->run('register'))
 		{
 			if ($user_id = $this->User->create_user($this->input->post()))
 			{
 				if ($email_sent = $this->User->send_verification_email($user_id))
-					$registration_feedback = "Verification email sent. Please check your inbox";
+					$feedback = "Verification email sent. Please check your inbox";
 				else
-					$registration_feedback = "Error: Email could not be sent to that address";
+					$feedback = "Error: Email could not be sent to that address";
 			}
 			else // Error during user creation
 			{
-				$registration_feedback = 'Error: User could not be created';
+				$feedback = 'Error: User could not be created';
 			}
 		}
 
-		$this->session->set_flashdata('login_feedback', $registration_feedback);
+		$this->session->set_flashdata('login_feedback', $feedback);
 
 		redirect('/users/login');
 	}
 
+	/**
+	 * Endpoint for user login form for local accounts
+	 */
 	public function user_login()
 	{
 		if ($login_feedback = $this->form_validation->run('login'))
@@ -61,7 +77,7 @@ class Users extends CI_Controller {
 			}
 			else
 			{
-				$login_feedback = 'Error: User with that email/password combination could not be found.';
+				$login_feedback = 'Error: User with that email/password combination could not be found, or account has not been activated yet.';
 			}
 		}
 
@@ -71,17 +87,7 @@ class Users extends CI_Controller {
 	}
 
 	/**
-	 * Displays the forgot password page to request an email
-	 */
-	function forgot_password()
-	{
-		$this->template->load('bootstrap', 'users/forgot_password', array(
-			'title' => 'Forgot Password'
-		));
-	}
-
-	/**
-	 * Forgot password posts to this route for form validation & processing
+	 * Endpoint for forgot password feature
 	 */
 	function request_reset()
 	{
@@ -89,7 +95,7 @@ class Users extends CI_Controller {
 		{
 			$email = $this->input->post('email');
 
-			if ($user = $this->User->fetch_user(array('email' => $email)))
+			if ($user = $this->User->fetch(array('email' => $email)))
 			{
 				$this->User->send_reset_email($user);
 			}
@@ -103,6 +109,9 @@ class Users extends CI_Controller {
 		redirect('/users/forgot_password');
 	}
 
+	/**
+	 * Endpoint for resetting password
+	 */
 	function reset_password()
 	{
 		if ($feedback = $this->form_validation->run('reset_password'))
@@ -136,6 +145,9 @@ class Users extends CI_Controller {
 		));
 	}
 
+	/**
+	 * Endpoint for email account verification
+	 */
 	public function confirm($code)
 	{
 		if ($this->User->confirm($code))
@@ -155,6 +167,9 @@ class Users extends CI_Controller {
 		redirect('/users/login');
 	}
 
+	/**
+	  * Endpoint for Login with Google button
+	  */ 
 	function google_login()
 	{
 		if ($access_token = $this->session->userdata('google_access_token'))
@@ -164,10 +179,11 @@ class Users extends CI_Controller {
 			
 			$user = $auth->userinfo_v2_me->get();
 			
-			if (! $account_info = $this->g_auth->fetch_account($user['id']))
+			// If user's information already exists in DB, grab it. If not, create it
+			if (! $account_info = $this->g_auth->fetch( array('oauth_id' => $user['id'])))
 				$new_user_id = $this->g_auth->create_account($user);
 
-			if($account_info)
+			if($account_info) // Existing db info
 			{
 				$session_data = array(
 					'first_name' => $account_info['first_name'],
@@ -175,7 +191,7 @@ class Users extends CI_Controller {
 					'email' => $account_info['email']
 				);
 			}
-			else
+			else // New info
 			{
 				$session_data = array(
 					'first_name' => $user['givenName'],
@@ -184,7 +200,7 @@ class Users extends CI_Controller {
 				);
 			}
 
-			$this->session->set_userdata('is_logged_in', TRUE);
+			$this->session->set_userdata('is_logged_in', 1);
 			$this->session->set_userdata('user', $session_data);
 
 			redirect('/'); // TO DO: redirect to their last page
@@ -195,6 +211,10 @@ class Users extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Sends user to Google authorization page for login.
+	 * Handles authenication and exchanging of access token
+	 */
 	function google_verify()
 	{
 		if (! isset($_GET['code']))

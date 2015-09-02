@@ -1,7 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+include APPPATH . 'traits/DB_Trait.php';
+
 class Google_OAuth2 extends CI_Model {
+
+	use DB_Trait;
 
 	const TABLE = 'oauth_users';
 	const OAUTH_TYPE = 1;
@@ -24,11 +28,10 @@ class Google_OAuth2 extends CI_Model {
 		return $this->client->createAuthUrl();
 	}
 
-	function fetch_account($id)
-	{
-		return $this->db->get_where(self::TABLE, array('oauth_id' => $id))->row_array();
-	}
-
+	/**
+	 * @param 	array 	$user 	Array containing data retrieved from user's Google account
+	 * @return 	int 			Returns row ID after table insertion
+	 */
 	function create_account($user)
 	{
 		$this->db->set('created_at', 'NOW()', FALSE);
