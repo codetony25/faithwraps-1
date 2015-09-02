@@ -9,6 +9,17 @@
     }
 }
 
+.slogan {
+    color: $pink;
+    h1 {
+        font-family: 'Alex Brush', cursive;
+    }
+    p {
+        letter-spacing: 1px;
+        line-height: 1.6em;
+    }
+}
+
 .slick-prev:before, .slick-next:before { 
     color: #F6F0E4;
 }
@@ -21,18 +32,19 @@
         text-align: center;
         margin: 0;
         margin-bottom: 7px;
-        font-size: 1.1em;
+        font-size: 1.0em;
     }
     img {
         margin: 0 auto;
         transition: 0.2s;
+        max-width: 270px;
     }
     p {
         margin: 0;
         margin-top: 7px; 
     }
     a {
-        color: black;
+        color: $pink;
         transition: 0.2s;
         &:hover {
             color: $gray;
@@ -40,16 +52,8 @@
         }
     }
     @media (min-width: $break-small) {
-    	h4 {
-    		font-size: 1.4em;
-    	}
         & .slick-prev:before, & .slick-next:before {
-            color: gray !important;
-        }
-    }
-    @media (min-width: $break-medium) {
-        h4 {
-            font-size: 1.4em;
+            color: $pink !important;
         }
     }
 }

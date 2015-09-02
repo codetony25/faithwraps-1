@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('database','session','form_validation', 'template');
+$autoload['libraries'] = array('MY_Composer', 'database','session','form_validation', 'template');
 
 
 /*
@@ -137,4 +137,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 
-$autoload['model'] = array('User','Admin','Product','Category', 'Gem', 'Product_Style','Page');
+$autoload['model'] = array('User','Admin','Product','Category', 'Gem', 'Product_Style','Page','Order','Order_Part','Mailing_Address','Billing_Address');

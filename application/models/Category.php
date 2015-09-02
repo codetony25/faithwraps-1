@@ -4,6 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Category extends CI_model {
 
 	const TABLE = 'galleries';
+	
+	use DB_trait;
+
+	public function __construct() {
+		parent::__construct();
+	}
 
 	public function fetch($data) {
 		return $this->db->get_where(self::TABLE, $data, 1)->row_array();

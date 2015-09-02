@@ -9,6 +9,7 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/font-awesome.css">
     <link rel="stylesheet" href="/assets/js/vendor/slick/slick.css">
@@ -21,7 +22,8 @@
     <div class="container">
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container-fluid logo">
+                <h1 id="logo-main" class="hidden-xs">FaithWraps</h1>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
                     <div class="navbar-header">
@@ -31,9 +33,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         </button>
-                        <div class="navbar-brand navbar-brand-centered"><a href="/">FaithWraps</a></div>
+                        <h1 id="logo-main2" class="hidden-sm hidden-md hidden-lg">FaithWraps</h1>
                         <div class="shoppingcart">
-                            <h3><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
+                            <h3 class=""><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
                         </div><!-- END OF SHOPPINGCART -->
                     </div><!-- END OF NAVBAR-HEADER -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,12 +43,10 @@
                           <ul class="nav navbar-nav">
                             <li><a href="/">Home</a></li>
                             <li><a href="/categories/1">FaithWraps</a></li>
-                            <li><a href="/categories/2">Limited Ed.</a></li>
-                          </ul>
-                          <ul class="nav navbar-nav navbar-right">            
+                            <li><a href="/categories/2">Limited Ed.</a></li>        
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
-                            <li><a href="/login">Sign In</a></li>
+                            <li><a href="/login">Log In</a></li>
                             <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
@@ -64,43 +64,40 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 form">
-                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
-                    <p class="text-center">Subscribe now to receive newsletters!</p>
-                    <form action="" method="post" id="newsletter">
-                        <input type="text" name="email" class="form-control" placeholder="example@example.com">
-                        <button class="btn btn-info form-control">Submit</button>
-                    </form>
+                <div class="col-sm-4 footerlinks ">
+                    <h5>Follow Us</h5>
                     <ul class="socialiconstablet">
                         <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
-                </div><!-- END OF COLUMN -->
-                <div class="col-sm-4">
-                    <ul>
-                        <li class="contactinfo"><button class="btn btn-success btnfooter"><a href="#">Contact Us</a></button></li>
-                        <li><button class="btn btn-success btnfooter"><a href="#">About Us</a></button></li>
-                        <li><button class="btn btn-success btnfooter"><a href="#">FAQ</a></button></li>
-                        <li><button class="btn btn-success btnfooter"><a href="#">Privacy</a></button></li>
-                        <li><button class="btn btn-success btnfooter"><a href="#">Terms and Conditions</a></button></li>
-                    </ul>
-                </div><!-- END OF COLUMN -->
-                <div class="col-sm-4">
                     <ul class="socialiconsmobile">
                         <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
-                    <div class="contact">
-                        <h3 class="text-center">Contact Us</h3>
-                        <p class="text-center"><a href="#">Info@FaithWraps.com</a></p>
-                        <p>For general information about FaithWraps or our products.</p>
-                        <p class="text-center"><a href="#">TechSupport@FaithWraps.com</a></p>
-                        <p>For problems with logging into your account or other questions related to our website.</p>
-                        <p class="text-center"><a href="#">CustomerSupport@FaithWraps.com</a></p>
-                        <p>For questions regarding sales, pending orders, or other general transactions.</p>
-                    </div><!-- END OF CONTACT -->
+                </div><!-- END OF COLUMN -->
+                <div class="col-sm-4 footerlinks ">
+                    <h5>Information</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                    </ul>
+                </div><!-- END OF COLUMN -->
+                <div class="col-sm-4 newsletter">
+                    <h5>Subscribe now to receive newsletters!</h5>
+                    <form action="" method="post" id="newsletter">
+                        <div class="input-group">
+                           <input type="text" class="form-control" placeholder="example@example.com">
+                           <span class="input-group-btn">
+                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
+                           </span>
+                        </div>
+                    </form>
+                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
                 </div><!-- END OF COLUMN -->
             </div><!-- END OF ROW -->
         </div><!-- END OF CONTAINER -->

@@ -6,18 +6,18 @@
             <div class="itemthumbnail">
                 <div class="row">
                     <?php foreach($styles as $style): ?>
-                        <div class="col-xs-3">
-                            <img src="/assets/img/products/<?= $style['image']; ?>" class="thumbnail product" alt="">
+                        <div class="col-xs-3 productthumb">
+                            <img src="/assets/img/products/<?= $style['image']; ?>" class="thumbnail" alt="">
                         </div>
                     <?php endforeach; ?>
                 </div><!-- END OF ROW -->
             </div><!-- END OF ITEMTHUMBNAIL -->
         </div><!-- END OF COL-MD-6 -->
 
-        <div class="col-md-6">
-            <h2 style="font-size: 2em; text-align: left;"><?= ucwords($product['name']); ?></h2>
+        <div class="col-md-6 productdesc">
+            <h2><?= ucwords($product['name']); ?></h2>
             <div class="itemabout">
-                <p style="font-size: 1em; border-bottom: 1px solid #eee; padding-bottom: 2em"><?= xss_clean($product['desc']); ?></p>
+                <p><?= xss_clean($product['desc']); ?></p>
 
                 <?= form_open('/shop/add_to_cart', 'class="form-horizontal" style="padding: 1.5em 0; border-bottom: 1px solid #eee;"'); ?>
                     <div class="form-group">
@@ -35,13 +35,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group qty">
                         <label class="col-sm-2 control-label" for="product_qty">Qty:</label>
                         <div class="col-sm-2">
                             <input type="number" class="form-control" name="product_qty" min="1" max="<?= $product['qty'];?>" step="1" required >
                         </div>
                         <?php if ($product['qty'] <= 5 ): ?>
-                            <em style="color: red;">Only <?=$product['qty'];?> left in stock!</em>
+                            <em>Only <?=$product['qty'];?> left in stock!</em>
                         <?php endif; ?>
                     </div>
                     <div class="form-group">
@@ -54,11 +54,6 @@
                 <div class="product-details">
                     <h4>About The Gem</h4>
 
-                    <style type="text/css">
-                        dl dt { width: 100px !important; }
-                        dl dd { margin-left: 120px !important; }
-                    </style>
-
                     <dl class="dl-horizontal">
                         <dt>Color</dt>
                         <dd><?= $gem['colors']; ?></dd>
@@ -67,7 +62,7 @@
                         <dt>Chakra</dt>
                         <dd><?= $gem['chakras']; ?></dd>
                     </dl>
-                    <p style="font-size: 1em;"><?= $gem['desc']; ?></p>
+                    <p><?= $gem['desc']; ?></p>
                 </div>
                 
             </div>
@@ -86,7 +81,7 @@
                     <img src="/assets/img/products/<?= $product['image']; ?>"  />
                     <h4><?= $product['name']; ?></h4>
                 </a>
-                <button class="btn btn-info">Buy Now! $<?=$product['price'];?></button>
+                <p>$<?=$product['price'];?></p>
             </div>
         <?php endforeach; ?>
     </div><!-- END OF PRODUCTS -->

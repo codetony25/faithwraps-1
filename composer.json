@@ -3,9 +3,7 @@
 	"name" : "codeigniter/framework",
 	"license": "MIT",
 	"require": {
-		"php": ">=5.2.4"
-	},
-	"require-dev": {
-		"mikey179/vfsStream": "1.1.*"
+		"league/oauth2-client": "1.0.*",
+		"league/oauth2-facebook": "1.0.*"
 	}
 }

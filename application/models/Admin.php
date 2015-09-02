@@ -14,7 +14,8 @@ class Admin extends CI_model {
 		elseif 	($table == "product_styles") { $model = "Product_Style"; }
 		elseif 	($table == "gems") { $model = "Gem"; }
 		elseif 	(($table == "galleries") || ($table == "categories")) { $model = "Category"; }
-
+		elseif ($table == "orders") { $model = "Order"; }
+		
 		if (isset($model)) {
 			if (($field) && ($value)) {
 				return ($limit) ? $this->$model->fetch(array($field=>$value))
@@ -140,9 +141,17 @@ class Admin extends CI_model {
 					'gallery' => $gallery);
 			} else {
 				$data = array('is_new' => FALSE,
-					'gallery' => $this->admin_get($form_scope,'id', $id));
+					'gallery' => $this->admin_get($form_scope,'id', $id, TRUE));
 			}
 			return $data;
+		}
+		// Orders and parts
+		elseif ($form_scope == "orders") {
+			if ($order = $this->Order->get_order_joined($id)) {
+				$order_parts = $this->Order_Part->get_order_parts_joined($id);
+				$data = array('order' => $order, 'order_parts' => $order_parts);
+			return $data;
+			}
 		}
 	}
 }

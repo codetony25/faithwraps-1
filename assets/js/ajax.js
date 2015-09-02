@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	function draw_sub_nav(formScope) {
 	// Draws the proper sub navigation
 		jsonUrl = '/admins/control_get/' + formScope;
@@ -18,10 +18,45 @@ $(document).ready(function() {
 		}, 'json');
 	}
 
-	$(document).on('click', '#products, #gems, #galleries', function(e){
+	function draw_orders_nav(formScope) {
+	// Draws the proper sub navigation
+		jsonUrl = '/admins/control_get/orders/';
+		// Everytime we draw a sub navigation clear the #form_holder and #messages
+		$('#form_holder').html('');
+		$('#messages').html('');
+
+		$.get(jsonUrl, function(list) {
+			var buf = "<ul>";
+
+			// Sort by items that need to be shipped
+			list.sort(function compare(a,b) {
+			  if (a.shipped < b.shipped)
+			    return -1;
+			  if (a.shipped > b.shipped)
+			    return 1;
+			  return 0;
+			});
+
+			for(var i=0; i<list.length; i++) {
+					buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>";
+					if (list[i].shipped == 0) { buf += "<b>"; }
+					buf += "Order #: " + list[i].id;
+					if (list[i].shipped == 0) { buf += "</b>"; }
+					buf += "</li>";
+			}
+			buf += "</ul>";
+			$('#sub_nav').html(buf);
+		}, 'json');
+	}
+	
+	$(document).on('click', '#products, #gems, #galleries, #orders', function(e){
 		url = '/admins/control_get/' + e.target.id;
 		scope = e.target.id;
-		draw_sub_nav(scope);
+		if (scope == "orders") {
+			draw_orders_nav(scope);
+		} else {
+			draw_sub_nav(scope);			
+		}
 	});
 
 	// Creating the add/edit forms
@@ -30,7 +65,6 @@ $(document).ready(function() {
 		var scope = $(this).data('scope');
 		$('#messages').html('');
 		$.get('/admins/make_form/' + scope + '/' + id, function(res) {
-			console.log('INSIDE ' + scope + ' FORM BUILDER');
 			$('#form_holder').html(res);
 		}, 'html');
 	});
@@ -38,10 +72,8 @@ $(document).ready(function() {
 	$(document).on('submit',"#edit_form", function(e) {
 		var scope = $(this).data('scope');
 		var url = '/admins/control_edit/' + scope;
-			console.log($(this).serialize());
 
 		$.post(url, $(this).serialize(), function(res) {
-			console.log('INSIDE ' + url + ' RESPONSE');
 			if (res.success) {
 				// Redraw the subnav for inserted items
 				draw_sub_nav(scope);
@@ -56,8 +88,6 @@ $(document).ready(function() {
 			var this_id = $(this).data('id');
 			var scope = $(this).data('scope');
 			$.get('/admins/control_delete/' + scope + '/' + this_id, function(res) {
-				console.log('In deleting ' + scope + ' ajax response');
-				console.log(res.success);
 				if (res.success) {
 					// Redraw the subnav for inserted items
 					draw_sub_nav(scope);
