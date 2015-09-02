@@ -9,15 +9,14 @@ class Categories extends CI_controller {
 	}
 
 	public function show($id) {
-		$category = $this->Category->fetch(array('id',$id));
-		$products = $this->Product->fetch_all_where(array('gallery_id',$category['id']));
-		$style = $this->
-		$this->template->load('bootstrap', 'categories/category', array(
-			'title' => 'Login Registration',
-			'category' => $category,
-			'products' => $products,
-			'style' => $style
-		));
+		$view_data = $this->Category->get_show_data($id);
+		$view_data['title'] = $view_data['category']['name'];
+
+		$this->template->load('bootstrap', 'categories/category', $view_data);
+	}
+
+	public function get_style($id) {
+		return $this->Product_Style->fetch_where(array('product_id'=>$id));
 	}
 
 }

@@ -39,7 +39,7 @@ trait DB_Trait {
 	 */
 	function fetch_all_where(array $data)
 	{
-		return $this->db->get_where(self::TABLE)->result_array();
+		return $this->db->get_where(self::TABLE, $data)->result_array();
 	}
 
 }
