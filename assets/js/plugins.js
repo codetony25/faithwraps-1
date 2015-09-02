@@ -68,10 +68,6 @@ $(function(){
 //Form validations
 
 //Set Defaults for validations
-  $.validator.setDefaults({
-      submitHandler: function() {
-          alert("submitted!");
-      }
 
   $("#newsletter").validate({
     rules: {
@@ -115,7 +111,7 @@ $(function(){
         minlength: 8,
         equalTo: "#password"
       }
-    }
+    },
     messages: {
       confirm_password: "Passwords do not match, please try again."
     }
