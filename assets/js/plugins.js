@@ -64,21 +64,21 @@ $(function(){
         fade: true
     });//end of mainpics
 
-    
+
 
 
 //Form validations
 
   //Newsletter validation
-  $("#newsletter").validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
-        maxlength: 255
-      }
-    }
-  });
+  // $("#newsletter").validate({
+  //   rules: {
+  //     email: {
+  //       required: true,
+  //       email: true,
+  //       maxlength: 255
+  //     }
+  //   }
+  // });
 
   //Login Form validation
   $( "#login-form" ).validate({

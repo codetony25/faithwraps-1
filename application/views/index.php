@@ -20,7 +20,7 @@
                 <img src="/assets/img/products/<?= $product['image']; ?>"  />
                 <h4><?= $product['name']; ?></h4>
             </a>
-            <button class="btn btn-info">Buy Now! $<?=$product['price'];?></button>
+            <p>$<?=$product['price'];?></p>
         </div>
     <?php endforeach; ?>
 </div><!-- END OF PRODUCTS -->
