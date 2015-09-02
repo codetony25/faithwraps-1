@@ -13,7 +13,10 @@ class Products extends CI_controller {
 		$product = $this->Product->fetch(array('id' => $id));
 
 		$this->template->load( 'bootstrap', 'products/product', array(
-			'product' => $product
+			'product' => $product,
+			'styles' => $this->Product->fetch_product_styles($id),
+			'gem' => $this->Product->fetch_product_gem($product['id']),
+			'similar' => $this->Product->fetch_similar($product['gallery_id'])
 		));
 	}
 
