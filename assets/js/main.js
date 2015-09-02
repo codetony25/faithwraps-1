@@ -73,30 +73,16 @@ $(function(){
     $('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
    }
 
-<<<<<<< HEAD
-
 //Getting values from shipping and display on billing "Same as Shipping" is checked.
 
-	$('.shipping button').click(function{
-		shipval.setItem("firstname", $('input[name=first-name']));
+	$('.shipping button').click(function (){
+		shipval.setItem("firstname", $('input[name=first-name]'));
 	});
 
 
-	$('.billing input:checkbox:checked').click(function){
+	$('.billing input:checkbox:checked').click(function (){
 		$('.billing input[name=first_name]').val(shipval.getItem("firstname"));
 	});
-
-
-
-
-
-
-
-
-
-
 	
 });//end ready
-=======
-});//end ready
->>>>>>> cd4a3725d0b4f25d92db12dc0d74cab3f5f88f48
+
