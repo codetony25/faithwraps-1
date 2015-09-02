@@ -8,7 +8,6 @@ class Users extends CI_Controller {
 	{
 		parent::__construct();
 
-		$this->load->model('Google_OAuth2', 'g_auth');
 		$this->output->enable_profiler();
 	}
 
