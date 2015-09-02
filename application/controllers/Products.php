@@ -13,7 +13,7 @@ class Products extends CI_controller {
 
 	}
 
-	public function get_product($id) {
+	public function get_by($id) {
 
 	}
 }

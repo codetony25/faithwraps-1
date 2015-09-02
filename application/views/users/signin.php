@@ -1,6 +1,14 @@
 <div class="signin">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
+
+            <?php if ($feedback = $this->session->userdata('login_feedback')): ?>
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <?php echo $feedback; ?>
+                </div>
+            <?php endif; ?>
+
             <div class="panel panel-login">
                 <div class="panel-heading">
                     <div class="row">

@@ -28,10 +28,10 @@ class Users extends CI_Controller {
 		{
 			if ($user_id = $this->User->create_user($this->input->post()))
 			{
-				// if ($email_sent = $this->User->send_verification_email($user_id))
+				if ($email_sent = $this->User->send_verification_email($user_id))
 					$registration_feedback = "Verification email sent. Please check your inbox";
-				// else
-				// 	$registration_feedback = "Error: Email could not be sent to that address";
+				else
+					$registration_feedback = "Error: Email could not be sent to that address";
 			}
 			else // Error during user creation
 			{
@@ -39,9 +39,9 @@ class Users extends CI_Controller {
 			}
 		}
 
-		$this->session->set_flashdata('registration_feedback', $registration_feedback);
+		$this->session->set_flashdata('login_feedback', $registration_feedback);
 
-		redirect('/');
+		redirect('/users');
 	}
 
 	public function login()
@@ -58,11 +58,14 @@ class Users extends CI_Controller {
 			}
 		}
 
-		$this->session->set_flashdata('registration_feedback', $login_feedback);
+		$this->session->set_flashdata('login_feedback', $login_feedback);
 
-		redirect('/');
+		redirect('/users');
 	}
 
+	/**
+	 * Displays the forgot password page to request an email
+	 */
 	function forgot_password()
 	{
 		$this->template->load('bootstrap', 'users/forgot_password', array(
@@ -70,40 +73,79 @@ class Users extends CI_Controller {
 		));
 	}
 
-	function reset_password()
+	/**
+	 * Forgot password posts to this route for form validation & processing
+	 */
+	function request_reset()
 	{
 		if ($reset_feedback = $this->form_validation->run('password_reset'))
 		{
-			$info = array('email' => $this->input->post('email'));
+			$email = $this->input->post('email');
 
-			if ($user = $this->User->fetch_user($info))
+			if ($user = $this->User->fetch_user(array('email' => $email)))
 			{
-
+				$this->User->send_reset_email($user);
 			}
+
+			$this->session->set_flashdata('login_feedback', "A password reset email was sent to $email. The link is valid for an hour");
+			redirect('/users');
 		}
-		else
-		{
-			
-		}
-		
+
 		$this->session->set_flashdata('reset_feedback', $reset_feedback);
 
 		redirect('/users/forgot_password');
+	}
+
+	function reset_password()
+	{
+		if ($feedback = $this->form_validation->run('reset_password'))
+		{
+			if( $this->User->reset_password($this->input->post()) )
+				$feedback = 'Your password was successfully updated. Please log in';
+			else
+				$feedback = 'Invalid or expired token. Please try again';
+		}
+
+		$this->session->set_flashdata('login_feedback', $feedback);
+
+		redirect('/users');
+	}
+
+	/**
+	 * Displays the password reset form.
+	 * If not token is availabe in the url, redirects to login page
+	 */
+	function password_reset($token)
+	{
+		if (! $token || $token == '')
+		{
+			$this->session->set_flashdata('login_feedback', "Invalid reset token");
+			redirect('users/');
+		}
+
+		$this->template->load('bootstrap', 'users/password_reset', array(
+			'title' => 'Reset Password',
+			'token' => $token
+		));
 	}
 
 	public function confirm($code)
 	{
 		if ($this->User->confirm($code))
 		{
-			$activated = $this->User->activate($code);
-			$this->session->set_flashdata('registration_feedback', 'Account was succesfully activated. Please log in.');
+			if ($activated = $this->User->activate($code))
+				$feedback = 'Account was succesfully activated. Please log in.';
+			else
+				$feedback = 'Error: invalid or missing token';
 		}
 		else
 		{
-			$this->session->set_flashdata('registration_feedback', 'Error: Confirmation code was not found');
+			$feedback = 'Error: Confirmation code was not found';
 		}
 
-		redirect('/');
+		$this->session->set_flashdata('login_feedback', $feedback);
+
+		redirect('/users');
 	}
 
 	function google_login()
