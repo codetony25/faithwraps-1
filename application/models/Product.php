@@ -39,4 +39,9 @@ class Product extends CI_model {
 		$this->db->where($field, $value);
 		return $this->db->get($table)->row_array();
 	}
+
+	function fetch_product_styles($product_id)
+	{
+		
+	}
 }
