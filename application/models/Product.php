@@ -50,6 +50,9 @@ class Product extends CI_model {
 		return $this->db->get_where(Gem::TABLE, array('id' => $gem_id))->row_array();
 	}
 
+	/**
+	 * Retrieves similar product info by $gallery_id
+	 */
 	function fetch_similar($gallery_id)
 	{
 		$styles = Product_Style::TABLE;
@@ -60,6 +63,7 @@ class Product extends CI_model {
 		$this->db->join($styles, "$products.id = $styles.product_id");
 		$this->db->where("$products.gallery_id", $gallery_id);
 		$this->db->group_by("$products.id");
+
 		return $this->db->get()->result_array();
 	}
 }

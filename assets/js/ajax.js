@@ -2,7 +2,7 @@ $(document).ready(function() {
 	
 	function draw_sub_nav(formScope) {
 	// Draws the proper sub navigation
-		jsonUrl = '/admins/get_admin/' + formScope;
+		jsonUrl = '/admins/control_get/' + formScope;
 		// Everytime we draw a sub navigation clear the #form_holder and #messages
 		$('#form_holder').html('');
 		$('#messages').html('');
@@ -19,7 +19,7 @@ $(document).ready(function() {
 	}
 
 	$(document).on('click', '#products, #gems, #galleries', function(e){
-		url = '/admins/get_admin/' + e.target.id;
+		url = '/admins/control_get/' + e.target.id;
 		scope = e.target.id;
 		draw_sub_nav(scope);
 	});

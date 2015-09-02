@@ -24,7 +24,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="/users/login" method="post" role="form" style="display: block;">
+                            <form id="login-form" action="/users/user_login" method="post" role="form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="E-mail" value="">
                                 </div>
@@ -49,7 +49,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="/users/forgot_password" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                <a href="/forgot_password" tabindex="5" class="forgot-password">Forgot Password?</a>
                                             </div>
                                         </div>
                                     </div>
