@@ -80,15 +80,3 @@
         </div>
     </div>  
 </div>
-
-
-<?php
-class TestClass{
-    const TABLE = 'test';
-    function testFn($table = self::TABLE){
-        echo $table;
-    }
-}
-
-$a = new TestClass();
-$a->testFn();
