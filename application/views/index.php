@@ -16,32 +16,26 @@
 <div class="products">
     <div>
         <a href="#"><h4>Bottle Set Trust</h4><img src="/assets/img/bottleset_trust.jpg"  /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
+        <button class="btn btn-info">Buy Now! $59.99</button>
     </div>
     <div>
         <a href="#"><h4>Tigresscuff</h4><img src="/assets/img/tigresscuff.jpg"  /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
+        <button class="btn btn-info">Buy Now! $59.99</button>
     </div>
     <div>
         <a href="#"><h4>Transformation Mistletoe</h4><img src="/assets/img/transformation_mistletoe.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
+        <button class="btn btn-info">Buy Now! $59.99</button>
     </div>
     <div>
         <a href="#"><h4>Black Earrings</h4><img src="/assets/img/blackearrings.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
+        <button class="btn btn-info">Buy Now! $59.99</button>
     </div>
     <div>
         <a href="#"><h4>Relaxation Riverstone</h4><img src="/assets/img/relaxation_riverstone.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
+        <button class="btn btn-info">Buy Now! $59.99</button>
     </div>
     <div>
         <a href="#"><h4>Bottle Set Scroll</h4><img src="/assets/img/bottlescroll_trust.jpg" /></a>
-        <p>$59.99</p>
-        <button class="btn btn-info">Buy Now!</button>
+        <button class="btn btn-info">Buy Now! $59.99</button>
     </div>
 </div><!-- END OF PRODUCTS -->
