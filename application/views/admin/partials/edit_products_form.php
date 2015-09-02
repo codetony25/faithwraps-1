@@ -66,7 +66,7 @@
 </div>
 <script>
 	function draw_styles() {
-		$.get('/admins/get_by/product_styles/product_id/' + <?= $product['id'] ?>, function(list) {
+		$.get('/admins/control_get/product_styles/product_id/' + <?= $product['id'] ?>, function(list) {
 			$('#this_product_style_form').html('');
 			var buf = "<ul>";
 			buf += "<li data-id='add' data-innerscope='product_styles'><b>Add New</b></li>";

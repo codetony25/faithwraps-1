@@ -18,27 +18,18 @@ class Admins extends CI_Controller {
 		$this->template->load('bootstrap', 'admin/dashboard', array('title'=>'Admin Dashboard', 'js_files' => array('ajax.js')));
 	}
 
-	public function transfer() {
-	/* DELETE THIS ***********************************************/
-		$this->Admin->transfer();
-	}
-
 	public function is_admin() {
 		return ($this->session->userdata('level') == 5);
-	}
-
-	public function get_admin($table) {
-		echo json_encode($this->Admin->get_all_items($table));
-	}
-
-	public function get_by($table, $field, $value) {
-		echo json_encode($this->Admin->get_by($table, $field, $value));
 	}
 
 	public function make_form($form_scope, $id) {
 		$data = $this->Admin->create_form($form_scope, $id);
 			echo $this->load->view('admin/partials/edit_' . $form_scope . '_form', $data, TRUE);
 	}
+
+	/****************
+	* JSON Response functions
+	****/
 
 	public function control_edit($form_scope) {
 	// Calls on the model to edit/insert a product and returns a JSON response
@@ -50,5 +41,9 @@ class Admins extends CI_Controller {
 	// Calls on the Admin model to delete a product and returns a json response
 		$json = $this->Admin->delete_item($form_scope, $id);
 		echo json_encode($json);
+	}
+
+	public function control_get($table, $field = "", $value = "", $limit = FALSE) {
+		echo json_encode($this->Admin->admin_get($table, $field, $value, $limit));
 	}
 }

@@ -3,18 +3,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_model {
 
-	/**************** CRUD FUNCTIONS ********************/
-
-	public function get_by($table, $field, $value) {
-		$this->db->where($field, $value);
-		return $this->db->get($table)->result_array();
+	public function __construct() {
+		parent::__construct();
 	}
 
-	public function get_all_items($table) {
-		// Takes in a table as paremeter and returns all data to be parsed as
-		// JSON to be used in the admin dashboard.
+	/**************** CRUD FUNCTIONS ********************/
 
-		return $this->db->get($table)->result_array();
+	public function admin_get($table, $field = "", $value = "", $limit = FALSE) {
+		if 	($table == "products") { $model = "Product"; }
+		elseif 	($table == "product_styles") { $model = "Product_Style"; }
+		elseif 	($table == "gems") { $model = "Gem"; }
+		elseif 	(($table == "galleries") || ($table == "categories")) { $model = "Category"; }
+
+		if (isset($model)) {
+			if (($field) && ($value)) {
+				return ($limit) ? $this->$model->fetch(array($field=>$value))
+				 				: $this->$model->fetch_all_where(array($field=>$value));
+			} else {
+				return $this->$model->fetch_all();
+			}
+		} else {
+			return FALSE;
+		}
 	}
 
 	public function update_item($table, $post) {
@@ -76,29 +86,27 @@ class Admin extends CI_model {
 
 	/**************** FORM BUILDING *********************/
 	public function create_form($form_scope, $id) {
+		
+		// Products Form
 		if ($form_scope == "products") {
-			if (($id == "add") || (!$this->get_by('products', 'id', $id))) {
+			if (($id == "add") || (!$this->admin_get('products', 'id', $id))) {
 				$product = array('name' => 'Needs a Name',
 					'desc' => 'Needs a Description',
 					'price' => '35.00',
 					'shipping' => '3.99',
 					'qty' => '5',
 					'combined_shipping' => '1.00');
-				$data = array('is_new' => TRUE,
-					'product' => $product,
-					'galleries' => $this->Product->get_all_galleries(),
-					'gems' => $this->Product->get_all_gems('gems'));
-
+				$data = array('is_new' => TRUE, 'product' => $product);
 			} else {
-				$data = array('is_new' => FALSE,
-					'product' => $this->Product->get_by('products','id', $id),
-					'galleries' => $this->Product->get_all_galleries(),
-					'gems' => $this->Product->get_all_gems('gems'));
+				$data = array('is_new' => FALSE, 'product' => $this->admin_get('products','id', $id, TRUE));
 			}
+			$data['galleries'] = $this->admin_get('galleries');
+			$data['gems'] = $this->admin_get('gems');
 			return $data;
 		}
+		// Gems Form
 		elseif ($form_scope == "gems") {
-			if (($id == "add") || (!$this->Product->get_by('gems', 'id', $id))) {
+			if (($id == "add") || (!$this->admin_get('gems', 'id', $id))) {
 				$gem = array('name' => 'Needs a Name',
 					'desc' => 'Needs a Description',
 					'colors' => 'List colors comma separated',
@@ -108,33 +116,31 @@ class Admin extends CI_model {
 					'gem' => $gem);
 			} else {
 				$data = array('is_new' => FALSE,
-					'gem' => $this->get_by('gems','id', $id));
+					'gem' => $this->admin_get('gems','id', $id, TRUE));
 			}
 			return $data;
 		}
+		// Product Styles Inner Form
 		elseif ($form_scope == "product_styles") {
-			if (($id == "add") || (!$this->get_by($form_scope, 'id', $id))) {
+			if (($id == "add") || (!$this->admin_get('product_styles', 'id', $id))) {
 				$product_style = array('name' => 'Needs a Name',
-					'image' => '');
-				$data = array('is_new' => TRUE,
-					'product_style' => $product_style,
-					'products' => $this->Product->get_all_products());
+					'image' => 'default.jpg');
+				$data = array('is_new' => TRUE, 'product_style' => $product_style);
 			} else {
-				$data = array('is_new' => FALSE,
-					'product_style' => $this->get_by($form_scope,'id', $id),
-					'products' => $this->Product->get_all_products());
+				$data = array('is_new' => FALSE, 'product_style' => $this->admin_get('product_styles','id', $id, TRUE));
 			}
 			return $data;
 		}
+		// Galleries aka Categories
 		elseif ($form_scope == "galleries") {
-			if (($id == "add") || (!$this->get_by($form_scope, 'id', $id))) {
+			if (($id == "add") || (!$this->admin_get($form_scope, 'id', $id))) {
 				$gallery = array('name' => 'Needs a Name',
 					'desc' => 'Needs a Desc');
 				$data = array('is_new' => TRUE,
 					'gallery' => $gallery);
 			} else {
 				$data = array('is_new' => FALSE,
-					'gallery' => $this->get_by($form_scope,'id', $id));
+					'gallery' => $this->admin_get($form_scope,'id', $id));
 			}
 			return $data;
 		}
