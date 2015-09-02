@@ -3,30 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 include APPPATH . 'traits/DB_Trait.php';
 
-class Google_OAuth2 extends CI_Model {
+class OAuth2_Google extends CI_Model {
 
 	use DB_Trait;
 
 	const TABLE = 'oauth_users';
 	const OAUTH_TYPE = 1;
-
-	function __construct()
-	{
-		require_once APPPATH . 'libraries/google-api-php-client/src/Google/autoload.php';
-
-		$this->client = new Google_Client();
-
-		$this->client->setAuthConfigFile(APPPATH . 'config/google_api_key.json');
-		$this->client->setScopes(array(
-			Google_Service_Oauth2::USERINFO_EMAIL,
-			Google_Service_Oauth2::USERINFO_PROFILE
-		));
-	}
-
-	function get_auth_url()
-	{
-		return $this->client->createAuthUrl();
-	}
 
 	/**
 	 * @param 	array 	$user 	Array containing data retrieved from user's Google account
@@ -51,5 +33,10 @@ class Google_OAuth2 extends CI_Model {
 		$this->db->insert(self::TABLE, $data);
 
 		return $this->db->insert_id();
+	}
+
+	function generate_state()
+	{
+		return sha1(openssl_random_pseudo_bytes(1024));
 	}
 }

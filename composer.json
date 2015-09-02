@@ -4,7 +4,6 @@
 	"license": "MIT",
 	"require": {
 		"league/oauth2-client": "1.0.*",
-		"league/oauth2-facebook": "1.0.*",
-		"league/oauth2-google": "1.0.*"
+		"league/oauth2-facebook": "1.0.*"
 	}
 }
