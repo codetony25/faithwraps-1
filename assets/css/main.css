@@ -223,9 +223,9 @@ textarea {
 nav {
   position: relative;
   z-index: 10;
-  -webkit-box-shadow: -2px 11px 11px -12px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -2px 11px 11px -12px rgba(0, 0, 0, 0.75);
-  box-shadow: -2px 11px 11px -12px rgba(0, 0, 0, 0.75); }
+  -webkit-box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75); }
   nav li {
     color: black; }
   nav li a {
@@ -238,31 +238,11 @@ nav {
 main {
   margin-top: 100px; }
 
-.logotablet {
-  display: none; }
-
-.mobile-nav {
-  background-color: #333; }
-
-.shoppingcarttablet {
+.shoppingcartmobile i {
   display: none; }
   @media (min-width: 768px) {
-    .shoppingcarttablet {
-      display: inline-block; }
-      .shoppingcarttablet h3 {
-        display: inline-block;
-        margin: 0;
-        margin-top: 13px;
-        color: gray;
-        font-size: 1.6em; }
-      .shoppingcarttablet a {
-        color: gray;
-        transition: 0.2s; }
-        .shoppingcarttablet a:hover {
-          color: tomato; } }
-  @media (min-width: 992px) {
-    .shoppingcarttablet {
-      margin-left: 30px; } }
+    .shoppingcartmobile i {
+      display: inline-block; } }
 
 .shoppingcart {
   text-align: right; }
@@ -295,10 +275,17 @@ main {
   .navbar > .container-fluid .navbar-brand-centered {
     margin-left: -100px;
     text-align: center; } }
+.slick-prev:before,
+.slick-next:before {
+  display: none; }
+
 /*=====  End of Nav  ======*/
 /*==============================
 =            Header            =
 ==============================*/
+body {
+  background-color: #F6F0E4; }
+
 /*=====  End of Header  ======*/
 /*==============================
 =            Footer            =
@@ -452,7 +439,6 @@ footer .socialiconsmobile li i:last-child:hover {
 =            Items Page            =
 ==================================*/
 .item {
-  text-align: center;
   margin-top: 80px; }
   .item p {
     padding: 10px;

@@ -5,9 +5,9 @@
 nav {
     position: relative;
     z-index: 10;
-    -webkit-box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
-    box-shadow: -2px 11px 11px -12px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 10px 11px -12px rgba(0,0,0,0.75);
     li {
         color: black;
     }
@@ -26,35 +26,10 @@ main {
     margin-top: 100px;
 }
 
-.logotablet {
-    display: none;
-}
-
-.mobile-nav {
-    background-color: $mineShaft;
-}
-
-.shoppingcarttablet {
+.shoppingcartmobile i {
     display: none;
     @media (min-width: $break-small) {
         display: inline-block;
-        h3 {
-            display: inline-block;
-            margin: 0;
-            margin-top: 13px;
-            color: gray;
-            font-size: 1.6em;
-        }
-        a {
-            color: gray;
-            transition: 0.2s;
-            &:hover {
-                color: tomato;
-            }
-        }
-    }
-    @media (min-width: $break-medium) {
-        margin-left: 30px;
     }
 }
 
@@ -96,5 +71,10 @@ main {
     }
 }
 
+
+.slick-prev:before,
+.slick-next:before {
+   display:none;
+}
 
 /*=====  End of Nav  ======*/

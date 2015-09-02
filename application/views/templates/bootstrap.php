@@ -47,7 +47,7 @@
                             <li><a href="#">Leather & Feather</a></li>
                             <li><a href="#">Affirmations in a Bottle</a></li>
                             <li><a href="#">Sign In</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>               
+                            <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>               
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->

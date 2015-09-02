@@ -17,7 +17,7 @@ class Users extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->template->load('bootstrap', 'index', array(
+		$this->template->load('bootstrap', 'order', array(
 			'title' => 'Login Registration'
 		));
 	}
