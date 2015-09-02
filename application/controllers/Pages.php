@@ -11,7 +11,8 @@ class Pages extends CI_Controller {
 	function index()
 	{
 		$this->template->load('bootstrap', 'index', array(
-			'title' => 'Faith Wraps'
+			'title' => 'Faith Wraps',
+			'products' => $this->Page->get_random_products(10)
 		));
 	}
 }

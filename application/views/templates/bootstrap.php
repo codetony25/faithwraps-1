@@ -39,13 +39,13 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                      <div class="collapse navbar-collapse" id="navbar-brand-centered">
                           <ul class="nav navbar-nav">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">FaithWraps</a></li>
-                            <li><a href="#">Limited Ed.</a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/categories/1">FaithWraps</a></li>
+                            <li><a href="/categories/2">Limited Ed.</a></li>
                           </ul>
                           <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Leather & Feather</a></li>
-                            <li><a href="#">Affirmations in a Bottle</a></li>
+                            <li><a href="/categories/3">Leather & Feather</a></li>
+                            <li><a href="/categories/4">Affirmations in a Bottle</a></li>
                             <li><a href="/signin">Sign In</a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>               
                           </ul>                      

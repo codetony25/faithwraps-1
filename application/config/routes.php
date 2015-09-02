@@ -59,3 +59,4 @@ $route['login'] = '/users/login';
 $route['forgot_password'] = '/users/forgot_password';
 
 $route['products/(:num)'] = '/products/show/$1';
+$route['categories/(:num)'] = '/categories/show/$1';
