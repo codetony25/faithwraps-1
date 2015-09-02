@@ -100,7 +100,7 @@ class User extends CI_model {
 		$this->email->to($data['email']);
 
 		$this->email->subject("Reset your password");
-		$this->email->message("<a href='/users/password_reset/$token>'>Reset my password</a>");
+		$this->email->message("<a href='/password_reset/$token>'>Reset my password</a>");
 
 		return $this->email->send();
 	}
