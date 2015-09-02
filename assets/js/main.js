@@ -64,7 +64,6 @@ $(function(){
 		e.preventDefault();
 	});
 
-//Sticky footer
 	var docHeight = $(window).height();
 	var footerHeight = $('footer').height();
 	var footerBottom = $('footer').position().top + footerHeight;
@@ -74,6 +73,7 @@ $(function(){
     $('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
    }
 
+<<<<<<< HEAD
 
 //Getting values from shipping and display on billing "Same as Shipping" is checked.
 
@@ -97,3 +97,6 @@ $(function(){
 
 	
 });//end ready
+=======
+});//end ready
+>>>>>>> cd4a3725d0b4f25d92db12dc0d74cab3f5f88f48

@@ -77,7 +77,7 @@ class Admin extends CI_model {
 	/**************** FORM BUILDING *********************/
 	public function create_form($form_scope, $id) {
 		if ($form_scope == "products") {
-			if (($id == "add") || (!$this->Product->get_by('products', 'id', $id))) {
+			if (($id == "add") || (!$this->get_by('products', 'id', $id))) {
 				$product = array('name' => 'Needs a Name',
 					'desc' => 'Needs a Description',
 					'price' => '35.00',
@@ -108,12 +108,12 @@ class Admin extends CI_model {
 					'gem' => $gem);
 			} else {
 				$data = array('is_new' => FALSE,
-					'gem' => $this->Product->get_by('gems','id', $id));
+					'gem' => $this->get_by('gems','id', $id));
 			}
 			return $data;
 		}
 		elseif ($form_scope == "product_styles") {
-			if (($id == "add") || (!$this->Product->get_by($form_scope, 'id', $id))) {
+			if (($id == "add") || (!$this->get_by($form_scope, 'id', $id))) {
 				$product_style = array('name' => 'Needs a Name',
 					'image' => '');
 				$data = array('is_new' => TRUE,
@@ -121,20 +121,20 @@ class Admin extends CI_model {
 					'products' => $this->Product->get_all_products());
 			} else {
 				$data = array('is_new' => FALSE,
-					'product_style' => $this->Product->get_by($form_scope,'id', $id),
+					'product_style' => $this->get_by($form_scope,'id', $id),
 					'products' => $this->Product->get_all_products());
 			}
 			return $data;
 		}
 		elseif ($form_scope == "galleries") {
-			if (($id == "add") || (!$this->Product->get_by($form_scope, 'id', $id))) {
+			if (($id == "add") || (!$this->get_by($form_scope, 'id', $id))) {
 				$gallery = array('name' => 'Needs a Name',
 					'desc' => 'Needs a Desc');
 				$data = array('is_new' => TRUE,
 					'gallery' => $gallery);
 			} else {
 				$data = array('is_new' => FALSE,
-					'gallery' => $this->Product->get_by($form_scope,'id', $id));
+					'gallery' => $this->get_by($form_scope,'id', $id));
 			}
 			return $data;
 		}
