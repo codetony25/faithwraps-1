@@ -5,16 +5,16 @@ class Products extends CI_controller {
 
 	public function __construct() {
 		parent::__construct();
-
-		$this->load->Model('Product');
 	}
 
-	public function index() {
+	public function show($id) {
 
+		var_dump($this->Product->fetch( array('product_id' => 1)) );
+
+		$this->template->load( 'bootstrap', 'products/product', array(
+			
+		));
 	}
 
-	public function get_by($id) {
-
-	}
 }
 
