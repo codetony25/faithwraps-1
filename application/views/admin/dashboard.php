@@ -15,8 +15,7 @@
 			<li id="gems">Edit Gems</li>
 			<li id="galleries">Edit Galleries</li>
 			<hr>
-			<li id="edit_users">Edit Users</li>
-			<li id="manage_orders">Manage Orders</li>
+			<li id="orders">Manage Orders</li>
 		</ul>
 	</div>
 	<div id="sub_nav">

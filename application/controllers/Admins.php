@@ -45,4 +45,10 @@ class Admins extends CI_Controller {
 	// Calls on the Admin model to fetch items
 		echo json_encode($this->Admin->admin_get($table, $field, $value, $limit));
 	}
+
+	public function control_get_orders() {
+	// Calls on the Orders model to get all orders and combine them with
+	// Order parts, users, and all addresses.
+		echo json_encode($this->Order->get_all_orders());
+	}
 }

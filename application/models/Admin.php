@@ -14,7 +14,8 @@ class Admin extends CI_model {
 		elseif 	($table == "product_styles") { $model = "Product_Style"; }
 		elseif 	($table == "gems") { $model = "Gem"; }
 		elseif 	(($table == "galleries") || ($table == "categories")) { $model = "Category"; }
-
+		elseif ($table == "orders") { $model = "Order"; }
+		
 		if (isset($model)) {
 			if (($field) && ($value)) {
 				return ($limit) ? $this->$model->fetch(array($field=>$value))

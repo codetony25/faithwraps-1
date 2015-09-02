@@ -10,11 +10,11 @@
         ?>		
         <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
         		<div>
-        			<a href='/products/<?= $product['id']; ?>'>
-        			<img src='/assets/img/products/<?= $product['image']; ?>'  />
-        			<h4><?= $product['name']; ?></h4>
+        			<a href='/products/<?= xss_clean($product['id']); ?>'>
+        			<img src='/assets/img/products/<?= xss_clean($product['image']); ?>'  />
+        			<h4><?= xss_clean(ucwords($product['name'])); ?></h4>
         			</a>
-	                <button class="btn btn-info">Buy Now! $<?= $product['price']; ?></button>
+	                <button class="btn btn-info">Buy Now! $<?= xss_clean($product['price']); ?></button>
         		</div>
         </div><!-- END OF COLUMN -->
         <?php	} ?>
