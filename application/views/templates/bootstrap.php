@@ -107,8 +107,7 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/vendor/jquery.validate.js"></script>
     <script src="/assets/js/vendor/slick/slick.js"></script>
-    <script src="/assets/js/vendor/masonry/masonry.pkgd.js"></script>
-    <script src="/assets/js/vendor/masonry/masonry.js"></script>
+    <script src='/assets/js/vendor/masonry/masonry.js'></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
     <?php

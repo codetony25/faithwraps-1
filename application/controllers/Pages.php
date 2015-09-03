@@ -15,32 +15,19 @@ class Pages extends CI_Controller {
 	 */
 	function index()
 	{
-		// Grab tweets from DB
-		$tweets = $this->Twitter->fetch_all();
+		$twitter_partial = $this->load->view('partials/twitter_feed', array(
+			'tweets' => $this->Page->get_tweets()),
+			 TRUE
+		);
 
-		if (! $tweets || $this->Twitter->need_update($tweets[0]))
-		{
-			//grab via api
-			$tweets = $this->tauth->pull_tweets();
-
-			$this->Twitter->empty_table();
-
-			//insert new tweets into db
-			$this->Twitter->multi_insert($tweets);
-		}
-
-		// grab tweets again from DB. Expected return from DB to be used in next step
-		$tweets = $this->Twitter->fetch_all();
-
-		array_walk( $tweets, function(&$tweet, $key) {
-			$tweet['message'] = $this->tauth->makeClickableLinks($tweet['message']);
-		});
-
-		$twitter_partial = $this->load->view('partials/twitter_feed', array('tweets' => $tweets), TRUE);
+		$mason_partial = $this->load->view('partials/products_mason_grid', array(
+			'products' => $this->Page->get_random_products(10)),
+			TRUE
+		);
 
 		$this->template->load('bootstrap', 'index', array(
 			'title' => 'Faith Wraps',
-			'products' => $this->Page->get_random_products(10),
+			'mason_grid' => $mason_partial,
 			'home_page' => TRUE,
 			'twitter_feed' => $twitter_partial
 		));
