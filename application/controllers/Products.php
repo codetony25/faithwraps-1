@@ -13,8 +13,8 @@ class Products extends CI_controller {
 
 		$this->template->load( 'bootstrap', 'products/product', array(
 			'product' => $product,
-			'styles' => $this->Product->fetch_product_styles($id),
-			'gem' => $this->Product->fetch_product_gem($product['id']),
+			'styles' => $this->Product_Style->fetch_all_where(array('product_id'=>$id)),
+			'gem' => $this->Gem->fetch(array('id'=>$product['gem_id'])),
 			'similar' => $this->Product->fetch_similar($product['gallery_id'])
 		));
 	}
