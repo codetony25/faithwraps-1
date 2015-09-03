@@ -53,7 +53,7 @@
         </div>
         <div class="col-sm-6">
             <div class="credit">
-                <form class="form-horizontal" role="form" class="payment" id="cc">
+                <form action="/pages/process" method="post" class="form-horizontal" role="form" class="payment" id="cc">
                     <div id="val-errors"></div>
                     <fieldset>
                         <h2 class="form-signin-heading text-center">Payment: </h2>

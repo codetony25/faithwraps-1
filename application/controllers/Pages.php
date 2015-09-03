@@ -43,4 +43,12 @@ class Pages extends CI_Controller {
 			'title' => 'stripe test'
 		));
 	}
+
+	function process()
+	{
+		if ($token = $this->input->post('stripeToken'))
+		{
+			
+		}
+	}
 }

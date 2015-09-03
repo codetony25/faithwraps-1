@@ -271,6 +271,8 @@ fwStripe.createToken = function() {
 fwStripe.stripeResponseHandler = function(status, response) {
   if (response.error) {
     fwStripe.errorMsgs.push(response.error.message);
+    fwStripe.displayError();
+    return false;
   } else { // No errors. Submit form
     var token = response.id;
     fwStripe.cache.$form.append('<input type="hidden" name="stripeToken" value="' + token + '" />');
@@ -319,8 +321,12 @@ fwStripe.cache.$form.submit(function() {
     fwStripe.cache.$checkoutBtn.prop('disabled', false);
 
     // Prevent form from submitting
-    return false;
+  } else {
+    // Get token.  Chained responsehandler also submits form
+    fwStripe.createToken();
   }
+
+  return false;
 });
 
 
