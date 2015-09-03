@@ -63,7 +63,19 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 footerlinks ">
+                <div class="col-sm-4 newsletter">
+                    <h5>Subscribe now to receive newsletters!</h5>
+                    <form action="" method="post" id="newsletter">
+                        <div class="input-group col-sm-11">
+                           <input type="text" class="form-control" placeholder="example@example.com">
+                           <span class="input-group-btn">
+                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
+                           </span>
+                        </div>
+                    </form>
+                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
+                </div><!-- END OF COLUMN -->
+                <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Follow Us</h5>
                     <ul class="socialiconstablet">
                         <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
@@ -76,7 +88,7 @@
                         <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
-                <div class="col-sm-4 footerlinks ">
+                <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Information</h5>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
@@ -85,18 +97,6 @@
                         <li><a href="#">Privacy</a></li>
                         <li><a href="#">Terms and Conditions</a></li>
                     </ul>
-                </div><!-- END OF COLUMN -->
-                <div class="col-sm-4 newsletter">
-                    <h5>Subscribe now to receive newsletters!</h5>
-                    <form action="" method="post" id="newsletter">
-                        <div class="input-group">
-                           <input type="text" class="form-control" placeholder="example@example.com">
-                           <span class="input-group-btn">
-                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
-                           </span>
-                        </div>
-                    </form>
-                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
                 </div><!-- END OF COLUMN -->
             </div><!-- END OF ROW -->
         </div><!-- END OF CONTAINER -->
