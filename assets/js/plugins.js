@@ -23,12 +23,10 @@
 
 // Place any jQuery/helper plugins in here.
 
-//Sliding Pictures feature
-$(function(){
 
+$(function(){
+    //Sliding Pictures feature slick
     $('.products').slick({
-          dots: true,
-          arrows: true,
           infinite: true,
           speed: 750,
           autoplay: true,
@@ -66,21 +64,39 @@ $(function(){
         fade: true
     });//end of mainpics
 
-
-
-
-//Form validations
-
-  //Newsletter validation
-  // $("#newsletter").validate({
-  //   rules: {
-  //     email: {
-  //       required: true,
-  //       email: true,
-  //       maxlength: 255
-  //     }
-  //   }
-  // });
+    //Random Slider
+    $('.randomProducts').slick({
+          infinite: true,
+          speed: 750,
+          autoplay: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+          }
+        }
+         ]
+    });//end of randomProducts
 
   //Login Form validation
   $( "#login-form" ).validate({
@@ -187,21 +203,16 @@ $(function(){
   });//end of form-billing validate
 
 
+  //Masonry Gallery
+  $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 80,
+  percentPosition: true
+  });
+
 
 });//end of ready
-
-
-
-    // errorElement: "div",
-    // wrapper: "div",  // a wrapper around the error message
-    // errorPlacement: function(error, element) {
-    //     offset = element.offset();
-    //     error.insertBefore(element);
-    //     error.addClass('message');  // add a class to the wrapper
-    //     error.css('position', 'absolute');
-    //     error.css('left', offset.left + element.outerWidth());
-    //     error.css('top', offset.top);
-    // }
 
 
 
