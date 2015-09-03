@@ -19,7 +19,7 @@
     <script src="/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <div class="container">
+
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid logo">
@@ -51,15 +51,26 @@
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+            </div><!-- END OF CONTAINER -->
         </nav><!-- END OF NAV -->
+        <?php if (isset($home_page)): ?>
+            <header>
+                <div class="maincontent">
+                    <h1>Welcome To FaithWraps</h1>
+                </div>
+            </header>
+        <?php endif; ?>  
+          
+    <div class="container">
 
         <main>
 
     <?php echo $body; ?>
 
         </main>
-    </div><!-- END OF CONTAINER -->
+  
+    </div>
+
 
     <footer>
         <div class="container">
