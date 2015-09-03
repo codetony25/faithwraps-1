@@ -20,7 +20,7 @@
             <div class="itemabout">
                 <p><?= xss_clean($product['desc']); ?></p>
 
-                <?= form_open('/shop/add_to_cart', 'class="form-horizontal" style="padding: 1.5em 0; border-bottom: 1px solid #eee;"'); ?>
+                <?= form_open('/shop', 'class="form-horizontal" style="padding: 1.5em 0; border-bottom: 1px solid #eee;"'); ?>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Price:</label>
                         <div class="col-sm-4"><h4>$ <?= xss_clean($product['price']); ?></h4></div>
