@@ -2,11 +2,19 @@ $(document).ready(function() {
 
 	function draw_sub_nav(formScope) {
 	// Draws the proper sub navigation
+		
+		// Special cases for different nav drawing
+		if (formScope == "orders") { draw_orders_nav(formScope); return; }
+		else if (formScope == "users") { draw_users_nav(formScope); return; }
+
+		// Controller that handles returning nav list in json
 		jsonUrl = '/admins/control_get/' + formScope;
+
 		// Everytime we draw a sub navigation clear the #form_holder and #messages
 		$('#form_holder').html('');
 		$('#messages').html('');
 
+		// Make the ajax call and draw the list items
 		$.get(jsonUrl, function(list) {
 			var buf = "<ul>";
 			buf += "<li data-id='add' data-scope='" + formScope + "'><b>Add New</b></li>";
@@ -49,14 +57,27 @@ $(document).ready(function() {
 		}, 'json');
 	}
 	
-	$(document).on('click', '#products, #gems, #galleries, #orders', function(e){
+	function draw_users_nav(formScope) {
+	// Draws the proper sub navigation
+		jsonUrl = '/admins/control_get/' + formScope;
+		// Everytime we draw a sub navigation clear the #form_holder and #messages
+		$('#form_holder').html('');
+		$('#messages').html('');
+
+		$.get(jsonUrl, function(list) {
+			var buf = "<ul>";
+			for(var i=0; i<list.length; i++) {
+					buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>" + "(" + list[i].id + ") " + list[i].email + "</li>";
+			}
+			buf += "</ul>";
+			$('#sub_nav').html(buf);
+		}, 'json');
+	}
+
+	$(document).on('click', '#products, #gems, #galleries, #orders, #users', function(e){
 		url = '/admins/control_get/' + e.target.id;
 		scope = e.target.id;
-		if (scope == "orders") {
-			draw_orders_nav(scope);
-		} else {
-			draw_sub_nav(scope);			
-		}
+		draw_sub_nav(scope);			
 	});
 
 	// Creating the add/edit forms

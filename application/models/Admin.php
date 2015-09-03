@@ -15,7 +15,8 @@ class Admin extends CI_model {
 		elseif 	($table == "gems") { $model = "Gem"; }
 		elseif 	(($table == "galleries") || ($table == "categories")) { $model = "Category"; }
 		elseif ($table == "orders") { $model = "Order"; }
-		
+		elseif ($table == "users") { $model = "User"; }
+
 		if (isset($model)) {
 			if (($field) && ($value)) {
 				return ($limit) ? $this->$model->fetch(array($field=>$value))
@@ -29,12 +30,15 @@ class Admin extends CI_model {
 	}
 
 	public function update_item($table, $post) {
+		$id = $post['id'];
 		foreach ($post as $key => $val) {
 			if (!$this->db->field_exists($key, $table)) {
 				unset($post[$key]);
 			}
 		}
-		$this->db->where('id', $post['id']);
+		//Protect against updating the id
+		unset($post['id']);
+		$this->db->where('id', $id);
 		$this->db->update($table, $post);
 		return $this->db->affected_rows();
 	}
@@ -150,8 +154,18 @@ class Admin extends CI_model {
 			if ($order = $this->Order->get_order_joined($id)) {
 				$order_parts = $this->Order_Part->get_order_parts_joined($id);
 				$data = array('order' => $order, 'order_parts' => $order_parts);
-			return $data;
+				return $data;
+			}
+		}
+		// Users
+		elseif ($form_scope == "users") {
+			if ($user = $this->User->fetch(array('id'=>$id))) {
+				$mailing_address = $this->Mailing_Address->fetch(array('user_id'=>$id));
+				$billing_address = $this->Billing_Address->fetch(array('user_id'=>$id));
+				$data = array('user' => $user, 'mailing_address' => $mailing_address, 'billing_address' => $billing_address);
+				return $data;
 			}
 		}
 	}
+
 }

@@ -70,5 +70,52 @@ $(function(){
     $('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
    }
 	
+// Homepage twitter feed
+	$('#twitter-feed .tweet').each(function(e) {
+		if (e != 0)
+			$(this).hide();
+	});
+
+	var twitter_feed_next = function() {
+		if ($("#twitter-feed .tweet:visible").next().length != 0) {
+			$("#twitter-feed .tweet:visible").fadeOut(250, function(){
+				$(this).next().fadeIn(250);
+			});
+		}
+		else {
+			$("#twitter-feed .tweet:visible").fadeOut(250, function(){
+				$("#twitter-feed .tweet:first").fadeIn(250);
+			});
+			
+		}
+		restart_twitter_timer();
+	    return false;	
+	};
+
+	$('#twitter-feed .nav.next').click(twitter_feed_next);
+
+	$('#twitter-feed .nav.prev').click( function() {
+		if ($("#twitter-feed .tweet:visible").prev().length != 0) {
+			$("#twitter-feed .tweet:visible").fadeOut(250, function(){
+				$(this).prev().fadeIn(250);
+			});
+		}
+		else {
+			$("#twitter-feed .tweet:visible").fadeOut(250, function(){
+				$("#twitter-feed .tweet:last").fadeIn(250);
+			});
+		}
+		restart_twitter_timer();
+	    return false;
+	});
+
+	var twitter_feed_timer = setInterval(twitter_feed_next, 5000);
+
+	function restart_twitter_timer()
+	{
+		clearTimeout(twitter_feed_timer);
+		twitter_feed_timer = setInterval(twitter_feed_next, 5000);
+	}
+
 });//end ready
 

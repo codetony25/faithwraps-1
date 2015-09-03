@@ -56,11 +56,11 @@
 
                     <dl class="dl-horizontal">
                         <dt>Color</dt>
-                        <dd><?= $gem['colors']; ?></dd>
+                        <dd><?= xss_clean($gem['colors']); ?></dd>
                         <dt>Energies</dt>
-                        <dd><?= $gem['energies']; ?></dd>
+                        <dd><?= xss_clean($gem['energies']); ?></dd>
                         <dt>Chakra</dt>
-                        <dd><?= $gem['chakras']; ?></dd>
+                        <dd><?= xss_clean($gem['chakras']); ?></dd>
                     </dl>
                     <p><?= $gem['desc']; ?></p>
                 </div>

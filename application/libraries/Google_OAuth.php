@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once APPPATH . 'third_party/google-api-php-client/src/Google/autoload.php';
 
-class Google 
+class Google_OAuth
 {
 	var $ci;
 	public $client;
