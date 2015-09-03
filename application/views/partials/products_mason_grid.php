@@ -48,6 +48,7 @@
         color: #fff;
         margin: 0;
         padding: 15px 10px;
+        word-wrap: break-word;
     }
 
     .overlay .price {
