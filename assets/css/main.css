@@ -258,7 +258,8 @@ nav {
   display: inline-block;
   font-family: 'Alex Brush', cursive;
   margin: 0;
-  width: 260px; }
+  width: 260px;
+  text-align: center; }
   @media (min-width: 435px) {
     #logo-main2 {
       width: 300px; } }
