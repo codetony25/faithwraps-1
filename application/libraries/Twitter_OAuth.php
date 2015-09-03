@@ -36,11 +36,13 @@ class Twitter_OAuth
 	{
 		return $this->client->get('statuses/user_timeline', array(
 			'user_id' => $user_id, 
-			'count' => $count
+			'count' => $count,
+			'exclude_replies' => TRUE,
+			'include_rts' => FALSE
 		));
 	}
 
 	function makeClickableLinks($tweet) {
-		return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a target="blank" rel="nofollow" href="$1" target="_blank">$1</a>', $tweet);
+		return preg_replace('@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@', '<a rel="nofollow" href="$1" target="_blank">$1</a>', $tweet);
 	}
 }
