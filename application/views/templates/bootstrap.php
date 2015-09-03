@@ -53,28 +53,12 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- END OF CONTAINER -->
         </nav><!-- END OF NAV -->
-        <?php if (isset($home_page)): ?>
-            <header>
-                <div class="maincontent">
-                    <h1>Welcome To FaithWraps</h1>
-                    <h3>Style to wrap your beliefs around</h3>
-                </div>
-            </header>
-            
-        <?php endif; ?>  
           
-    <div class="container">
-
         <main>
 
     <?php echo $body; ?>
 
         </main>
-  
-    </div>
-
-
-    <?= isset($twitter_feed) ? $twitter_feed : '' ; ?>
 
     <footer>
         <div class="container">
@@ -122,8 +106,7 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/vendor/jquery.validate.js"></script>
     <script src="/assets/js/vendor/slick/slick.js"></script>
-    <script src="/assets/js/vendor/masonry/masonry.pkgd.js"></script>
-    <script src="/assets/js/vendor/masonry/masonry.js"></script>
+    <script src='/assets/js/vendor/masonry/masonry.js'></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
     <?php

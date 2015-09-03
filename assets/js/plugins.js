@@ -202,7 +202,12 @@ $(function(){
     }
   });//end of form-billing validate
 
-
+ 
+  //Homepage masonry wall
+  $('.masonry').masonry({
+    'itemSelector': ".mason-item",
+    'columnWidth': ".grid-sizer"
+  });
 
 
 });//end of ready
