@@ -26,7 +26,7 @@
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid logo">
-                <h1 id="logo-main" class="hidden-xs">FaithWraps</h1>
+                <h1 id="logo-main" class="hidden-xs"><a href="/" alt="FaithWraps Home">FaithWraps</a></h1>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
                     <div class="navbar-header">
@@ -44,7 +44,6 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                      <div class="collapse navbar-collapse" id="navbar-brand-centered">
                           <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
                             <li><a href="/categories/1">FaithWraps</a></li>
                             <li><a href="/categories/2">Limited Ed.</a></li>        
                             <li><a href="/categories/3">Leather & Feather</a></li>
@@ -79,7 +78,18 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 footerlinks ">
+                <div class="col-sm-4 newsletter">
+                    <h5>Subscribe now to receive newsletters!</h5>
+                    <form action="" method="post" id="newsletter">
+                        <div class="input-group col-sm-11">
+                           <input type="text" class="form-control" placeholder="example@example.com">
+                           <span class="input-group-btn">
+                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
+                           </span>
+                        </div>
+                    </form>
+                </div><!-- END OF COLUMN -->
+                <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Follow Us</h5>
                     <ul class="socialiconstablet">
                         <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
@@ -92,7 +102,7 @@
                         <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
-                <div class="col-sm-4 footerlinks ">
+                <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Information</h5>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
@@ -102,21 +112,14 @@
                         <li><a href="#">Terms and Conditions</a></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
-                <div class="col-sm-4 newsletter">
-                    <h5>Subscribe now to receive newsletters!</h5>
-                    <form action="" method="post" id="newsletter">
-                        <div class="input-group">
-                           <input type="text" class="form-control" placeholder="example@example.com">
-                           <span class="input-group-btn">
-                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
-                           </span>
-                        </div>
-                    </form>
-                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
-                </div><!-- END OF COLUMN -->
             </div><!-- END OF ROW -->
         </div><!-- END OF CONTAINER -->
     </footer>
+    <div class="container-fluid bottom-footer">
+        <div class="row text-center">
+            <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
+        </div>
+    </div>
 
     <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>

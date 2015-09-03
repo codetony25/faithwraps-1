@@ -208,11 +208,18 @@ header {
       .grid-sizer { width: 50%; }
       .mason-item { width: 50%; }
       .mason-item:last-of-type { display: block;}
+      #twitter-feed .nav.prev {
+        left: 30px;
+      }
+      #twitter-feed .nav.next {
+        right: 30px;
+      }
     }
 
     @media screen and (max-width: 480px) {
       .grid-sizer { width: 100%; }
       .mason-item { width: 100%; }
+
     }
 
     .overlay {
