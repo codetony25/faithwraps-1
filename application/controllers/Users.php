@@ -51,7 +51,7 @@ class Users extends CI_Controller {
 			}
 		}
 
-		$this->session->set_flashdata('login_feedback', $feedback);
+		$this->session->set_flashdata('login_feedback', validation_errors());
 
 		redirect('/users/login');
 	}
@@ -65,6 +65,7 @@ class Users extends CI_Controller {
 		{
 			if ($user = $this->User->verify_login($this->input->post()))
 			{
+
 				$this->session->set_userdata('is_logged_in', 1);
 				$this->session->set_userdata('user', array(
 					'id' => $user['id'],
@@ -80,9 +81,9 @@ class Users extends CI_Controller {
 			}
 		}
 
-		$this->session->set_flashdata('login_feedback', $login_feedback);
+		$this->session->set_flashdata('login_feedback', validation_errors());
 
-		redirect('/'); // TO DO: redirect to their last page
+		redirect('/users/login');
 	}
 
 	/**
@@ -103,7 +104,7 @@ class Users extends CI_Controller {
 			redirect('/users/login');
 		}
 
-		$this->session->set_flashdata('reset_feedback', $reset_feedback);
+		$this->session->set_flashdata('reset_feedback', validation_errors());
 
 		redirect('/users/forgot_password');
 	}
@@ -121,7 +122,7 @@ class Users extends CI_Controller {
 				$feedback = 'Invalid or expired token. Please try again';
 		}
 
-		$this->session->set_flashdata('login_feedback', $feedback);
+		$this->session->set_flashdata('login_feedback', validation_errors());
 
 		redirect('/users/login');
 	}
@@ -161,7 +162,7 @@ class Users extends CI_Controller {
 			$feedback = 'Error: Confirmation code was not found';
 		}
 
-		$this->session->set_flashdata('login_feedback', $feedback);
+		$this->session->set_flashdata('login_feedback', validation_errors());
 
 		redirect('/users/login');
 	}

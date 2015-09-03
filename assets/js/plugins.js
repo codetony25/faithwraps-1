@@ -210,6 +210,120 @@ $(function(){
   });
 
 
+var fwStripe = fwStripe || {};
+
+fwStripe.cacheSelectors = function() {
+  fwStripe.cache = {
+    $form: $('#cc'),
+    $errors: $('#val-errors'),
+    $checkoutBtn: $('#cc #checkout'),
+    $name: $('#cc #name'),
+    $ccNum: $('#cc #card-number'),
+    $cvc: $('#cc #cvc'),
+    $expMonth: $('#cc #exp-month'),
+    $expYear: $('#cc #exp-year')
+  }
+};
+
+fwStripe.getCardInfo = function() {
+  fwStripe.card = {
+    name: fwStripe.cache.$name.val(),
+    ccNum: fwStripe.cache.$ccNum.val(),
+    cvc: fwStripe.cache.$cvc.val(),
+    expMonth: fwStripe.cache.$expMonth.val(),
+    expYear: fwStripe.cache.$expYear.val()
+  }
+}
+
+fwStripe.init = function() {
+  fwStripe.validationError = false;
+  fwStripe.errorMsgs = [];
+
+  fwStripe.cacheSelectors();
+};
+
+fwStripe.validate = function() {
+  if (! Stripe.card.validateCardNumber(fwStripe.card.ccNum)) {
+    fwStripe.validationError = true;
+    fwStripe.errorMsgs.push('Invalid CC Number');
+  }
+
+  if (! Stripe.card.validateCVC(fwStripe.card.cvc)) {
+    fwStripe.validationError = true;
+    fwStripe.errorMsgs.push('Invalid CVC');
+  }
+
+  if (! Stripe.card.validateExpiry(fwStripe.card.expMonth, fwStripe.card.expYear)) {
+    fwStripe.validationError = true;
+    fwStripe.errorMsgs.push('Invalid Expiration Date');
+  }
+};
+
+fwStripe.createToken = function() {
+    Stripe.card.createToken({
+      number: fwStripe.card.ccNum,
+      cvc: fwStripe.card.cvc,
+      exp_month: fwStripe.card.expMonth,
+      exp_year: fwStripe.card.expYear
+    }, fwStripe.stripeResponseHandler);
+}
+
+fwStripe.stripeResponseHandler = function(status, response) {
+  if (response.error) {
+    fwStripe.errorMsgs.push(response.error.message);
+  } else { // No errors. Submit form
+    var token = response.id;
+    fwStripe.cache.$form.append('<input type="hidden" name="stripeToken" value="' + token + '" />');
+    fwStripe.cache.$form.get(0).submit();
+  }
+}
+
+fwStripe.displayError = function() {
+  fwStripe.cache.$errors.html( function(){
+    var html = '<div class="alert alert-warning alert-dismissible" role="alert"> \
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+    
+    $.each(fwStripe.errorMsgs, function(i,v){
+      html += "<p>"+v+"<p>";
+    });
+
+    html += "</div>";
+
+    return html;
+  });
+}
+
+fwStripe.init();
+
+// Validate Checkout Form
+fwStripe.cache.$form.submit(function() {
+  // Disable button to prevent repeated clicks
+  fwStripe.cache.$checkoutBtn.attr('disabled', true);
+
+  // Clear flag & messages
+  fwStripe.validationError = false;
+  fwStripe.errorMsgs = [];
+
+  // Get Card Values
+  fwStripe.getCardInfo();
+
+  // // Validate the form
+  fwStripe.validate();
+
+  // Check for errors
+  if (fwStripe.validationError) {
+    // Show errors on screen
+    fwStripe.displayError();
+
+    // Re-enable button
+    fwStripe.cache.$checkoutBtn.prop('disabled', false);
+
+    // Prevent form from submitting
+    return false;
+  }
+});
+
+
 });//end of ready
 
 

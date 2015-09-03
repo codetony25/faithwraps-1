@@ -32,4 +32,15 @@ class Pages extends CI_Controller {
 			'twitter_feed' => $twitter_partial
 		));
 	}
+
+	function stripe()
+	{
+		$this->config->load('stripe');
+
+		define('STRIPE_PUBLIC_KEY', $this->config->item('test_publishable_key'));
+
+		$this->template->load('bootstrap', 'billing', array(
+			'title' => 'stripe test'
+		));
+	}
 }
