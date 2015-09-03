@@ -9,16 +9,16 @@
     }
 }
 
-.slogan {
-    color: $pink;
-    h1 {
-        font-family: 'Alex Brush', cursive;
-    }
-    p {
-        letter-spacing: 1px;
-        line-height: 1.6em;
-    }
-}
+// .slogan {
+//     color: $pink;
+//     h1 {
+//         font-family: 'Alex Brush', cursive;
+//     }
+//     p {
+//         letter-spacing: 1px;
+//         line-height: 1.6em;
+//     }
+// }
 
 .slick-prev:before, .slick-next:before { 
     color: #F6F0E4;
@@ -57,5 +57,27 @@
         }
     }
 }
+
+
+.fullBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+header {
+    margin-top: -40px;
+    background-image: url('/assets/img/background.jpg');
+    background-size: cover;
+    height: 600px;
+}
+// #maincontent {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 50;
+// }
+// 
 
 /*=====  End of Main Page  ======*/
