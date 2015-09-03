@@ -233,7 +233,7 @@ nav {
       nav li:not(:last-child) {
         margin-right: 20px; } }
   nav li a {
-    font-size: 0.75em;
+    font-size: 0.62em;
     transition: 0.4s;
     letter-spacing: 1.1px;
     color: #A7A09A;
@@ -242,7 +242,7 @@ nav {
       opacity: 0.8; }
   @media (min-width: 992px) {
     nav li a {
-      font-size: 1.0em; } }
+      font-size: 0.9em; } }
 
 .nav li:last-child {
   font-size: 1.3em; }
