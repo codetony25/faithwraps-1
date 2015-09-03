@@ -46,9 +46,37 @@ class Pages extends CI_Controller {
 
 	function process()
 	{
+		$feedback = [];
+		$this->config->load('stripe');
+
 		if ($token = $this->input->post('stripeToken'))
 		{
+			// To be used later to verify token has not already been used
+			$this->session->set_userdata('stripe_token', $token);
+
+			try 
+			{
+				//Set API Key
+				\Stripe\Stripe::setApiKey($this->config->item('test_secret_key'));
+
+				$charge = \Stripe\Charge::create(array(
+					'amount' => 500, // in cents
+					'currency' => 'usd',
+					'source' => $token,
+					'description' => 'testing for fw'
+				));
+			} 
+			catch (\Stripe\Error\Card $e)
+			{
+
+			}
+
+			var_dump($charge); die();
 			
+		}
+		else
+		{
+			$feedback[] = 'The order could not be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again.';
 		}
 	}
 }
