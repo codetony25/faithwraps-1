@@ -32,10 +32,10 @@ class Twitter_OAuth
 	 * @param  	int 	$count 	Number of tweets to return. 5 is the default
 	 * @return 	mixed 			Array of tweet objects
 	 */
-	function pull_tweets($screen_name = "FaithWraps", $count = 5)
+	function pull_tweets($count = 5, $user_id = "351181505")
 	{
 		return $this->client->get('statuses/user_timeline', array(
-			'screen_name' => $screen_name, 
+			'user_id' => $user_id, 
 			'count' => $count
 		));
 	}
