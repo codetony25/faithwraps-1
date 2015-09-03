@@ -3,12 +3,12 @@
         <div class="row">
 
             <div class="col-md-6 productimgs">
-                <img src="/assets/img/products/<?= $styles[0]['image']; ?>" class="mainitemimg" alt="">
+                <img src="/assets/img/products/<?= xss_clean($styles[0]['image']); ?>" class="mainitemimg" alt="">
                 <div class="itemthumbnail">
                     <div class="row">
                         <?php foreach($styles as $style): ?>
                             <div class="col-xs-3 productimg">
-                                <img src="/assets/img/products/<?= $style['image']; ?>" class="thumbnail" alt="">
+                                <img src="/assets/img/products/<?= xss_clean($style['image']); ?>" class="thumbnail" data-style="<?= $style['id']; ?>" alt="">
                             </div>
                         <?php endforeach; ?>
                     </div><!-- END OF ROW -->
@@ -23,7 +23,7 @@
                 <?= form_open('/shop/add_to_cart', 'class="form-horizontal" style="padding: 1.5em 0; border-bottom: 1px solid #eee;"'); ?>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Price:</label>
-                        <div class="col-sm-4"><h4>$ <?= $product['price']; ?></h4></div>
+                        <div class="col-sm-4"><h4>$ <?= xss_clean($product['price']); ?></h4></div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="product_style">Style:</label>
@@ -52,9 +52,8 @@
                     </form>
 
                     <div class="product-details">
-                        <h4>About The Gem</h4>
-
                         <h2><?= xss_clean($gem['name']); ?></h2>
+                        <h4>About The Gem</h4>                       
                         <dl class="dl-horizontal">
                             <dt>Color</dt>
                             <dd><?= xss_clean($gem['colors']); ?></dd>
