@@ -73,7 +73,6 @@
                            </span>
                         </div>
                     </form>
-                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
                 </div><!-- END OF COLUMN -->
                 <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Follow Us</h5>
@@ -101,6 +100,11 @@
             </div><!-- END OF ROW -->
         </div><!-- END OF CONTAINER -->
     </footer>
+    <div class="container-fluid bottom-footer">
+        <div class="row text-center">
+            <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
+        </div>
+    </div>
 
     <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
