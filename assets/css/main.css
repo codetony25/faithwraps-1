@@ -464,14 +464,6 @@ footer .socialiconsmobile li i:last-child:hover {
   .mainpics img {
     margin: 0 auto; }
 
-.slogan {
-  color: #72675D; }
-  .slogan h1 {
-    font-family: 'Alex Brush', cursive; }
-  .slogan p {
-    letter-spacing: 1px;
-    line-height: 1.6em; }
-
 .slick-prev:before, .slick-next:before {
   color: #F6F0E4; }
 
@@ -500,6 +492,18 @@ footer .socialiconsmobile li i:last-child:hover {
   @media (min-width: 768px) {
     .products .slick-prev:before, .products .slick-next:before {
       color: #72675D !important; } }
+
+.fullBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+
+header {
+  margin-top: -40px;
+  background-image: url("/assets/img/background.jpg");
+  background-size: cover;
+  height: 600px; }
 
 /*=====  End of Main Page  ======*/
 /*==========================================
@@ -722,7 +726,8 @@ form label.error {
 =======================================*/
 .categorydesc {
   text-align: center;
-  color: #72675D; }
+  color: #72675D;
+  margin-bottom: 20px; }
 
 .items {
   text-align: center; }
