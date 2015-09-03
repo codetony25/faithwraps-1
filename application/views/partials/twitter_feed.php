@@ -39,18 +39,29 @@
 		 -webkit-transition: opacity .5s linear;
 	}
 
-	#twitter-feed .nav.left {
+	#twitter-feed .nav.prev {
 		left: 0;
 	}
 
-	#twitter-feed .nav.right {
+	#twitter-feed .nav.next {
 		right: 0;
 	}
 
+	.tweets {
+		position: relative;
+	}
+
 	.tweet {
+		display: block;
+		max-width: 75%;
+		margin: 0 auto;
 		padding: 15px;
 		color: #B1B1B1;
 		font-size: 1em;
+	}
+
+	.tweet a {
+		color: pink;
 	}
 
 	.tweet span {
@@ -65,20 +76,23 @@
 <div class="container-fluid twitter_feed_container">
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 text-center" id="twitter-feed">
-        	<i class="fa fa-long-arrow-left nav left"></i>
-        	<i class="fa fa-long-arrow-right nav right"></i>
+        	<i class="fa fa-long-arrow-left nav prev"></i>
+        	<i class="fa fa-long-arrow-right nav next"></i>
         	<h3>Twitter</h3>
         	<h5><a href="https://twitter.com/faithwraps">@FaithWraps</a></h5>
         	<i class="fa fa-twitter"></i>
-        	<?php 
-        		$counter = 1;
-        		foreach($tweets as $tweet): 
-        	?>
-	        	<p class="tweet" data-id="<?= $counter++; ?>">
-	        		<?= $tweet['message']; ?>
-	        		<span><?= date('F j, Y - g:i a', strtotime($tweet['time_tweeted'])); ?></span>
-	        	</p>
-        	<?php endforeach; ?>
+        	<div class="tweets">
+	        	<?php 
+	        		$counter = 1;
+	        		foreach($tweets as $tweet): 
+	        	?>
+		        	<p class="tweet" data-id="<?= $counter++; ?>">
+		        		<?= $tweet['message']; ?>
+		        		<span><a href="https://twitter.com/FaithWraps/status/<?=$tweet['tweet_id'];?>" target="_blank"><?= date('F j, Y - g:i a', strtotime($tweet['time_tweeted'])); ?></a></span>
+		        	</p>
+	        	<?php endforeach; ?>
+        	</div>
         </div>
     </div>
 </div>
+
