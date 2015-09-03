@@ -22,6 +22,14 @@ class Users extends CI_Controller {
 	}
 
 	/**
+	* Destroys the session then redirects the user to the default controller
+	*/
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect('/');
+	}
+
+	/**
 	 * Displays the forgot password page to request an email
 	 */
 	function forgot_password()
@@ -70,7 +78,8 @@ class Users extends CI_Controller {
 					'id' => $user['id'],
 					'first_name' => ucfirst($user['first_name']),
 					'last_name' => ucfirst($user['last_name']),
-					'email' => $user['email']
+					'email' => $user['email'],
+					'level' => $user['level']
 				));
 				redirect('/users/login');
 			}

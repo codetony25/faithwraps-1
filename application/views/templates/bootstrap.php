@@ -1,3 +1,6 @@
+<?php
+    $user = $this->session->userdata('user');
+?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -46,9 +49,21 @@
                             <li><a href="/categories/2">Limited Ed.</a></li>        
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
-                            <li><a href="/login">Log In</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i></a></li>
-                            <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <!-- Begin logged in linking -->
+                            <?php if (isset($user['id']) && isset($user['level'])): ?>
+                                <li><a href="/logout">Log Out</a></li>
+                                <?php if ($user['level'] == 5): // admin ?> 
+                                    <li><a href="/admins"><i class="fa fa-cog"></i></a></li>
+                                <?php else: ?>
+                                    <li><a href="/profile"><i class="fa fa-cog"></i></a></li>
+                                <?php endif ?>
+                                <li class="shoppingcartmobile"><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <!--Logged out linking -->
+                            <?php else: ?>
+                                <li><a href="/login">Log In</a></li>
+                                <li class="shoppingcartmobile"><a href="/login"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <?php endif ?>
+                            <!-- End logged in/out linking -->
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->
