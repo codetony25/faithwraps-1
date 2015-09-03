@@ -26,7 +26,7 @@ class Pages extends CI_Controller {
 		);
 
 		$this->template->load('bootstrap', 'index', array(
-			'title' => 'Faith Wraps',
+			'title' => 'FaithWraps',
 			'mason_grid' => $mason_partial,
 			'home_page' => TRUE,
 			'twitter_feed' => $twitter_partial

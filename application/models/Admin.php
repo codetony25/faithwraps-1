@@ -36,8 +36,6 @@ class Admin extends CI_model {
 				unset($post[$key]);
 			}
 		}
-		//Protect against updating the id
-		unset($post['id']);
 		$this->db->where('id', $id);
 		$this->db->update($table, $post);
 		return $this->db->affected_rows();

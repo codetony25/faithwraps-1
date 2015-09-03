@@ -82,7 +82,7 @@ class Users extends CI_Controller {
 
 		$this->session->set_flashdata('login_feedback', $login_feedback);
 
-		redirect('/'); // TO DO: redirect to their last page
+		redirect('/users/login'); // TO DO: redirect to their last page
 	}
 
 	/**

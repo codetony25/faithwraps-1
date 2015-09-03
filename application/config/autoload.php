@@ -148,5 +148,6 @@ $autoload['model'] = array(
 	'Order',
 	'Order_Part',
 	'Mailing_Address',
-	'Billing_Address'
+	'Billing_Address',
+	'Cart'
 );
