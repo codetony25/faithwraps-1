@@ -6,6 +6,10 @@
 	text-align: center;
 	color: $pink;
 	margin-bottom: 20px;
+	margin-top: 80px;
+	@media(min-width: $break-small){
+		margin-top: 20px;
+	}
 }
 
 .items {

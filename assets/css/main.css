@@ -411,12 +411,9 @@ footer {
 /*=================================
 =            Container            =
 =================================*/
-main {
-  margin-top: 70px; }
-  @media (min-width: 768px) {
-    main {
-      margin-top: 130px;
-      margin-bottom: 20px; } }
+@media (min-width: 768px) {
+  main {
+    margin-top: 90px; } }
 
 /*=====  End of Container  ======*/
 /*===============================
@@ -456,6 +453,12 @@ footer .socialiconsmobile li i:last-child:hover {
   color: #C0B4AC; }
 
 /*=====  End of Icons  ======*/
+@font-face {
+  font-family: 'Alex Brush';
+  src: url("/assets/fonts/alexbrush-regular-webfont.eot");
+  src: url("/assets/fonts/alexbrush-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/alexbrush-regular-webfont.woff2") format("woff2"), url("/assets/fonts/alexbrush-regular-webfont.woff") format("woff"), url("/assets/fonts/alexbrush-regular-webfont.ttf") format("truetype"), url("/assets/fonts/alexbrush-regular-webfont.svg#alex_brushregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 /*=================================
 =            Main Page            =
 =================================*/
@@ -544,6 +547,69 @@ header {
   margin: 0;
   padding: 50px; }
 
+.twitter_feed_container {
+  margin-bottom: 0; }
+
+.twitter_feed_container {
+  padding: 20px 0;
+  background-color: #fff;
+  width: 100%; }
+
+#twitter-feed .fa-twitter {
+  font-size: 7em;
+  color: pink; }
+
+#twitter-feed h3 {
+  font-size: 2.5rem;
+  color: #B1B1B1;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px; }
+
+#twitter-feed h5 a {
+  position: relative;
+  color: pink; }
+
+#twitter-feed .nav {
+  position: absolute;
+  bottom: 7%;
+  font-size: 2em;
+  color: pink;
+  opacity: 0.3;
+  padding: 50px 0; }
+
+#twitter-feed .nav:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity .5s linear;
+  -moz-transition: opacity .5s linear;
+  -webkit-transition: opacity .5s linear; }
+
+#twitter-feed .nav.prev {
+  left: 0; }
+
+#twitter-feed .nav.next {
+  right: 0; }
+
+.tweets {
+  position: relative; }
+
+.tweet {
+  display: block;
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 15px;
+  color: #B1B1B1;
+  font-size: 1em; }
+
+.tweet a {
+  color: pink; }
+
+.tweet span {
+  margin-top: 1em;
+  display: block;
+  font-style: italic;
+  color: pink; }
+
 /*=====  End of Main Page  ======*/
 /*==========================================
 =            Shopping Cart Page            =
@@ -564,7 +630,8 @@ header {
 =            Sign in / Register Page            =
 ===============================================*/
 .signin {
-  margin-top: 120px; }
+  margin-top: 50px;
+  margin-bottom: 30px; }
 
 .panel-login {
   border-color: #ccc;
@@ -766,7 +833,11 @@ form label.error {
 .categorydesc {
   text-align: center;
   color: #72675D;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  margin-top: 80px; }
+  @media (min-width: 768px) {
+    .categorydesc {
+      margin-top: 20px; } }
 
 .items {
   text-align: center; }
