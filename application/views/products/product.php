@@ -34,21 +34,11 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="product_style">Style:</label>
-                            <div class="col-sm-4">
-                                <select name="product_style" id="product_style" class="form-control">
-                                    <option value=""></option>
-                                    <?php foreach($styles as $style): ?>
-                                        <option value="<?= $style['id']; ?>"><?= $style['name']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
+                    </div>
                         <div class="form-group qty">
                             <label class="col-sm-2 control-label" for="product_qty">Qty:</label>
                             <div class="col-sm-2">
-                                <input type="number" class="form-control" name="product_qty" min="0" max="<?= $product['qty'];?>" step="1">
+                                <input type="number" class="form-control" name="product_qty" value="1" min="1" max="<?= $product['qty'];?>" step="1">
                             </div>
                             <?php if ($product['qty'] <= 5 ): ?>
                                 <em>Only <?=$product['qty'];?> left in stock!</em>
@@ -64,6 +54,7 @@
                     <div class="product-details">
                         <h4>About The Gem</h4>
 
+                        <h2><?= xss_clean($gem['name']); ?></h2>
                         <dl class="dl-horizontal">
                             <dt>Color</dt>
                             <dd><?= xss_clean($gem['colors']); ?></dd>
@@ -88,10 +79,10 @@
             <?php foreach($similar as $product): ?>
                 <div>
                     <a href="/products/<?= $product['id'] ;?>">
-                        <img src="/assets/img/products/<?= $product['image']; ?>"  />
-                        <h4><?= $product['name']; ?></h4>
+                        <img src="/assets/img/products/<?= xss_clean($product['image']); ?>"  />
+                        <h4><?= xss_clean($product['name']); ?></h4>
                     </a>
-                    <p>$<?=$product['price'];?></p>
+                    <p>$<?= xss_clean($product['price']);?></p>
                 </div>
             <?php endforeach; ?>
         </div><!-- END OF PRODUCTS -->
