@@ -15,7 +15,7 @@
         </div><!-- END OF COL-MD-6 -->
 
         <div class="col-md-6 productdesc">
-            <h2><?= ucwords($product['name']); ?></h2>
+            <h2><?= xss_clean(ucwords($product['name'])); ?></h2>
             <div class="itemabout">
                 <p><?= xss_clean($product['desc']); ?></p>
 
@@ -28,7 +28,6 @@
                         <label class="col-sm-2 control-label" for="product_style">Style:</label>
                         <div class="col-sm-4">
                             <select name="product_style" id="product_style" class="form-control">
-                                <option value=""></option>
                                 <?php foreach($styles as $style): ?>
                                     <option value="<?= $style['id']; ?>"><?= $style['name']; ?></option>
                                 <?php endforeach; ?>

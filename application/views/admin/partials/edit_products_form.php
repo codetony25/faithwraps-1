@@ -1,7 +1,10 @@
+<?php
+// Output has been cleaned
+?>
 <form role='form' method='post' id='edit_form' data-scope='products'>
 	<div class='form-group'>
 		<label for='name'>Name</label>
-		<input class='form-control' type='text' name='name' value="<?= xss_clean($name); ?>">
+		<input class='form-control' type='text' name='name' value="<?= xss_clean($product['name']); ?>">
 	</div>
 	<div class='form-group'>
 		<label for='gem_id'>Select Gem</label>
@@ -9,7 +12,7 @@
 		<?php
 			foreach ($gems as $gem) {
 				$selected = ($product['gem_id'] == $gem['id']) ? "selected='selected'" : "";
-				echo "<option {$selected} value='{$gem['id']}'>{$gem['name']}</option>";
+				echo "<option {$selected} value='{$gem['id']}'>" . xss_clean($gem['name']) . "</option>";
 			}
 		?>
 		</select>
@@ -20,30 +23,30 @@
 		<?php
 			foreach ($galleries as $gallery) {
 				$selected = ($product['gallery_id'] == $gallery['id']) ? "selected='selected'" : "";
-				echo "<option {$selected} value='{$gallery['id']}'>{$gallery['name']}</option>";
+				echo "<option {$selected} value='{$gallery['id']}'>" . xss_clean($gallery['name']) . "</option>";
 			}
 		?>
 		</select>	
 	</div>
 	<div class='form-group'>
 		<label for='desc'>Description</label>
-		<textarea class='form-control' name='desc'><?= $product['desc'] ?></textarea>
+		<textarea class='form-control' name='desc'><?= xss_clean($product['desc']); ?></textarea>
 	</div>
 	<div class='form-group'>
 		<label for='qty'>Quantity Available</label>
-		<input class='form-control' type='text' name='qty' value='<?= $product['qty'] ?>'>				
+		<input class='form-control' type='text' name='qty' value='<?= xss_clean($product['qty']); ?>'>				
 	</div>	
 	<div class='form-group'>
 		<label for='price'>Price</label>
-		<input class='form-control' type='text' name='price' value='<?= $product['price'] ?>'>	
+		<input class='form-control' type='text' name='price' value='<?= xss_clean($product['price']); ?>'>	
 	</div>
 	<div class='form-group'>
 		<label for='shipping'>Shipping</label>
-		<input class='form-control' type='text' name='shipping' value='<?= $product['shipping'] ?>'>				
+		<input class='form-control' type='text' name='shipping' value='<?= xss_clean($product['shipping']); ?>'>				
 	</div>			
 	<div class='form-group'>
 		<label for='combined_shipping'>Combined Shipping</label>
-		<input class='form-control' type='text' name='combined_shipping' value='<?= $product['combined_shipping'] ?>'>				
+		<input class='form-control' type='text' name='combined_shipping' value='<?= xss_clean($product['combined_shipping']); ?>'>				
 	</div>
 	<?php if ($is_new) { ?>
 		<div class='form-group'>

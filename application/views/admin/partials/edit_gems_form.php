@@ -1,23 +1,26 @@
+<?php
+	// Output Cleaned
+?>
 <form role='form' method='post' id='edit_form' data-scope='gems'>
 	<div class='form-group'>
 		<label for='name'>Name</label>
-		<input class='form-control' type='text' name='name' value='<?= $gem['name'] ?>'>
+		<input class='form-control' type='text' name='name' value='<?= xss_clean($gem['name']); ?>'>
 	</div>
 	<div class='form-group'>
 		<label for='desc'>Description</label>
-		<textarea class='form-control' name='desc'><?= $gem['desc'] ?></textarea>
+		<textarea class='form-control' name='desc'><?= xss_clean($gem['desc']); ?></textarea>
 	</div>
 	<div class='form-group'>
 		<label for='colors'>Colors</label>
-		<input class='form-control' type='text' name='colors' value='<?= $gem['colors'] ?>'>	
+		<input class='form-control' type='text' name='colors' value='<?= xss_clean($gem['colors']); ?>'>	
 	</div>
 	<div class='form-group'>
 		<label for='energies'>Energies</label>
-		<input class='form-control' type='text' name='energies' value='<?= $gem['energies'] ?>'>				
+		<input class='form-control' type='text' name='energies' value='<?= xss_clean($gem['energies']); ?>'>				
 	</div>			
 	<div class='form-group'>
 		<label for='chakras'>Chakras</label>
-		<input class='form-control' type='text' name='chakras' value='<?= $gem['chakras'] ?>'>				
+		<input class='form-control' type='text' name='chakras' value='<?= xss_clean($gem['chakras']); ?>'>				
 	</div>
 	<?php if ($is_new) { ?>
 		<div class='form-group'>
