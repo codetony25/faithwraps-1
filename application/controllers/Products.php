@@ -15,7 +15,8 @@ class Products extends CI_controller {
 			'product' => $product,
 			'styles' => $this->Product_Style->fetch_all_where(array('product_id'=>$id)),
 			'gem' => $this->Gem->fetch(array('id'=>$product['gem_id'])),
-			'similar' => $this->Product->fetch_similar($product['gallery_id'])
+			'similar' => $this->Product->fetch_similar($product['gallery_id']),
+			'js_files' => array('products_view.js')
 		));
 	}
 

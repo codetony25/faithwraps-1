@@ -1,11 +1,14 @@
+<?php
+	// Output cleaned
+?>
 <form role='form' method='post' id='edit_form' data-scope='galleries'>
 	<div class='form-group'>
 		<label for='name'>Name</label>
-		<input class='form-control' type='text' name='name' value='<?= $gallery['name'] ?>'>
+		<input class='form-control' type='text' name='name' value='<?= xss_clean($gallery['name']); ?>'>
 	</div>
 	<div class='form-group'>
 		<label for='desc'>Description</label>
-		<textarea class='form-control' name='desc'><?= $gallery['desc'] ?></textarea>
+		<textarea class='form-control' name='desc'><?= xss_clean($gallery['desc']); ?></textarea>
 	</div>
 	<?php if ($is_new) { ?>
 		<div class='form-group'>

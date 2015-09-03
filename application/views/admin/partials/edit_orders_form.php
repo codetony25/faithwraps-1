@@ -1,3 +1,6 @@
+<?php
+	// Output Cleaned
+?>
 <h1>Order #<?= $order['id']; ?></h1>
 <h4>User Info:</h4>
 <strong><?= xss_clean($order['user_first_name'] . " " . $order['user_last_name']); ?></strong><br>

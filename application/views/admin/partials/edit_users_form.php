@@ -1,3 +1,6 @@
+<?php
+	// Output cleaned
+?>
 <h3>User Info:</h3>
 <h4><?= xss_clean($user['first_name'] . " " . $user['last_name']) . " (" . $user['id'].")"; ?></h4>
 <p><b>E-Mail:</b> <?= xss_clean($user['email']) ?>
