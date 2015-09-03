@@ -10,7 +10,7 @@
 	<div class='form-group'>
 		<label for='image'>Image Location</label>
 		<input class='form-control' type='text' name='image' value='<?= xss_clean($product_style['image']); ?>'>
-		<img src='/assets/img/products/<?= xss_clean($product_style['image']); ?>' alt='Style Image'>
+		<img src='/assets/img/products/<?= xss_clean($product_style['image']); ?>' alt='Style Image' class="imagedropshadow">
 	</div>		
 	<?php if ($is_new) { ?>
 		<div class='form-group'>
@@ -22,7 +22,7 @@
 		<input type='hidden' name='action' value='update'>
 		<div class='form-group'>
 			<button data-id='<?= $product_style['id'] ?>' type='button' data-scope='product_styles' class='btn btn-danger del-style'>Delete Style</button>
-			<button class='btn btn-primary'>Update Style</button>
+			<button class='btn btn-primary gotop'>Update Style</button>
 		</div>
 	<?php } ?> 
 </form>
