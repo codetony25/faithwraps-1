@@ -1,7 +1,7 @@
 <form role='form' method='post' id='edit_form' data-scope='products'>
 	<div class='form-group'>
 		<label for='name'>Name</label>
-		<input class='form-control' type='text' name='name' value='<?= $product['name'] ?>'>
+		<input class='form-control' type='text' name='name' value="<?= xss_clean($name); ?>">
 	</div>
 	<div class='form-group'>
 		<label for='gem_id'>Select Gem</label>
