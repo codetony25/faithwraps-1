@@ -82,14 +82,14 @@
                 <div class="col-sm-4 footerlinks ">
                     <h5>Follow Us</h5>
                     <ul class="socialiconstablet">
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                     <ul class="socialiconsmobile">
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
                 <div class="col-sm-4 footerlinks ">
