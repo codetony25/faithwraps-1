@@ -37,6 +37,13 @@ nav {
 }
 
 #logo-main {
+    a {
+        color: $pink;
+        &:hover {
+            color: $darkpink;
+            text-decoration: none;
+        }
+    }
     @media (min-width: $break-small) {
         text-align: center;
         font-family: 'Alex Brush', cursive;

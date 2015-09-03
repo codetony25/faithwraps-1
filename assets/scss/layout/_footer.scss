@@ -5,9 +5,18 @@
 footer {
     border-top: 1px solid lightgray;
     background-color: #F8F8F8;
-    color: black;
+    color: $gray;
     font-size: 12px;
     padding: 20px;
+    a {
+        color: $gray;
+        &:hover {
+            color: $pink;
+        }
+    }
+    h5 {
+        color: $pink;
+    }
     h6 {
         text-align: center;
     }
@@ -32,7 +41,6 @@ footer {
             li {
                 display: inline-block;
                 a i {
-                    color: $pink;
                     opacity: 0.6;
                     transition: 0.2s;
                     &:hover {
@@ -53,7 +61,6 @@ footer {
 
 .footerlinks {
     h5 {
-        color: $darkpink;
         font-weight: bold;
         border-bottom: 1px dotted $pink;
         padding-bottom: 10px;  
@@ -64,10 +71,8 @@ footer {
     }
     ul li a {
         font-size: 1.1em;
-        color: $pink;
         transition: 0.4s;
         &:hover {
-            color: $darkpink;
             text-decoration: none;
         }
     }
@@ -83,12 +88,8 @@ footer {
 .newsletter {
     margin-top: 40px;
     h5 {
-        color: $pink;
         border-bottom: 1px dotted $pink;
         padding-bottom: 10px; 
-    }
-    h6 {
-        color: $pink;
     }
     @media (min-width: $break-small) {
        margin-top: 0px; 
@@ -110,10 +111,8 @@ footer {
 
 .newsletter h6 {
     padding: 10px;
-    color: $darkpink;
 }
 .newsletter h5 {
-    color: $darkpink;
     font-weight: bold;
 }
 

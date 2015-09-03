@@ -23,7 +23,7 @@
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid logo">
-                <h1 id="logo-main" class="hidden-xs">FaithWraps</h1>
+                <h1 id="logo-main" class="hidden-xs"><a href="/" alt="FaithWraps Home">FaithWraps</a></h1>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
                     <div class="navbar-header">
@@ -41,7 +41,6 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                      <div class="collapse navbar-collapse" id="navbar-brand-centered">
                           <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
                             <li><a href="/categories/1">FaithWraps</a></li>
                             <li><a href="/categories/2">Limited Ed.</a></li>        
                             <li><a href="/categories/3">Leather & Feather</a></li>
