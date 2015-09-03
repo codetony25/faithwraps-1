@@ -228,7 +228,10 @@ nav {
   box-shadow: -1px 10px 11px -12px rgba(0, 0, 0, 0.75);
   color: #72675D; }
   nav li:not(:last-child) {
-    margin-right: 20px; }
+    margin-right: 13px; }
+    @media (min-width: 1200px) {
+      nav li:not(:last-child) {
+        margin-right: 20px; } }
   nav li a {
     font-size: 0.75em;
     transition: 0.4s; }
@@ -563,7 +566,8 @@ header {
   font-size: 2.5rem;
   color: #B1B1B1;
   border-bottom: 1px solid #eee;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  font-family: 'Alex Brush', cursive; }
 
 #twitter-feed h5 a {
   position: relative;
@@ -840,7 +844,8 @@ form label.error {
       margin-top: 20px; } }
 
 .items {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 30px; }
   .items img {
     width: 80%; }
 
@@ -909,7 +914,7 @@ form label.error {
 
 .productdesc h2 {
   margin-top: 0;
-  font-size: 2em;
+  font-size: 3em;
   text-align: left;
   font-family: 'Alex Brush', cursive;
   color: #72675D; }
@@ -935,5 +940,12 @@ form label.error {
   font-size: 1em; }
 
 /*=====  End of Products Page  ======*/
+/*============================================
+=            Forgot Password Page            =
+============================================*/
+.forgot_password {
+  margin-top: 200px; }
+
+/*=====  End of Forgot Password Page  ======*/
 
 /*# sourceMappingURL=main.css.map */
