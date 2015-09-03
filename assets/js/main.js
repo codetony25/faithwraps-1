@@ -69,7 +69,7 @@ $(function(){
    	console.log('running');
     $('footer').css('margin-top', (docHeight - footerBottom - 40) + 'px');
    }
-	
+
 // Homepage twitter feed
 	$('#twitter-feed .tweet').each(function(e) {
 		if (e != 0)

@@ -106,10 +106,21 @@ $(function(){
         email: true,
         maxlength: 255
       },
-      login_password: {
+      password: {
         required: true,
         minlength: 8,
         max_length: 255
+      }
+    },
+    messages: {
+      email: {
+        required: "E-mail field can not be left empty",
+        maxlength: "Your e-mail is too long for acceptance"
+      },
+      password: {
+        required: "Password field can not be left empty",
+        minlength: "Your password must be 8 characters or more.",
+        maxlength: "Your password is too long for acceptance"
       }
     }
   });//end of login form
@@ -134,7 +145,20 @@ $(function(){
       }
     },
     messages: {
-      equalTo: "Passwords do not match, please try again."
+      email: {
+        required: "E-mail field can not be left empty",
+        maxlength: "Your email is too long for acceptance"
+      },
+      confirm_password: {
+        required: "Confirm password field can not be left empty",
+        equalTo: "Password does not match, please try again",
+        minlength: "Your confirm password must be 8 characters or more"
+      },
+      password: {
+        required: "Password field can not be left empty",
+        minlength: "Your password must be 8 characters or more.",
+        maxlength: "Your password is too long for acceptance"
+      }
     }
   });//end of register form
 
@@ -160,13 +184,35 @@ $(function(){
       },
       zipcode: {
         required: true
+      },
+      messages: {
+        first_name: {
+          required: "First name is required.",
+          minlength: "First name must be 2 characters or more."
+        },
+        last_name: {
+          required: "Last name is required.",
+          minlength: "Last name must be 2 characters or more."
+        },
+        address1: {
+          required: "Address field is required"
+        },
+        city: {
+          required: "City field is required"
+        },
+        country: {
+          required: "Country selection is required"
+        },
+        zipcode: {
+          required: "Zip code is required"
+        }
       }
 
     },
     errorPlacement: function(error, element) {
       error.insertBefore(element);
     }
-  });//end of form-billing//end of shipping validation
+  });//end of shipping validation
 
 
   //Billing Information
@@ -183,9 +229,6 @@ $(function(){
       address1: {
         required: true
       },
-      address2: {
-        required: true
-      },
       city: {
         required: true
       },
@@ -199,15 +242,37 @@ $(function(){
     },
     errorPlacement: function(error, element) {
       error.insertBefore(element);
-    }
+    },
+    messages: {
+        first_name: {
+          required: "First name is required.",
+          minlength: "First name must be 2 characters or more."
+        },
+        last_name: {
+          required: "Last name is required.",
+          minlength: "Last name must be 2 characters or more."
+        },
+        address1: {
+          required: "Address field is required"
+        },
+        city: {
+          required: "City field is required"
+        },
+        country: {
+          required: "Country selection is required"
+        },
+        zipcode: {
+          required: "Zip code is required"
+        }
+      }
   });//end of form-billing validate
-
  
   //Homepage masonry wall
   $('.masonry').masonry({
     'itemSelector': ".mason-item",
     'columnWidth': ".grid-sizer"
   });
+
 
 
 });//end of ready

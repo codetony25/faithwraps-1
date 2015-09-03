@@ -25,7 +25,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="/users/user_login" method="post" role="form" style="display: block;">
+                                <form id="login-form" action="/users/user_login" method="post" role="form">
                                     <div class="form-group">
                                         <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="E-mail">
                                     </div>
@@ -38,11 +38,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                            <div class="col-sm-6">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <div class="col-sm-6 loginsubmit">
+                                                <button class="btn btn-block btn-social btn-twitter "><i class="fa fa-sign-in"></i>Log In</button>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <a href="/google_auth/authenticate"><img src="/assets/img/signin_google.png" alt="" style="display: block; width: 100%; height: auto;"></a>
+                                            <div class="col-sm-6 googlesignin">
+                                                <a href="/google_auth/authenticate" class="btn btn-block btn-social btn-google"><i class="fa fa-google-plus"></i>Sign in with Google</a>
                                             </div>
                                         </div>
                                     </div>

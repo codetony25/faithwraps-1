@@ -53,7 +53,8 @@ footer {
 
 .footerlinks {
     h5 {
-        color: $pink;
+        color: $darkpink;
+        font-weight: bold;
         border-bottom: 1px dotted $pink;
         padding-bottom: 10px;  
     }
@@ -63,9 +64,10 @@ footer {
     }
     ul li a {
         font-size: 1.1em;
-        color: black;
+        color: $pink;
+        transition: 0.4s;
         &:hover {
-            color: $pink;
+            color: $darkpink;
             text-decoration: none;
         }
     }
@@ -96,9 +98,11 @@ footer {
 #newsletter {
     button {
         background-color: pink;
+        border-left: none;
+        color: white;
         transition: 0.4s;
         &:hover {
-            background-color: #72675D;
+            background-color: $darkpink;
             color: white;
         }
     }
@@ -106,6 +110,11 @@ footer {
 
 .newsletter h6 {
     padding: 10px;
+    color: $darkpink;
+}
+.newsletter h5 {
+    color: $darkpink;
+    font-weight: bold;
 }
 
 
