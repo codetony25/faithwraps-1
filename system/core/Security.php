@@ -517,7 +517,17 @@ class CI_Security {
 		// Final clean up
 		// This adds a bit of extra precaution in case
 		// something got through the above filters
+
 		$str = $this->_do_never_allowed($str);
+		
+		/************************
+		* Since we are only ever using xss_clean on output,
+		* I've added htmlspecialchars ENT_QUOTES to allow 
+		* strings with quotes inside to be displayed properly within
+		* quoted attributes
+		*************************/
+
+		$str = htmlspecialchars($str, ENT_QUOTES, 'utf-8');
 
 		/*
 		 * Images are Handled in a Special Way
