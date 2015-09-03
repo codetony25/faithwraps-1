@@ -47,6 +47,7 @@
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
                             <li><a href="/login">Log In</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i></a></li>
                             <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
@@ -106,8 +107,7 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/vendor/jquery.validate.js"></script>
     <script src="/assets/js/vendor/slick/slick.js"></script>
-    <script src="/assets/js/vendor/masonry/masonry.pkgd.js"></script>
-    <script src="/assets/js/vendor/masonry/masonry.js"></script>
+    <script src='/assets/js/vendor/masonry/masonry.js'></script>
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
     <?php
