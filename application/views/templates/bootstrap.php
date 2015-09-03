@@ -72,6 +72,8 @@
     </div>
 
 
+    <?= isset($twitter_feed) ? $twitter_feed : '' ; ?>
+
     <footer>
         <div class="container">
             <div class="row">

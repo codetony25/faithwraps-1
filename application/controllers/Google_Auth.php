@@ -7,8 +7,8 @@ class Google_Auth extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->library('google');
-		$this->load->model('OAuth2_Google', 'G_Auth');
+		$this->load->library('google_oauth');
+		$this->load->model('Google');
 		// $this->output->enable_profiler();
 	}
 
@@ -16,14 +16,14 @@ class Google_Auth extends CI_Controller
 	{
 		if ($access_token = $this->session->userdata('gauth_token'))
 		{
-			$this->google->client->setAccessToken($access_token);
-			$auth = new Google_Service_Oauth2( $this->google->client );
+			$this->google_oauth->client->setAccessToken($access_token);
+			$auth = new Google_Service_Oauth2( $this->google_oauth->client );
 			
 			$user = $auth->userinfo_v2_me->get();
 			
 			// If user's information already exists in DB, grab it. If not, create it
-			if (! $account_info = $this->G_Auth->fetch( array('oauth_id' => $user['id'])))
-				$new_user_id = $this->G_Auth->create_account($user);
+			if (! $account_info = $this->Google->fetch( array('oauth_id' => $user['id'])))
+				$new_user_id = $this->Google->create_account($user);
 
 			if($account_info) // Existing db info
 			{
@@ -64,11 +64,11 @@ class Google_Auth extends CI_Controller
 		else if (! isset($_GET['code']))
 		{		
 
-			$state = $this->G_Auth->generate_state();
+			$state = $this->Google->generate_state();
 			$this->session->set_userdata('g_auth_state', $state);
-			$this->google->client->setState($state);	
+			$this->google_oauth->client->setState($state);	
 
-			$auth_url = filter_var($this->google->client->createAuthUrl(), FILTER_SANITIZE_URL);
+			$auth_url = filter_var($this->google_oauth->client->createAuthUrl(), FILTER_SANITIZE_URL);
 
 			redirect($auth_url);
 		}
@@ -80,9 +80,9 @@ class Google_Auth extends CI_Controller
 		} 
 		else
 		{
-			$this->google->client->authenticate($_GET['code']);
+			$this->google_oauth->client->authenticate($_GET['code']);
 			
-			if ($access_token = $this->google->client->getAccessToken())
+			if ($access_token = $this->google_oauth->client->getAccessToken())
 			{
 				$this->session->set_userdata('gauth_token', $access_token);
 				redirect('/Google_Auth/authenticate');
