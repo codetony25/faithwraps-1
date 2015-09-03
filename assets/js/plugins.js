@@ -202,13 +202,11 @@ $(function(){
     }
   });//end of form-billing validate
 
-
-  //Masonry Gallery
-  $('.grid').masonry({
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 80,
-  percentPosition: true
+ 
+  //Homepage masonry wall
+  $('.masonry').masonry({
+    'itemSelector': ".mason-item",
+    'columnWidth': ".grid-sizer"
   });
 
 
