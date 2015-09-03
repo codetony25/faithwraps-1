@@ -6,7 +6,8 @@ class Features extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Twitter_OAuth', 'twitter');
+		$this->load->model('Twitter');
+		$this->load->library('Twitter_OAuth', '', 'tl');
 	}
 
 	function index()
