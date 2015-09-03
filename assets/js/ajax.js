@@ -47,9 +47,9 @@ $(document).ready(function() {
 
 			for(var i=0; i<list.length; i++) {
 					buf += "<li data-id='" + list[i].id + "' data-scope='" + formScope + "'>";
-					if (list[i].shipped == 0) { buf += "<b>"; }
+					if (list[i].shipped == 0) { buf += "<strong>"; }
 					buf += "Order #: " + list[i].id;
-					if (list[i].shipped == 0) { buf += "</b>"; }
+					if (list[i].shipped == 0) { buf += "</strong>"; }
 					buf += "</li>";
 			}
 			buf += "</ul>";
