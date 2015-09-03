@@ -12,7 +12,9 @@ class Order extends CI_model {
 	}
 
 	public function get_order_joined($id) {
-	// Adds the user and address info to an order
+	// Gets an order with user information joined.
+	// Ordered by whether or not the item needs to be shipped
+
 		$product_table = Product::TABLE;
 		$style_table = Product_Style::TABLE;
 		$order_table = self::TABLE;
