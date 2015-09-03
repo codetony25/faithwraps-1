@@ -70,10 +70,15 @@
         	<h3>Twitter</h3>
         	<h5><a href="https://twitter.com/faithwraps">@FaithWraps</a></h5>
         	<i class="fa fa-twitter"></i>
-        	<p class="tweet" data-id="1">
-        		Collect, Share Your Digital Life With the New Hive - Hello everyone, We are getting closer to the official... http://tmblr.co/ZSr8Fm1euSsGH
-        		<span>9/2</span>
-        	</p>
+        	<?php 
+        		$counter = 1;
+        		foreach($tweets as $tweet): 
+        	?>
+	        	<p class="tweet" data-id="<?= $counter++; ?>">
+	        		<?= $tweet['message']; ?>
+	        		<span><?= date('F j, Y - g:i a', strtotime($tweet['time_tweeted'])); ?></span>
+	        	</p>
+        	<?php endforeach; ?>
         </div>
     </div>
 </div>
