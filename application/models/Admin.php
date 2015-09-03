@@ -141,9 +141,17 @@ class Admin extends CI_model {
 					'gallery' => $gallery);
 			} else {
 				$data = array('is_new' => FALSE,
-					'gallery' => $this->admin_get($form_scope,'id', $id));
+					'gallery' => $this->admin_get($form_scope,'id', $id, TRUE));
 			}
 			return $data;
+		}
+		// Orders and parts
+		elseif ($form_scope == "orders") {
+			if ($order = $this->Order->get_order_joined($id)) {
+				$order_parts = $this->Order_Part->get_order_parts_joined($id);
+				$data = array('order' => $order, 'order_parts' => $order_parts);
+			return $data;
+			}
 		}
 	}
 }

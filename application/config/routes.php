@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['password_reset/(:any)'] = '/users/password_reset/$1';
 $route['login'] = '/users/login';
 $route['forgot_password'] = '/users/forgot_password';
+$route['auth/(:any)'] = '/auth/session/$1';
 
 $route['products/(:num)'] = '/products/show/$1';
 $route['categories/(:num)'] = '/categories/show/$1';
