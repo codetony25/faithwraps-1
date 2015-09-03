@@ -24,14 +24,14 @@
     color: #F6F0E4;
 }
 
-.products {
+.products, .randomProducts {
     margin-bottom: 50px;
     display: block;
     text-align: center;
     h4 {
         text-align: center;
         margin: 0;
-        margin-bottom: 7px;
+        margin: 10px 0;
         font-size: 1.0em;
     }
     img {
@@ -59,25 +59,61 @@
 }
 
 
-.fullBg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
 
 header {
-    margin-top: -40px;
+    margin-top: 50px;
     background-image: url('/assets/img/background.jpg');
     background-size: cover;
-    height: 600px;
+    height: 700px;
+    @media (min-width: $break-small) {
+        margin-top: 92px;
+    }
+    .maincontent {
+        display: block;
+        text-align: center;
+        color: black;
+        position: relative;
+        font-weight: bold;
+        top: 350px;
+        font-size: 1.5em;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: rgba(255,255,255, 0.4);
+        width: 100%;
+        h1 {
+            font-family: 'Alex Brush', cursive;
+        }
+        h3 {
+            font-family: Serif;
+        }
+        @media (min-width: 630px) {
+            top: 430px;
+        }
+        @media (min-width: $break-medium) {
+            display: inline-block;
+            top: 180px;
+            width: 500px;
+            left: 490px;
+            padding: 40px 20px;
+            padding-left: 60px;
+            text-align: center;
+        }
+        @media (min-width: 1420px) {
+            left: 800px;
+            width: 57.9%;
+            text-align: left;
+            overflow: hidden;
+        }
+    }
 }
-// #maincontent {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: 50;
-// }
-// 
+
+.randomScroll {
+    background-color: #F7F7F7;
+}
+.explore {
+    font-family: 'Alex Brush', cursive;
+    margin: 0;
+    padding: 50px;
+}
 
 /*=====  End of Main Page  ======*/
