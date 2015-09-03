@@ -203,13 +203,6 @@ $(function(){
   });//end of form-billing validate
 
 
-  //Masonry Gallery
-  $('.grid').masonry({
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 80,
-  percentPosition: true
-  });
 
 
 });//end of ready
