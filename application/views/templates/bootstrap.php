@@ -56,13 +56,12 @@
                                 <?php else: ?>
                                     <li><a href="/profile"><i class="fa fa-cog"></i></a></li>
                                 <?php endif ?>
-                                <li class="shoppingcartmobile"><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>                  
                             <!--Logged out linking -->
                             <?php else: ?>
                                 <li><a href="/login">Log In</a></li>
-                                <li class="shoppingcartmobile"><a href="/login"><i class="fa fa-shopping-cart"></i></a></li>                  
                             <?php endif ?>
                             <!-- End logged in/out linking -->
+                            <li class="shoppingcartmobile"><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>                  
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->

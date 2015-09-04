@@ -81,6 +81,11 @@ class Users extends CI_Controller {
 					'email' => $user['email'],
 					'level' => $user['level']
 				));
+				
+				// Combine session cart with users cart table
+				if ($this->session->userdata('cart')) {
+					$this->Cart->combine_carts();
+				}
 				redirect('/users/login');
 			}
 			else
