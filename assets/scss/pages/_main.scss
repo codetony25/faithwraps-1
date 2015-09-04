@@ -299,7 +299,7 @@
     position: relative;
     text-align: center;
     font-family: "Alex Brush";
-    font-size: 3em;
+    font-size: 2em;
 }
 .section-title:after {
     background: #000000;
@@ -330,6 +330,7 @@
   .grid-sizer { width: 33.33%; }
   .mason-item { width: 33.33%; }
   .mason-item:last-of-type { display: none; }
+
 }
 
 @media screen and (max-width: 720px) {
