@@ -72,6 +72,8 @@ $route['billing'] = '/carts/billing';
 $route['confirmation'] = '/carts/confirmation';
 
 /* Info and Footer routes */
+$route['contact'] = '/infos/contact';
+$route['faq'] = '/infos/faq';
 $route['newsletter'] = '/infos/newsletter';
 $route['about'] = '/infos/about';
 $route['developers'] = '/infos/developers';

@@ -8,7 +8,9 @@ class Infos extends CI_controller {
 	}
 
 	public function index() {
-
+		$this->template->load('bootstrap', 'infos/info', array(
+			'title' => 'FaithWraps Information'
+		));		
 	}
 
 	/**
@@ -22,9 +24,29 @@ class Infos extends CI_controller {
 	* Shows the developer page
 	*/
 	public function developers() {
-		$this->template->load('bootstrap', 'infos/developer', array(
+		$this->template->load('bootstrap', 'infos/developers', array(
 			'title' => 'Meet the Developers'
 		));
 	}
+
+	/**
+	* Shows the developer page
+	*/
+	public function about() {
+		$this->template->load('bootstrap', 'infos/about', array(
+			'title' => 'About Us'
+		));
+	}
+
+	/**
+	* Shows the developer page
+	*/
+	public function contact() {
+		$this->template->load('bootstrap', 'infos/contact', array(
+			'title' => 'Contact Us'
+		));
+	}
+
+
 }
 
