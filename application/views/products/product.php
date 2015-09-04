@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="product_style">Style:</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <select name="product_style" id="product_style" class="form-control">
                                 <?php foreach($styles as $style): ?>
                                     <option value="<?= $style['id']; ?>"><?= $style['name']; ?></option>
