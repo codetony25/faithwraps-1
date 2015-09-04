@@ -40,4 +40,24 @@ class Pages extends CI_Controller {
 			)
 		);
 	}
+
+	function test(){
+		$this->load->library('email');
+
+		$config['smtp_host'] = 'smtp.mail.yahoo.com';
+		$config['smtp_user'] = 'andrewlee.testing@yahoo.com';
+		$config['smtp_pass'] = '1212121212';
+		$config['smtp_port'] = '25';
+
+		$this->email->initialize($config);
+
+		$this->email->from('andrewlee.testing@yahoo.com');
+		$this->email->to('andrew.a.lee@gmail.com');
+		$this->email->subject('email test');
+		$this->email->message('testing');
+
+		$result = $this->email->send();
+
+		var_dump($result);
+	}
 }
