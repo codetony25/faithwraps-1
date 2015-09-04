@@ -65,3 +65,6 @@ $route['categories/(:num)'] = '/categories/show/$1';
 
 $route['shop'] = '/carts/add_to_cart';
 $route['cart'] = '/carts';
+
+/* Info and Footer routes */
+$route['newsletter'] = '/infos/newsletter';

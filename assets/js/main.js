@@ -1,5 +1,13 @@
 $(function(){
 
+// Hooking up subscribing to the newsletter
+	$('#newsletter').submit(function(e) {
+		$.post('/newsletter', $(this).serialize(), function(res) {
+			$('#newsletter-msg').html('<mark>' + res + '</mark>');
+			$('#newsletter').find('input').val('');
+		},'html');
+		return false;
+	});
 
 //Fading in pictures on items page
 	$('.itemthumbnail img').click(function(e){
