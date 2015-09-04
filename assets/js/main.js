@@ -170,8 +170,6 @@ $(function(){
 
 	$(window).on( 'resize', fontResize);
 
-<<<<<<< HEAD
-=======
 	function fontResize() {
 		var ratio = $('.mason-item').width()/110;
 
@@ -179,7 +177,6 @@ $(function(){
 	}
 
 	fontResize();
->>>>>>> 656cc9c4a4632852bc3c6b09d0e7b3335c4f6b0f
 
 });//end ready
 
