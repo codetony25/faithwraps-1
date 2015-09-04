@@ -100,7 +100,7 @@ class Carts extends CI_controller {
 		// $user = $this->session->userdata('user');
 		$user['id'] = 1;
 
-		$this->template->load('bootstrap', 'review', array(
+		$this->template->load('bootstrap', 'carts/review', array(
 			'title' => 'Review Order Details',
 			'cart' => $this->Cart->stripe_test(),
 			'billing' => $this->Billing_Address->fetch(array('user_id' => $user['id'])),
