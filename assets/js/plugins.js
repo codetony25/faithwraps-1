@@ -352,6 +352,7 @@ $(function(){
             fwStripe.validationError = true;
             fwStripe.errorMsgs.push(response);
             fwStripe.displayError();
+            fwStripe.errorMsgs = [];
           }
         },
         "json"

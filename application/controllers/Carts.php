@@ -14,6 +14,7 @@ class Carts extends CI_controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('Stripe_api');
+		$this->output->enable_profiler();
 	}
 
 	public function index() {
@@ -54,35 +55,24 @@ class Carts extends CI_controller {
 	}
 
 	/**
-	 * Endpoint for billing form.
+	 * Endpoint for billing form.  Form has been validated by this point
 	 */
 	function checkout()
 	{	
-		$this->session->set_flashdata('billing_feedback', validation_errors());
-		$this->template->load('bootstrap', 'billing', array(
-			'title' => 'FaithWraps - Billing'
-		));
-	}
+		$post = $this->input->post();
 
-	/**
-	 * 
-	 */
-	function process()
-	{
-		$feedback = [];
-
-		if ($token = $this->input->post('stripeToken'))
+		if ($token = $post['stripeToken'])
 		{
 			// To be used later to verify token has not already been used
 			$this->session->set_userdata('stripe_token', $token);
-			
+
+			redirect('/carts/review');
 		}
 		else
 		{
-			$feedback[] = 'The order could not be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again.';
+			$feedback = 'The order could not be processed. You have not been charged. Please confirm that you have JavaScript enabled and try again.';
 		}
-
-		redirect('/carts/review');
+		redirect('/carts/billing');
 	}
 
 	function review()
@@ -90,6 +80,14 @@ class Carts extends CI_controller {
 		$this->template->load('bootstrap', 'review', array(
 			'title' => 'Review Order Details'
 		));
+	}
+
+	function submit_order()
+	{
+		$cart = $this->Cart->stripe_test();
+		$user = $this->session->userdata('user');
+
+		var_dump($this->stripe_api->charge($token, $post, $cart, $user));
 	}
 }
 

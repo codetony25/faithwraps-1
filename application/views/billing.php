@@ -25,18 +25,6 @@
                 <h2 class="form-signin-heading text-center">Billing Information:</h2>
                 
                 <div class="form-group">
-                    <label for="first_name" class="col-sm-3 control-label">First Name</label>
-                    <div class="col-sm-9">
-                        <input type="text" id="first_name" name="first_name" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="last_name" class="col-sm-3 control-label">Last Name</label>
-                    <div class="col-sm-9">
-                        <input type="text" id="last_name" name="last_name" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="address_1" class="col-sm-3 control-label">Address Line 1</label>
                     <div class="col-sm-9">
                         <input type="text" id="address_1" name="address_1" class="form-control" >
@@ -55,6 +43,18 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="city" class="col-sm-3 control-label">State</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="state" name="state" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="zip_code"  class="col-sm-3 control-label">Zip Code</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="zip_code" name="zip_code" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="country" class="col-sm-3 control-label">Country</label>
                     <div class="col-sm-9">
                         <select name="country" id="country" class="form-control">
@@ -63,12 +63,6 @@
                             <option value="VIETNAM">Vietnam</option>
                             <option value="RUSSIA">Russia</option>
                         </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="zip_code"  class="col-sm-3 control-label">Zip Code</label>
-                    <div class="col-sm-9">
-                        <input type="text" id="zip_code" name="zip_code" class="form-control">
                     </div>
                 </div>   
                 <div class="checkbox">
@@ -79,6 +73,12 @@
             <div class="col-sm-6 billing-cc">
                 <h2 class="form-signin-heading text-center">Credit Card Information: </h2>
 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="name">Name on Card</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Card Holder's Name" autocomplete="off">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="card-number">Card Number</label>
                     <div class="col-sm-9">
