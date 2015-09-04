@@ -189,4 +189,5 @@ class Cart extends CI_model {
 		}
 	}
 
+
 }

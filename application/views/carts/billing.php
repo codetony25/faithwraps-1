@@ -2,7 +2,7 @@
     <h2 class="text-center">Checkout</h2>
     <div class="col-xs-12">
         <ul class="nav nav-pills nav-justified thumbnail">
-            <li class="#"><a href="#">
+            <li class="#"><a href="/shipping">
                 <h4 class="list-group-item-heading">Step 1</h4>
                 <p class="list-group-item-text">Shipping Information</p>
             </a></li>

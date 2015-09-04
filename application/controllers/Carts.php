@@ -29,9 +29,28 @@ class Carts extends CI_controller {
 		redirect('/carts');
 	}
 
+	public function save_shipping() {
+		/* NEEDS FORM VALIDATION */
+		$this->Mailing_Address->save_shipping($this->input->post());
+
+		redirect('/billing');
+	}
+
 	public function shipping() {
 		if ($user = $this->session->userdata('user')) {
 			$this->template->load('bootstrap', 'carts/shipping', array(
+				'title' => 'FaithWraps Checkout',
+				'shipping' => $this->Mailing_Address->get_shipping()
+			));
+		} else {
+			$this->session->set_userdata('target_page', 'shipping');
+			redirect('/login');
+		}
+	}
+
+	public function billing() {
+		if ($user = $this->session->userdata('user')) {
+			$this->template->load('bootstrap', 'carts/billing', array(
 				'title' => 'FaithWraps Checkout'
 			));
 		} else {
@@ -39,6 +58,7 @@ class Carts extends CI_controller {
 			redirect('/login');
 		}
 	}
+
 
 }
 
