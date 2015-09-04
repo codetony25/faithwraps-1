@@ -79,12 +79,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 newsletter">
-                    <h5>Subscribe now to receive newsletters!</h5>
+                    <h5 id="newsletter-msg">Subscribe now to receive newsletters!</h5>
                     <form action="" method="post" id="newsletter">
                         <div class="input-group col-sm-11">
-                           <input type="text" class="form-control" placeholder="example@example.com">
+                           <input type="text" name="email" class="form-control" placeholder="example@example.com">
                            <span class="input-group-btn">
-                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
+                                <button class="btn btn-default" name="newsletter">Submit!</button>
                            </span>
                         </div>
                     </form>
@@ -94,12 +94,12 @@
                     <ul class="socialiconstablet">
                         <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
                         <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                     <ul class="socialiconsmobile">
                         <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
                         <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
                 <div class="col-xs-6 col-sm-4 footerlinks ">
@@ -117,7 +117,7 @@
     </footer>
     <div class="container-fluid bottom-footer">
         <div class="row text-center">
-            <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
+            <h6>Copyright &copy; 2015 - Team Tony was Awesome!</h6>
         </div>
     </div>
 

@@ -47,5 +47,12 @@ $config = array(
 			'label' => 'Quantity',
 			'rules' => 'required|trim|integer|greater_than[0]'
 		)
+	),
+	'newsletter' => array(
+		array(
+			'field' => 'email',
+			'label' => 'E-Mail',
+			'rules' => 'required|trim|valid_email|is_unique[newsletters.email]',
+		)
 	)
 );
