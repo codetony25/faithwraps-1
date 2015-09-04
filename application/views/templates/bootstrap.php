@@ -38,7 +38,7 @@
                         </button>
                         <h1 id="logo-main2" class="hidden-sm hidden-md hidden-lg">FaithWraps</h1>
                         <div class="shoppingcart">
-                            <h3 class=""><a href="#"><i class="fa fa-shopping-cart"></i></a></h3>
+                            <h3 class=""><a href="/cart"><i class="fa fa-shopping-cart"></i></a></h3>
                         </div><!-- END OF SHOPPINGCART -->
                     </div><!-- END OF NAVBAR-HEADER -->
                     <!-- Collect the nav links, forms, and other content for toggling -->
