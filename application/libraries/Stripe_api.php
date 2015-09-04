@@ -20,7 +20,8 @@ class Stripe_API
 
 	function charge($token, $billing_info, $cart, $user)
 	{
-		$data = $this->_form_data($post);
+
+		$data = $this->_form_data($billing_info);
 
 		$data['amount'] = $cart['total'] * 100;  //amount is in cents
 		$data['source'] = $token;
@@ -68,11 +69,11 @@ class Stripe_API
 		$data = array( 
 			'currency' => 'usd',
 			'metadata' => array(
-				'Address_1' => $post['address_1'],
-				'Address_2' => $post['address_2'],
-				'City' => $post['city'],
-				'State' => $post['state'],
-				'Zip_Code' => $post['zip_code']
+				'Address_1' => $billing_info['address_1'],
+				'Address_2' => $billing_info['address_2'],
+				'City' => $billing_info['city'],
+				'State' => $billing_info['state'],
+				'Zip_Code' => $billing_info['zip_code']
 			)
 		);
 

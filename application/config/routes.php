@@ -69,6 +69,7 @@ $route['cart'] = '/carts';
 $route['checkout'] = '/carts/checkout';
 $route['shipping'] = '/carts/shipping';
 $route['billing'] = '/carts/billing';
+$route['confirmation'] = '/carts/confirmation';
 
 /* Info and Footer routes */
 $route['newsletter'] = '/infos/newsletter';
