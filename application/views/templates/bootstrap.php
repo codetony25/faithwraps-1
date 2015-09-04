@@ -25,7 +25,7 @@
 
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid logo">
+            <div class="container-fluid logo no-gutter">
                 <h1 id="logo-main" class="hidden-xs"><a href="/" alt="FaithWraps Home">FaithWraps</a></h1>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
