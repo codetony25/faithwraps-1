@@ -31,7 +31,7 @@ class Pages extends CI_Controller {
 			TRUE
 		);
 
-		$this->template->load('bootstrap', 'index', 
+		$this->template->load('bootstrap', 'confirmation', 
 			array(
 				'title' => 'FaithWraps',
 				'mason_grid' => $mason_partial,

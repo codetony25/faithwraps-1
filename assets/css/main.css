@@ -1495,10 +1495,8 @@ footer .socialiconsmobile li i:last-child:hover {
 .shippinginfo {
   margin-top: 80px; }
 
-.billingslide {
-  margin-top: 80px; }
-  .billingslide h2 {
-    margin-bottom: 20px; }
+.billingslide h2 {
+  margin-bottom: 20px; }
 
 .shipping {
   margin: 0 auto; }
@@ -1890,5 +1888,12 @@ a:hover img.imagedropshadow {
   margin-bottom: 120px; }
 
 /*=====  End of Profile Page  ======*/
+/*=========================================
+=            Confirmation Page            =
+=========================================*/
+.confirm {
+  margin-top: 50px; }
+
+/*=====  End of Confirmation Page  ======*/
 
 /*# sourceMappingURL=main.css.map */
