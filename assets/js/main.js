@@ -171,7 +171,7 @@ $(function(){
 	$(window).on( 'resize', fontResize);
 
 	function fontResize() {
-		var ratio = $('.mason-item').width()/100;
+		var ratio = $('.mason-item').width()/110;
 
 		$('.mason-item .product-title').css('font-size', ratio + "em");
 	}
