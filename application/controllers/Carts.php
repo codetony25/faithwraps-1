@@ -43,18 +43,25 @@ class Carts extends CI_controller {
 	}
 
 	/**
-	 * Endpoint for billing form.  Validated form and checks for Stripe Token
+	 * 
+	 */
+	function billing_info_validate()
+	{
+		if ($this->form_validation->run('billing'))
+			echo json_encode(TRUE);
+		else
+			echo json_encode(validation_errors());
+	}
+
+	/**
+	 * Endpoint for billing form.
 	 */
 	function checkout()
-	{
-		if ($this->form_vaidation->run('billing'))
-		{
-
-		}
-		else
-		{
-			$this->session->set_flashdata('billing_feedback', validation_errors());
-		}
+	{	
+		$this->session->set_flashdata('billing_feedback', validation_errors());
+		$this->template->load('bootstrap', 'billing', array(
+			'title' => 'FaithWraps - Billing'
+		));
 	}
 
 	/**

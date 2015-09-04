@@ -76,17 +76,9 @@
                 </div>
             </div><!-- /.col-sm-6 -->
 
-            <div class="col-sm-6">
-                <div id="val-errors"></div>
-
+            <div class="col-sm-6 billing-cc">
                 <h2 class="form-signin-heading text-center">Credit Card Information: </h2>
 
-                <div class="form-group">
-                    <label class="col-sm-3 control-label" for="name">Name on Card</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="name" placeholder="Card Holder's Name" autocomplete="off">
-                    </div>
-                </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="card-number">Card Number</label>
                     <div class="col-sm-9">
@@ -117,11 +109,11 @@
                         <button type="submit" id="checkout" class="btn btn-success">Continue to Checkout</button>
                     </div>
                 </div>
+                <div id="val-errors"></div>
             </div><!-- /.col-sm-6 -->
-            </div>
         </form>
-    </div>
-</div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">Stripe.setPublishableKey('<?=STRIPE_PUBLIC_KEY;?>');</script>

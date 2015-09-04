@@ -306,7 +306,7 @@ $(function(){
       fwStripe.cacheSelectors();
     };
 
-    fwStripe.validate = function() {
+    fwStripe.cc_validate = function() {
       if (! Stripe.card.validateCardNumber(fwStripe.card.ccNum)) {
         fwStripe.validationError = true;
         fwStripe.errorMsgs.push('Invalid CC Number');
@@ -344,19 +344,31 @@ $(function(){
       }
     }
 
+    fwStripe.validateBilling = function() {
+      $.post( '/carts/billing_info_validate',
+        fwStripe.cache.$form.serialize(),
+        function(response) {
+          if (response != true ) {
+            fwStripe.validationError = true;
+            fwStripe.errorMsgs.push(response);
+            fwStripe.displayError();
+          }
+        },
+        "json"
+      );
+    }
+
     fwStripe.displayError = function() {
-      fwStripe.cache.$errors.html( function(){
-        var html = '<div class="alert alert-warning alert-dismissible" role="alert"> \
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-        
-        $.each(fwStripe.errorMsgs, function(i,v){
-          html += "<p>"+v+"<p>";
-        });
-
-        html += "</div>";
-
-        return html;
+      var html = '<div class="alert alert-warning alert-dismissible" role="alert"> \
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+      
+      $.each(fwStripe.errorMsgs, function(i,v){
+        html += "<p>"+v+"<p>";
       });
+
+      html += "</div>";
+
+      fwStripe.cache.$errors.html(html);
     }
 
     fwStripe.init();
@@ -365,7 +377,7 @@ $(function(){
     fwStripe.cache.$form.submit(function() {
         // Disable button to prevent repeated clicks
         fwStripe.cache.$checkoutBtn.attr('disabled', true);
-
+ 
         // Clear flag & messages
         fwStripe.validationError = false;
         fwStripe.errorMsgs = [];
@@ -373,8 +385,10 @@ $(function(){
         // Get Card Values
         fwStripe.getCardInfo();
 
-        // Validate the form
-        fwStripe.validate();
+        // Validate cc info
+        fwStripe.cc_validate();
+
+        fwStripe.validateBilling();
 
         // Check for errors
         if (fwStripe.validationError) {
@@ -384,7 +398,7 @@ $(function(){
             // Re-enable button
             fwStripe.cache.$checkoutBtn.prop('disabled', false);
         } else {
-          // Get token.  Chained responsehandler also submits form
+          // Get token. Chained responsehandler submits form
           fwStripe.createToken();
         }
 
