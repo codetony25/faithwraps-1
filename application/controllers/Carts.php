@@ -29,5 +29,16 @@ class Carts extends CI_controller {
 		redirect('/carts');
 	}
 
+	public function checkout() {
+		if ($user = $this->session->userdata('user')) {
+			$this->template->load('bootstrap', 'carts/shipping', array(
+				'title' => 'FaithWraps Checkout'
+			));
+		} else {
+			$this->session->set_userdata('target_page', 'checkout');
+			redirect('/login');
+		}
+	}
+
 }
 

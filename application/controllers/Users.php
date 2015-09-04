@@ -86,7 +86,14 @@ class Users extends CI_Controller {
 				if ($this->session->userdata('cart')) {
 					$this->Cart->combine_carts();
 				}
-				redirect('/users/login');
+
+				if ($target_page = $this->session->userdata('target_page')) {
+					if ($target_page == "checkout") {
+						redirect('/checkout');
+					}
+				} else {
+					redirect('/users/login');
+				}
 			}
 			else
 			{
