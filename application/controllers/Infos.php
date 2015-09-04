@@ -18,5 +18,13 @@ class Infos extends CI_controller {
 		echo $this->Info->do_newsletter();
 	}
 
+	/**
+	* Shows the developer page
+	*/
+	public function developers() {
+		$this->template->load('bootstrap', 'infos/developer', array(
+			'title' => 'Meet the Developers'
+		));
+	}
 }
 
