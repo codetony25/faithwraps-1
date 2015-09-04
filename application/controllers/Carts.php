@@ -91,9 +91,28 @@ class Carts extends CI_controller {
 
 	function submit_order()
 	{
+		// $user = $this->session->userdata('user');
+		$user['id'] = 1;
 
+		//
+		$result = $this->stripe_api->charge(
+			$this->session->userdata('stripe_token'),
+			$this->Billing_Address->fetch(array('user_id' => $user['id'])), 
+			$this->Cart->stripe_test(), 
+			$user
+		);
 
-		var_dump($this->stripe_api->charge($token, $post, $cart, $user));
+		if ($charge->paid == TRUE)
+		{
+			var_dump('here');
+			// $charge->id (store to DB. Need a column in the order table)
+
+			// Move stuff from cart to orders & order parts
+
+			// Clear cart
+
+			// Send user to confirmation screen
+		}
 	}
 }
 

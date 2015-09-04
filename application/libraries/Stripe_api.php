@@ -18,11 +18,11 @@ class Stripe_API
 		define('STRIPE_PUBLIC_KEY', $this->ci->config->item('test_publishable_key'));
 	}
 
-	function charge($token, $post, $cart, $user)
+	function charge($token, $billing_info, $cart, $user)
 	{
 		$data = $this->_form_data($post);
 
-		$data['amount'] = $cart['total'] * 100;
+		$data['amount'] = $cart['total'] * 100;  //amount is in cents
 		$data['source'] = $token;
 		$data['description'] = $user['email'];
 
@@ -63,7 +63,7 @@ class Stripe_API
 		
 	}
 
-	private function _form_data($post)
+	private function _form_data($billing_info)
 	{
 		$data = array( 
 			'currency' => 'usd',

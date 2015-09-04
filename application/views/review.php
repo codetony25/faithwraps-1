@@ -75,20 +75,23 @@
                 <tr>
                     <td colspan="4" class="text-right">
                         <p>Select Shipping Method</p>
-                        <form action="/" method="post">
-                            <select name="shippingprice">
-                                <option value="#">USPS</option>
-                                <option value="#">UPS</option>
-                                <option value="#">FedEx</option>
-                            </select>
-                        </form>
+                        <select name="shippingprice">
+                            <option value="#">USPS</option>
+                            <option value="#">UPS</option>
+                            <option value="#">FedEx</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-right">Grand Total with Shipping and Tax: <strong>$ <?= number_format($cart['total'],2); ?></strong></td>
+                    <td colspan="4" class="text-right">Grand Total: <strong>$ <?= number_format($cart['total'],2); ?></strong></td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="text-right"><a href="#"><button class="btn btn-success">Edit</button></a><a href="#"><button class="btn btn-info">Proccess Order</button></a></td>
+                    <td colspan="4" class="text-right">
+                        <form action="/carts/submit_order">
+                            <button class="btn btn-success">Edit</button>
+                            <button type="submit" class="btn btn-info">Proccess Order</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>  
