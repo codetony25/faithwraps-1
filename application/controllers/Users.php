@@ -93,7 +93,7 @@ class Users extends CI_Controller {
 						redirect('/shipping');
 					}
 				} else {
-					redirect('/users/login');
+					redirect('/');
 				}
 			}
 			else
