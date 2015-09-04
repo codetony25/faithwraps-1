@@ -7,10 +7,6 @@
     </div>
 </div>
 
-<div class="titlebanner" id="sticky-menu">
-    <h1 class="text-center"><?= $category['name'] ?></h1>
-</div>
-
 <!-- Masonry for categories-->
 <div class="container">
     <div class="masonry-container">
