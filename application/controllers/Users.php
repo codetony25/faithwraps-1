@@ -44,7 +44,7 @@ class Users extends CI_Controller {
 	 */
 	public function register()
 	{
-		if ($feedback = $this->form_validation->run('register'))
+		if ($this->form_validation->run('register'))
 		{
 			if ($user_id = $this->User->create_user($this->input->post()))
 			{
@@ -58,8 +58,11 @@ class Users extends CI_Controller {
 				$feedback = 'Error: User could not be created';
 			}
 		}
-
-		$this->session->set_flashdata('login_feedback', validation_errors());
+		else 
+		{
+			$feedback = validation_errors();
+		}
+		$this->session->set_flashdata('login_feedback', $feedback);
 
 		redirect('/users/login');
 	}
@@ -69,7 +72,7 @@ class Users extends CI_Controller {
 	 */
 	public function user_login()
 	{
-		if ($login_feedback = $this->form_validation->run('login'))
+		if ($this->form_validation->run('login'))
 		{
 			if ($user = $this->User->verify_login($this->input->post()))
 			{
@@ -101,8 +104,12 @@ class Users extends CI_Controller {
 				$login_feedback = 'Error: User with that email/password combination could not be found, or account has not been activated yet.';
 			}
 		}
+		else 
+		{
+			$login_feedback = validation_errors();
+		}
 
-		$this->session->set_flashdata('login_feedback', validation_errors());
+		$this->session->set_flashdata('login_feedback', $login_feedback);
 
 		redirect('/users/login');
 	}
@@ -112,7 +119,7 @@ class Users extends CI_Controller {
 	 */
 	function request_reset()
 	{
-		if ($reset_feedback = $this->form_validation->run('password_reset'))
+		if ($this->form_validation->run('password_reset'))
 		{
 			$email = $this->input->post('email');
 
@@ -124,8 +131,10 @@ class Users extends CI_Controller {
 			$this->session->set_flashdata('login_feedback', "A password reset email was sent to $email. The link is valid for an hour");
 			redirect('/users/login');
 		}
-
-		$this->session->set_flashdata('reset_feedback', validation_errors());
+		else
+		{
+			$this->session->set_flashdata('reset_feedback', validation_errors());
+		}
 
 		redirect('/users/forgot_password');
 	}
@@ -135,15 +144,19 @@ class Users extends CI_Controller {
 	 */
 	function reset_password()
 	{
-		if ($feedback = $this->form_validation->run('reset_password'))
+		if ($this->form_validation->run('reset_password'))
 		{
 			if( $this->User->reset_password($this->input->post()) )
 				$feedback = 'Your password was successfully updated. Please log in';
 			else
 				$feedback = 'Invalid or expired token. Please try again';
 		}
+		else
+		{
+			$feedback = validation_errors();
+		}
 
-		$this->session->set_flashdata('login_feedback', validation_errors());
+		$this->session->set_flashdata('login_feedback', $feedback);
 
 		redirect('/users/login');
 	}
@@ -183,7 +196,7 @@ class Users extends CI_Controller {
 			$feedback = 'Error: Confirmation code was not found';
 		}
 
-		$this->session->set_flashdata('login_feedback', validation_errors());
+		$this->session->set_flashdata('login_feedback', $feedback);
 
 		redirect('/users/login');
 	}
