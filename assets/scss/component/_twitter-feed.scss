@@ -3,9 +3,12 @@
 }
 
 .twitter_feed_container {
-    padding: 20px 0;
     background-color: #fff;
     width: 100%;
+}
+
+.twitter_feed_container .row {
+    padding: 20px 0;
 }
 
 #twitter-feed .fa-twitter {
