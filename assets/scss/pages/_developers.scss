@@ -1,0 +1,116 @@
+/*================================================
+=            Meet The Developers Page            =
+================================================*/
+
+.developer-header {
+	padding: 20px;
+	background-color: $darkpink;
+	color: white;
+	margin-top: 38px;
+}
+
+.dev-container {
+	width: 100%;
+}
+
+.developer {
+	h3 {
+		font-size: 1.1em;
+	}
+	p {
+		margin: 0 auto;
+		padding: 5px;
+		font-size: 0.9em;
+		letter-spacing: 0.5px;
+	}
+	.developer-desc {
+		text-align: center;
+	}
+	&:nth-child(even) {
+		background-color: lightgray;
+	}
+	img {
+		width: 100%;
+	}
+	.developer-social {
+		margin-bottom: 0;
+	}
+	@media (min-width: $break-small) {
+		display: inline-block;
+		h3 {
+			font-size: 1.3em;
+		}
+		p {
+			width: 70%;
+		}
+		img {
+			width: 29.6%;
+		}
+		.developer-desc {
+			display: inline-block;
+			vertical-align: top;
+			width: 69.8%;
+			margin-top: 30px;
+		}	
+	}
+	@media (min-width: $break-medium) {
+		.developer-desc {
+			margin-top: 50px;
+		}
+		h3 {
+			font-size: 1.8em;
+		}
+		p {
+			font-size: 1.2em;
+		}
+	}
+	@media (min-width: $break-large) {
+		.developer-desc {
+			margin-top: 70px;
+		}
+		.developer {
+			width: 100%;
+		}
+	}
+}
+
+.developer-social {
+	list-style: none;
+	padding: 0;
+	li {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: 40px;
+		}
+		a i {
+			font-size: 2.3em;
+			@media (min-width: $break-large) {
+				font-size: 3em;
+			}
+		}
+	}
+}
+
+
+
+/*=====  End of Meet The Developers Page  ======*/
+
+// .developer {
+// 	display: inline-block;
+// 	width: 100%;
+// 	p {
+// 		margin: 0 auto;
+// 		width: 70%;
+// 	}
+// 	.developer-desc {
+// 		text-align: center;
+// 		display: inline-block;
+// 		width: 70%;
+// 	}
+// 	img {
+// 		width: 29.6%;
+// 	}
+// 	&:nth-child(even) {
+// 		background-color: lightgray;
+// 	}
+// }

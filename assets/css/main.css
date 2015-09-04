@@ -2131,5 +2131,73 @@ a:hover img.imagedropshadow {
   margin-top: 50px; }
 
 /*=====  End of Confirmation Page  ======*/
+/*================================================
+=            Meet The Developers Page            =
+================================================*/
+.developer-header {
+  padding: 20px;
+  background-color: #ff8da1;
+  color: white;
+  margin-top: 38px; }
+
+.dev-container {
+  width: 100%; }
+
+.developer h3 {
+  font-size: 1.1em; }
+.developer p {
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 0.9em;
+  letter-spacing: 0.5px; }
+.developer .developer-desc {
+  text-align: center; }
+.developer:nth-child(even) {
+  background-color: lightgray; }
+.developer img {
+  width: 100%; }
+.developer .developer-social {
+  margin-bottom: 0; }
+@media (min-width: 768px) {
+  .developer {
+    display: inline-block; }
+    .developer h3 {
+      font-size: 1.3em; }
+    .developer p {
+      width: 70%; }
+    .developer img {
+      width: 29.6%; }
+    .developer .developer-desc {
+      display: inline-block;
+      vertical-align: top;
+      width: 69.8%;
+      margin-top: 30px; } }
+@media (min-width: 992px) {
+  .developer .developer-desc {
+    margin-top: 50px; }
+  .developer h3 {
+    font-size: 1.8em; }
+  .developer p {
+    font-size: 1.2em; } }
+@media (min-width: 1200px) {
+  .developer .developer-desc {
+    margin-top: 70px; }
+  .developer .developer {
+    width: 100%; } }
+
+.developer-social {
+  list-style: none;
+  padding: 0; }
+  .developer-social li {
+    display: inline-block; }
+    .developer-social li:not(:last-child) {
+      margin-right: 40px; }
+    .developer-social li a i {
+      font-size: 2.3em; }
+      @media (min-width: 1200px) {
+        .developer-social li a i {
+          font-size: 3em; } }
+
+/*=====  End of Meet The Developers Page  ======*/
 
 /*# sourceMappingURL=main.css.map */
