@@ -52,6 +52,8 @@ class Carts extends CI_controller {
 			echo json_encode(TRUE);
 		else
 			echo json_encode(validation_errors());
+
+		exit();
 	}
 
 	/**

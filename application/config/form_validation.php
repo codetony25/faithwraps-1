@@ -50,23 +50,23 @@ $config = array(
 	),
 	'billing' => array(
 		array(
-			'field' => 'first_name',
-			'label' => 'First Name',
-			'rules' => 'required|trim|alpha_numeric_spaces'
+			'field' => 'name',
+			'label' => 'Name on Card',
+			'rules' => 'required|trim'
 		),
 		array(
-			'field' => 'last_name',
-			'label' => 'Last Name',
-			'rules' => 'required|trim|alpha_numeric_spaces'
-		),
-		array(
-			'field' => 'address1',
+			'field' => 'address_1',
 			'label' => 'Billing Address Line 1',
 			'rules' => 'required|trim'
 		),
 		array(
 			'field' => 'city',
 			'label' => 'City',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'state',
+			'label' => 'State',
 			'rules' => 'required|trim'
 		),
 		array(

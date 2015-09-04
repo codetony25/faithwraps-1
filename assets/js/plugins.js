@@ -346,19 +346,13 @@ $(function(){
       }
     }
 
-    fwStripe.validateBilling = function() {
-      $.post( '/carts/billing_info_validate',
-        fwStripe.cache.$form.serialize(),
-        function(response) {
-          if (response != true ) {
-            fwStripe.validationError = true;
-            fwStripe.errorMsgs.push(response);
-            fwStripe.displayError();
-            fwStripe.errorMsgs = [];
-          }
-        },
-        "json"
-      );
+    fwStripe.validateBillingAjax = function(){
+      return $.ajax({
+        method: 'POST',
+        url: '/carts/billing_info_validate',
+        data: fwStripe.cache.$form.serialize(),
+        dataType: 'json'
+      });
     }
 
     fwStripe.displayError = function() {
@@ -385,25 +379,30 @@ $(function(){
         fwStripe.validationError = false;
         fwStripe.errorMsgs = [];
 
-        // Get Card Values
-        fwStripe.getCardInfo();
+        fwStripe.validateBillingAjax().done(function(response) {
+          if (response != true ) {
+            fwStripe.validationError = true;
+            fwStripe.errorMsgs.push(response);
+          }
+        }).then(function(response){
+           // Get Card Values
+           fwStripe.getCardInfo();
 
-        // Validate cc info
-        fwStripe.cc_validate();
+           // Validate cc info
+           fwStripe.cc_validate();
 
-        fwStripe.validateBilling();
-
-        // Check for errors
-        if (fwStripe.validationError) {
-            // Show errors on screen
-            fwStripe.displayError();
-
-            // Re-enable button
-            fwStripe.cache.$checkoutBtn.prop('disabled', false);
-        } else {
-          // Get token. Chained responsehandler submits form
-          fwStripe.createToken();
-        }
+           // Check for errors
+           if (fwStripe.validationError) {
+               // Show errors on screen
+               fwStripe.displayError();              
+           } else {
+             // Get token. Chained responsehandler submits form
+             fwStripe.createToken();
+           }
+        }).always(function(){
+          // Re-enable button
+          fwStripe.cache.$checkoutBtn.prop('disabled', false);
+        });
 
         return false;
     });
