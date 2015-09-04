@@ -65,6 +65,7 @@ class Carts extends CI_controller {
 		{
 			// To be used later to verify token has not already been used
 			$this->session->set_userdata('stripe_token', $token);
+			$this->session->set_userdata('last_4', $post['last4']);
 
 			redirect('/carts/review');
 		}
@@ -77,15 +78,20 @@ class Carts extends CI_controller {
 
 	function review()
 	{
+		// $user = $this->session->userdata('user');
+		$user['id'] = 1;
+
 		$this->template->load('bootstrap', 'review', array(
-			'title' => 'Review Order Details'
+			'title' => 'Review Order Details',
+			'cart' => $this->Cart->stripe_test(),
+			'billing' => $this->Billing_Address->fetch(array('user_id' => $user['id'])),
+			'mailing' => $this->Mailing_Address->fetch(array('user_id' => $user['id']))
 		));
 	}
 
 	function submit_order()
 	{
-		$cart = $this->Cart->stripe_test();
-		$user = $this->session->userdata('user');
+
 
 		var_dump($this->stripe_api->charge($token, $post, $cart, $user));
 	}

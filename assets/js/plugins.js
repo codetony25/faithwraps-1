@@ -339,7 +339,9 @@ $(function(){
         return false;
       } else { // No errors. Submit form
         var token = response.id;
+        var last4 = $('#card-number').val().substr( $('#card-number').val().length - 4 );
         fwStripe.cache.$form.append('<input type="hidden" name="stripeToken" value="' + token + '" />');
+        fwStripe.cache.$form.append('<input type="hidden" name="last4" value="' + last4 + '" />');
         fwStripe.cache.$form.get(0).submit();
       }
     }
