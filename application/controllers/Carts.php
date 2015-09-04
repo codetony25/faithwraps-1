@@ -138,5 +138,11 @@ class Carts extends CI_controller {
 				'title' => 'Confirmation'
 		));
 	}
+
+	public function del_item() {
+		$item_id = $this->input->post('item_id');
+		$this->Cart->del_cart_item($item_id);
+		redirect('/cart');
+	}
 }
 

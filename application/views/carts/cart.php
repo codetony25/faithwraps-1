@@ -20,7 +20,10 @@
                     
 					<?php foreach($cart['items'] as $item): ?>
                     <div class="row">
-                        <div class="col-sm-2 hidden-xs"><img class="img-responsive" src="/assets/img/products/<?= xss_clean($item['image']); ?>">
+                        <div class="col-sm-2 hidden-xs">
+                            <a href="/products/<?= $item['product_id'] ?>">
+                                <img class="img-responsive" src="/assets/img/products/<?= xss_clean($item['image']); ?>">
+                            </a>
                         </div>
                         <div class="col-xs-5 col-sm-4 orderdesc">
                             <h4 class="product-name"><strong><?= xss_clean($item['product_name']); ?></strong></h4>
@@ -34,9 +37,11 @@
                                 <?= $item['qty']; ?>
                             </div>
                             <div class="col-xs-2">
-                                <button type="button" class="btn btn-link btn-xs">
-                                    <span class="glyphicon glyphicon-trash"> </span>
-                                </button>
+                                <form method="post" action="carts/del_item">
+                                    <button name='item_id' value="<?= $item['id'] ?>" class="btn btn-link btn-xs">
+                                        <span class="glyphicon glyphicon-trash"> </span>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
