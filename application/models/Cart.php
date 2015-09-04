@@ -189,4 +189,26 @@ class Cart extends CI_model {
 		}
 	}
 
+		public function stripe_test() {
+		$product_table = Product::TABLE;
+		$product_style_table = Product_Style::TABLE;
+		$cart_table = self::TABLE;
+		// $user = $this->session->userdata('user');
+
+		// Get the product with the product style
+		$this->db->select("$cart_table.id, $cart_table.product_id as product_id, $cart_table.product_style_id as product_style_id, $cart_table.qty, $product_table.name as product_name, $product_style_table.name as product_style_name, $product_style_table.image, $product_table.price as product_price, $product_table.shipping as shipping");
+		$this->db->join($product_style_table, "$product_style_table.id = $cart_table.product_style_id");
+		$this->db->join($product_table, "$product_table.id = $product_style_table.product_id");
+		
+		$cart['items'] = $this->fetch_all_where(array($cart_table.'.user_id'=>1));
+
+		$cart['total'] = 0;
+		foreach($cart['items'] as $item) {
+			$cart['total'] += $item['product_price'] * $item['qty'];
+		}
+		return $cart;
+	}
+
+
+
 }

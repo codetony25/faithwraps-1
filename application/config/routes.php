@@ -63,8 +63,12 @@ $route['auth/(:any)'] = '/auth/session/$1';
 $route['products/(:num)'] = '/products/show/$1';
 $route['categories/(:num)'] = '/categories/show/$1';
 
+/* Cart and Billing Routes */
 $route['shop'] = '/carts/add_to_cart';
 $route['cart'] = '/carts';
+$route['checkout'] = '/carts/checkout';
+$route['shipping'] = '/carts/shipping';
+$route['billing'] = '/carts/billing';
 
 /* Info and Footer routes */
 $route['newsletter'] = '/infos/newsletter';

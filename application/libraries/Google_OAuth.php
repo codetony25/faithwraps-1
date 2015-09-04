@@ -13,13 +13,14 @@ class Google_OAuth
 		$this->ci =& get_instance();
 
 		$this->client = new Google_Client();
-		$this->ci->config->load('google_api');
 
 		$this->_init();
 	}
 
 	private function _init()
 	{
+		$this->ci->config->load('google_api');
+		
 		$this->client->setAccessType('offline');
 		$this->client->setClientID($this->ci->config->item('client_id'));
 		$this->client->setClientSecret($this->ci->config->item('client_secret'));

@@ -15,21 +15,29 @@ class Pages extends CI_Controller {
 	 */
 	function index()
 	{
-		$twitter_partial = $this->load->view('partials/twitter_feed', array(
-			'tweets' => $this->Page->get_tweets()),
-			 TRUE
-		);
-
-		$mason_partial = $this->load->view('partials/products_mason_grid', array(
-			'products' => $this->Page->get_random_products(10)),
+		$twitter_partial = $this->load->view(
+			'partials/twitter_feed', 
+			array(
+				'tweets' => $this->Page->get_tweets()
+			),
 			TRUE
 		);
 
-		$this->template->load('bootstrap', 'index', array(
-			'title' => 'FaithWraps',
-			'mason_grid' => $mason_partial,
-			'home_page' => TRUE,
-			'twitter_feed' => $twitter_partial
-		));
+		$mason_partial = $this->load->view(
+			'partials/products_mason_grid', 
+			array(
+				'products' => $this->Page->get_random_products(10)
+			),
+			TRUE
+		);
+
+		$this->template->load('bootstrap', 'index', 
+			array(
+				'title' => 'FaithWraps',
+				'mason_grid' => $mason_partial,
+				'home_page' => TRUE,
+				'twitter_feed' => $twitter_partial
+			)
+		);
 	}
 }
