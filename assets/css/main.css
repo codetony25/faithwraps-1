@@ -248,9 +248,9 @@ nav {
   font-size: 1.3em; }
 
 #logo-main a {
-  color: #FFC0CB; }
+  color: #ff8da1; }
   #logo-main a:hover {
-    color: #ff8da1;
+    color: #FFC0CB;
     text-decoration: none; }
 @media (min-width: 768px) {
   #logo-main {
@@ -264,7 +264,8 @@ nav {
   font-family: 'Alex Brush', cursive;
   margin: 0;
   width: 260px;
-  text-align: center; }
+  text-align: center;
+  color: #ff8da1; }
   @media (min-width: 435px) {
     #logo-main2 {
       width: 300px; } }
@@ -402,7 +403,7 @@ footer {
   width: 100%; }
 
 .newsletter {
-  margin-top: 40px; }
+  margin-bottom: 45px; }
   .newsletter h5 {
     border-bottom: 1px dotted #FFC0CB;
     padding-bottom: 10px; }
@@ -468,8 +469,8 @@ footer .socialiconstablet li i:hover {
   color: #FFC0CB; }
 
 footer .socialiconsmobile li i:first-child, footer .socialiconsmobile li i:nth-child(3) {
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: 3px;
+  margin-right: 3px;
   opacity: 1; }
 
 footer .socialiconsmobile li i:first-child:hover {
@@ -1759,5 +1760,9 @@ a:hover img.imagedropshadow {
   box-shadow: 1px 1px 5px #999; }
 
 /*=====  End of Admin Dashboard Page  ======*/
+/*====================================
+=            Profile Page            =
+====================================*/
+/*=====  End of Profile Page  ======*/
 
 /*# sourceMappingURL=main.css.map */

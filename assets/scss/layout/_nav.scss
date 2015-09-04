@@ -38,9 +38,9 @@ nav {
 
 #logo-main {
     a {
-        color: $pink;
+        color: $darkpink;
         &:hover {
-            color: $darkpink;
+            color: $pink;
             text-decoration: none;
         }
     }
@@ -58,6 +58,7 @@ nav {
     margin: 0;
     width: 260px;
     text-align: center;
+    color: $darkpink;
     @media (min-width: 435px) {
         width: 300px;
     }
