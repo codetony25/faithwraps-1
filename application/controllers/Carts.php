@@ -52,7 +52,8 @@ class Carts extends CI_controller {
 	public function billing() {
 		if ($user = $this->session->userdata('user')) {
 			$this->template->load('bootstrap', 'carts/billing', array(
-				'title' => 'FaithWraps Checkout'
+				'title' => 'FaithWraps Checkout',
+				'billing' => $this->Billing_Address->get_billing()
 			));
 		} else {
 			$this->session->set_userdata('target_page', 'shipping');
@@ -80,6 +81,8 @@ class Carts extends CI_controller {
 	{	
 		$post = $this->input->post();
 
+		$this->Billing_Address->save_billing($post);
+
 		if ($token = $post['stripeToken'])
 		{
 			// To be used later to verify token has not already been used
@@ -97,12 +100,11 @@ class Carts extends CI_controller {
 
 	function review()
 	{
-		// $user = $this->session->userdata('user');
-		$user['id'] = 1;
+		$user = $this->session->userdata('user');
 
-		$this->template->load('bootstrap', 'review', array(
+		$this->template->load('bootstrap', 'carts/review', array(
 			'title' => 'Review Order Details',
-			'cart' => $this->Cart->stripe_test(),
+			'cart' => $this->Cart->get_all_items(),
 			'billing' => $this->Billing_Address->fetch(array('user_id' => $user['id'])),
 			'mailing' => $this->Mailing_Address->fetch(array('user_id' => $user['id']))
 		));
@@ -110,28 +112,31 @@ class Carts extends CI_controller {
 
 	function submit_order()
 	{
-		// $user = $this->session->userdata('user');
-		$user['id'] = 1;
+		$user = $this->session->userdata('user');
 
 		//
-		$result = $this->stripe_api->charge(
+		$charge = $this->stripe_api->charge(
 			$this->session->userdata('stripe_token'),
 			$this->Billing_Address->fetch(array('user_id' => $user['id'])), 
-			$this->Cart->stripe_test(), 
+			$this->Cart->get_all_items(), 
 			$user
 		);
 
-		if ($charge->paid == TRUE)
+		if (!isset($charge->paid)) {
+			echo json_encode(array("Problem processing your request.",
+									$charge));
+		} 
+		elseif ($charge->paid == TRUE)
 		{
-			var_dump('here');
-			// $charge->id (store to DB. Need a column in the order table)
-
-			// Move stuff from cart to orders & order parts
-
-			// Clear cart
-
-			// Send user to confirmation screen
+			$this->Cart->checkout_success($charge->id);
+			redirect('/confirmation');
 		}
+	}
+
+	public function confirmation() {
+		$this->template->load('bootstrap', 'carts/confirmation', array(
+				'title' => 'Confirmation'
+		));
 	}
 }
 

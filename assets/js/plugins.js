@@ -300,7 +300,12 @@ $(function(){
         $ccNum: $('#cc #card-number'),
         $cvc: $('#cc #cvc'),
         $expMonth: $('#cc #exp-month'),
-        $expYear: $('#cc #exp-year')
+        $expYear: $('#cc #exp-year'),
+        $address1: $('#address_1'),
+        $address2: $('#address_2'),
+        $city: $('#city'),
+        $state: $('#state'),
+        $zip: $('#zip_code')
       }
     };
 
@@ -311,6 +316,16 @@ $(function(){
         cvc: fwStripe.cache.$cvc.val(),
         expMonth: fwStripe.cache.$expMonth.val(),
         expYear: fwStripe.cache.$expYear.val()
+      }
+    }
+
+    fwStripe.getBillingInfo = function() {
+      fwStripe.billing = {
+        address1: fwStripe.cache.$address1.val(),
+        address2: fwStripe.cache.$address2.val(),
+        city: fwStripe.cache.$city.val(),
+        state: fwStripe.cache.$state.val(),
+        zip: fwStripe.cache.$zip.val().toString(),
       }
     }
 
@@ -343,15 +358,19 @@ $(function(){
           number: fwStripe.card.ccNum,
           cvc: fwStripe.card.cvc,
           exp_month: fwStripe.card.expMonth,
-          exp_year: fwStripe.card.expYear
+          exp_year: fwStripe.card.expYear,
+          name: fwStripe.card.name,
+          address_line1: fwStripe.billing.address1,
+          address_line2: fwStripe.billing.address2,
+          address_city: fwStripe.billing.city,
+          address_state: fwStripe.billing.state,
+          address_zip: fwStripe.billing.zip,
         }, fwStripe.stripeResponseHandler);
     }
 
     fwStripe.stripeResponseHandler = function(status, response) {
       if (response.error) {
         fwStripe.errorMsgs.push(response.error.message);
-        fwStripe.displayError();
-        return false;
       } else { // No errors. Submit form
         var token = response.id;
         var last4 = $('#card-number').val().substr( $('#card-number').val().length - 4 );
@@ -389,35 +408,35 @@ $(function(){
     fwStripe.cache.$form.submit(function() {
         // Disable button to prevent repeated clicks
         fwStripe.cache.$checkoutBtn.attr('disabled', true);
- 
+
         // Clear flag & messages
         fwStripe.validationError = false;
         fwStripe.errorMsgs = [];
 
         fwStripe.validateBillingAjax().done(function(response) {
-          if (response != true ) {
-            fwStripe.validationError = true;
-            fwStripe.errorMsgs.push(response);
-          }
+            if (response != true ) {
+                fwStripe.validationError = true;
+                fwStripe.errorMsgs.push(response);
+            }
         }).then(function(response){
-           // Get Card Values
-           fwStripe.getCardInfo();
+            fwStripe.getBillingInfo();
 
-           // Validate cc info
-           fwStripe.cc_validate();
+            // Get Card Values
+            fwStripe.getCardInfo();
 
-           // Check for errors
-           if (fwStripe.validationError) {
-               // Show errors on screen
-               fwStripe.displayError();              
-           } else {
-             // Get token. Chained responsehandler submits form
-             fwStripe.createToken();
-           }
-        }).always(function(){
-          // Re-enable button
-          fwStripe.cache.$checkoutBtn.prop('disabled', false);
-        });
+            // Validate cc info
+            fwStripe.cc_validate();
+
+            // Check for errors
+            if (fwStripe.validationError) {
+                // Show errors on screen
+                fwStripe.displayError();        
+                fwStripe.cache.$checkoutBtn.prop('disabled', false);      
+            } else {
+                // Get token. Chained responsehandler submits form
+                fwStripe.createToken();
+            }
+        })
 
         return false;
     });

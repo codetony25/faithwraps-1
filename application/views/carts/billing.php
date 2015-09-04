@@ -3,7 +3,7 @@
         <h2 class="text-center">Checkout</h2>
         <div class="col-xs-12">
             <ul class="nav nav-pills nav-justified thumbnail">
-                <li class="#"><a href="#">
+                <li class="#"><a href="/shipping">
                     <h4 class="list-group-item-heading">Step 1</h4>
                     <p class="list-group-item-text">Shipping Information</p>
                 </a></li>
@@ -20,38 +20,38 @@
     </div>
 
     <div class="row">
-        <form action="/carts/checkout" method="post" class="form-horizontal" role="form" class="payment" id="cc">
+        <form action="/checkout" method="post" class="form-horizontal" role="form" class="payment" id="cc">
             <div class="col-sm-6">
                 <h2 class="form-signin-heading text-center">Billing Information:</h2>
                 
                 <div class="form-group">
                     <label for="address_1" class="col-sm-3 control-label">Address Line 1</label>
                     <div class="col-sm-9">
-                        <input type="text" id="address_1" name="address_1" class="form-control" >
+                        <input type="text" id="address_1" name="address" value="<?= xss_clean($billing['address']) ?>" class="form-control" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="address_2" class="col-sm-3 control-label">Address Line 2 (Optional)</label>
                     <div class="col-sm-9">
-                        <input type="text" id="address_2" name="address_2" class="form-control">
+                        <input type="text" id="address_2" name="address_2" value="<?= xss_clean($billing['address_2']) ?>" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="city" class="col-sm-3 control-label">City</label>
                     <div class="col-sm-9">
-                        <input type="text" id="city" name="city" class="form-control">
+                        <input type="text" id="city" name="city" value="<?= xss_clean($billing['city']) ?>" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="city" class="col-sm-3 control-label">State</label>
                     <div class="col-sm-9">
-                        <input type="text" id="state" name="state" class="form-control">
+                        <input type="text" id="state" name="state" value="<?= xss_clean($billing['state']) ?>" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="zip_code"  class="col-sm-3 control-label">Zip Code</label>
                     <div class="col-sm-9">
-                        <input type="text" id="zip_code" name="zip_code" class="form-control">
+                        <input type="text" id="zip_code" name="zip_code" value="<?= xss_clean($billing['zip_code']) ?>" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

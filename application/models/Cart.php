@@ -209,6 +209,34 @@ class Cart extends CI_model {
 		return $cart;
 	}
 
+	/**
+	 * Upon successful stripe transaction, removes items from the cart and creates the order/order parts
+	 * 
+	 * @param 	string 	$charge_id 	Charge ID for stripe reference
+	 */
+	function checkout_success($charge_id) {
+		$user = $this->session->userdata('user');
+		$cart = $this->get_all_items();
 
+		// Create the order record
+		$order['user_id'] = $user['id'];
+		$order['stripe_order_id'] = $charge_id;
+		$order['total_price'] = $cart['total'];
 
+		$this->db->insert(Order::TABLE, $order);
+		$order_id = $this->db->insert_id();
+
+		// Create only/all the order parts
+		foreach ($cart['items'] as $item) {
+			$data['order_id'] = $order_id;
+			$data['product_id'] = $item['product_id'];
+			$data['product_style_id'] = $item['product_style_id'];
+			$data['qty'] = $item['qty'];
+
+			$this->db->insert(Order_Part::TABLE, $data);
+		}
+
+		// Delete the cart for this user
+		$this->db->delete(self::TABLE, array('user_id'=>$user['id']));
+	}
 }

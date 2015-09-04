@@ -168,5 +168,32 @@ $(function(){
 	})
 	/* End of Homepage Banner script */
 
+
+	$('.category-banner').data('size', 'normal');
+
+	$(window).scroll(function() {
+		if ( $(document).scrollTop() > 90 )
+		{
+			if( $('.category-banner').data('size') == 'normal')
+			{
+				$('.category-banner').data('size', 'small');
+				$('.category-banner').css('margin-top', '90px');
+				$('.category-banner').stop().animate({
+					height: '80px'
+				}, 600);
+			}
+		}
+		else 
+		{
+			if( $('.category-banner').data('size') == 'small')
+			{
+				$('.category-banner').data('size', 'big');
+				$('.category-banner').stop().animate({
+					height: '280px'
+				}, 600);
+			}
+		}
+	})
+
 });//end ready
 

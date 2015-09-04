@@ -1350,6 +1350,193 @@ footer .socialiconsmobile li i:last-child:hover {
   margin: 0;
   padding: 50px; }
 
+.twitter_feed_container {
+  margin-bottom: 0; }
+
+.twitter_feed_container {
+  background-color: #fff;
+  width: 100%; }
+
+.twitter_feed_container .row {
+  padding: 20px 0; }
+
+#twitter-feed .fa-twitter {
+  font-size: 7em;
+  color: pink; }
+
+#twitter-feed h3 {
+  font-size: 2.5rem;
+  color: #B1B1B1;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-family: 'Alex Brush', cursive; }
+
+#twitter-feed h5 a {
+  position: relative;
+  color: pink; }
+
+#twitter-feed i.fa-twitter:hover,
+#twitter-feed h5 a:hover,
+#twitter-feed .tweet a:hover {
+  color: #ff8da1;
+  text-decoration: none;
+  transition: color .5s linear;
+  -moz-transition: color .5s linear;
+  -webkit-transition: color .5s linear; }
+
+#twitter-feed .nav {
+  position: absolute;
+  bottom: 7%;
+  font-size: 2em;
+  color: pink;
+  opacity: 0.3;
+  padding: 50px 0; }
+
+#twitter-feed .nav:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity .5s linear;
+  -moz-transition: opacity .5s linear;
+  -webkit-transition: opacity .5s linear; }
+
+#twitter-feed .nav.prev {
+  left: 0; }
+
+#twitter-feed .nav.next {
+  right: 0; }
+
+.tweets {
+  position: relative; }
+
+.tweet {
+  display: block;
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 15px;
+  color: #777777;
+  font-size: 1em; }
+
+.tweet a {
+  color: pink; }
+
+.tweet span {
+  margin-top: 1em;
+  display: block;
+  font-style: italic;
+  color: pink; }
+
+.grid-sizer {
+  width: 20%; }
+
+.mason-item {
+  width: 20%; }
+
+.mason-item img {
+  width: 100%; }
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 192, 203, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-decoration: none !important;
+  color: #fff;
+  display: none;
+  transition: 0.3s; }
+
+.overlay .overlay-inner {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border: 12px solid white;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0; }
+
+.overlay .product-title {
+  text-align: left;
+  font-size: 3em;
+  color: #fff;
+  margin: 0;
+  padding: 15px 10px;
+  word-wrap: break-word; }
+
+.overlay .price {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  font-size: 1.75em; }
+
+.mason-item:hover .overlay {
+  display: block; }
+
+.section-title {
+  position: relative;
+  text-align: center;
+  font-family: "Alex Brush";
+  font-size: 3em; }
+
+.section-title:after {
+  background: #000000;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  width: 100%; }
+
+.section-title--gradient:after {
+  background: -webkit-linear-gradient(left, #ffffff, #000000, #ffffff);
+  background: -moz-linear-gradient(left, #ffffff, #000000, #ffffff);
+  background: -ms-linear-gradient(left, #ffffff, #000000, #ffffff);
+  background: -o-linear-gradient(left, #ffffff, #000000, #ffffff);
+  background: linear-gradient(left, #ffffff, #000000, #ffffff); }
+
+.section-title span {
+  background: #ffffff;
+  display: inline-block;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1; }
+
+@media screen and (max-width: 1224px) {
+  .grid-sizer {
+    width: 33.33%; }
+
+  .mason-item {
+    width: 33.33%; }
+
+  .mason-item:last-of-type {
+    display: none; } }
+@media screen and (max-width: 720px) {
+  .grid-sizer {
+    width: 50%; }
+
+  .mason-item {
+    width: 50%; }
+
+  .mason-item:last-of-type {
+    display: block; }
+
+  #twitter-feed .nav.prev {
+    left: 30px; }
+
+  #twitter-feed .nav.next {
+    right: 30px; } }
+@media screen and (max-width: 480px) {
+  .grid-sizer {
+    width: 100%; }
+
+  .mason-item {
+    width: 100%; } }
 /*=====  End of Main Page  ======*/
 /*==========================================
 =            Shopping Cart Page            =
@@ -1764,6 +1951,55 @@ form label.error {
   margin-left: 120px; }
 .product-details p {
   font-size: 1em; }
+
+.sold {
+  position: absolute;
+  left: -5px;
+  top: -1px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right; }
+
+.sold span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(-45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: #ff8da1;
+  box-shadow: 0 3px 10px -5px black;
+  position: absolute;
+  top: 19px;
+  left: -21px; }
+
+.sold span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #FFC0CB;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #FFC0CB; }
+
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #FFC0CB;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #FFC0CB; }
 
 /*=====  End of Products Page  ======*/
 /*============================================

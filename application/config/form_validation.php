@@ -62,7 +62,7 @@ $config = array(
 			'rules' => 'required|trim'
 		),
 		array(
-			'field' => 'address_1',
+			'field' => 'address',
 			'label' => 'Billing Address Line 1',
 			'rules' => 'required|trim'
 		),

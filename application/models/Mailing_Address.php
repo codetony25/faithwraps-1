@@ -30,12 +30,14 @@ class Mailing_Address extends CI_model {
 		$data['last_name'] = $post['last_name'];
 		$data['address'] = $post['address'];
 		$data['address_2'] = $post['address_2'];
+		$data['state'] = $post['state'];
 		$data['city'] = $post['city'];
 		$data['country'] = $post['country'];
 		$data['zip_code'] = $post['zip_code'];
 
 		// If a record already exists, update it
 		if ($userMailing = $this->fetch(array('user_id'=>$user['id']))) {
+			$this->db->where(array('user_id',$user['id']));
 			$this->db->update(self::TABLE, $data);
 		} else {
 			$data['user_id'] = $user['id'];
