@@ -91,7 +91,7 @@ class User extends CI_model {
 		$this->email->subject('Please verify your account');
 		$this->email->message("<a href='/users/confirm/{$user['confirmation_code']}'>Confirm</a>");
 
-		// return $this->email->send();
+		return $this->email->send();
 	}
 
 	function send_password_reset_email($token, $data)

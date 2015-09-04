@@ -239,4 +239,15 @@ class Cart extends CI_model {
 		// Delete the cart for this user
 		$this->db->delete(self::TABLE, array('user_id'=>$user['id']));
 	}
+
+	/**
+	 * Deletes a single cart record by id
+	 * 
+	 * @param 	int 	$item_id 	Cart id in db to be deleted
+	 */
+	public function del_cart_item($item_id) {
+
+		$this->db->where('id',$item_id);
+		$this->db->delete(self::TABLE);
+	}
 }
