@@ -117,5 +117,48 @@ $(function(){
 		twitter_feed_timer = setInterval(twitter_feed_next, 5000);
 	}
 
+	/* Start of Homepage Banner script */
+	var fwBanner = fwBanner || {};
+
+	fwBanner.getMeasurements = function() {
+		fwBanner.measurements = {
+			windowHeight: fwBanner.cache.$win.height(),
+			navHeight: fwBanner.cache.$nav.height(),
+			headerHeight: fwBanner.cache.$header.height()
+		}
+	}
+
+	fwBanner.cacheSelectors = function() {
+		fwBanner.cache = {
+			$win: $(window),
+			$nav: $('nav'),
+			$header: $('header'),
+			$outerBanner: $('.header-display-wrapper'),
+			$innerBanner: $('.header-display')
+		}
+	}
+
+	fwBanner.setHeaderHeight = function() {
+		var height = fwBanner.measurements.windowHeight - fwBanner.measurements.navHeight;
+		fwBanner.cache.$header.css({
+			'height': height + 'px',
+			'margin-top': fwBanner.measurements.navHeight + 'px'
+		});
+	}
+
+	fwBanner.init = function() {
+		fwBanner.cacheSelectors();
+		fwBanner.getMeasurements();
+		fwBanner.setHeaderHeight();
+	}
+
+	fwBanner.init();
+
+	$(window).resize(function() {
+		fwBanner.getMeasurements();
+		fwBanner.setHeaderHeight();
+	})
+	/* End of Homepage Banner script */
+
 });//end ready
 
