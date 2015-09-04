@@ -1,0 +1,120 @@
+/*============================================
+=            Admin Dashboard Page            =
+============================================*/
+
+.admindashboard h1 {
+	font-family: 'Alex Brush', cursive;
+	font-size: 3em;
+	font-weight: bold;
+	padding: 15px;
+	color: $pink;
+	border-color: $pink;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	background-color: #F8F8F8;
+	margin-top: 75px;
+	@media (min-width: $break-small) {
+		margin-bottom: 0.5px;
+		margin-top: 30px;;
+	}
+}
+
+#main_nav {
+	font-size: 1.2em;
+	cursor: pointer;
+	color: $pink;
+	font-weight: bold;
+	background-color: #F8F8F8;
+	padding: 20px;
+	width: 100%;
+	ul {
+		padding: 0;
+		text-align: center;
+	}
+	li {
+		list-style: none;
+		transition: 0.4s;
+		margin-bottom: 20px;
+		@media (min-width: $break-small) {
+			display: inline-block;
+			margin-right: 50px;
+			margin-bottom: 0px;
+		}
+		&:hover {
+			opacity: 0.3;
+		}
+	}
+}
+
+#sub_nav {
+	color: $pink;
+	background-color: #F8F8F8;
+	width: 100%;
+	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	ul {
+		margin-top: 20px;
+		padding: 20px 0;
+		b {
+			font-size: 2.5em;
+			font-family: 'Alex Brush', cursive;
+		}
+	}
+	li {
+		list-style: none;
+		margin-bottom: 9px;
+		cursor: pointer;
+	}
+}
+
+#form_holder {
+	color: $pink;
+	background-color: #F8F8F8;
+	width: 100%;
+	margin-top: 20px;
+	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	#edit_form {
+		padding: 20px;
+	}
+	#this_product_style_form {
+		padding: 20px;
+		img {
+			margin-top: 25px;
+			margin-bottom: 25px;
+		}
+	}
+	ul {
+		padding: 20px 0;
+	}
+	li {
+		list-style: none;
+		margin-bottom: 5px;
+		cursor: pointer;
+	}
+	label {
+		display: block;
+		text-align: left;
+		font-size: 1.3em;
+		margin-left: 3px;
+		padding: 3px;
+	}
+	textarea {
+		height: 200px;
+		resize: none;
+	}
+}
+
+#messages {
+	background-color: yellow;
+	font-size: 1.2em;
+}
+
+
+//Image thumbnail
+.imagedropshadow { padding: 5px; border: solid 1px #EFEFEF; } a:hover img.imagedropshadow { border: solid 1px #CCC; -moz-box-shadow: 1px 1px 5px #999; -webkit-box-shadow: 1px 1px 5px #999; box-shadow: 1px 1px 5px #999; }
+
+/*=====  End of Admin Dashboard Page  ======*/

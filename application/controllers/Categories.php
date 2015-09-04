@@ -5,7 +5,6 @@ class Categories extends CI_controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->Model('Category');
 	}
 
 	public function show($id) {

@@ -15,10 +15,16 @@ footer .socialiconsmobile li,  footer .socialiconstablet {
     font-size: 2.7em;
 }
 
-footer .socialiconsmobile li i, footer .socialiconstablet li i {
-    color: #73685B;
+footer .socialiconsmobile li i, 
+footer .socialiconstablet li i {
+    color: $gray;
     opacity: 0.9;
     transition: 0.2s;
+}
+
+footer .socialiconsmobile li i:hover, 
+footer .socialiconstablet li i:hover {
+    color: $pink;
 }
 
 footer .socialiconsmobile li i:first-child, footer .socialiconsmobile li i:nth-child(3) {

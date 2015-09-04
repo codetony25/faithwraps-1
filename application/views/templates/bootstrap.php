@@ -1,3 +1,6 @@
+<?php
+    $user = $this->session->userdata('user');
+?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -22,8 +25,8 @@
 
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid logo">
-                <h1 id="logo-main" class="hidden-xs">FaithWraps</h1>
+            <div class="container-fluid logo no-gutter">
+                <h1 id="logo-main" class="hidden-xs"><a href="/" alt="FaithWraps Home">FaithWraps</a></h1>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
                     <div class="navbar-header">
@@ -41,14 +44,25 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                      <div class="collapse navbar-collapse" id="navbar-brand-centered">
                           <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
                             <li><a href="/categories/1">FaithWraps</a></li>
                             <li><a href="/categories/2">Limited Ed.</a></li>        
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
-                            <li><a href="/login">Log In</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i></a></li>
-                            <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <!-- Begin logged in linking -->
+                            <?php if (isset($user['id']) && isset($user['level'])): ?>
+                                <li><a href="/logout">Log Out</a></li>
+                                <?php if ($user['level'] == 5): // admin ?> 
+                                    <li><a href="/admins"><i class="fa fa-cog"></i></a></li>
+                                <?php else: ?>
+                                    <li><a href="/profile"><i class="fa fa-cog"></i></a></li>
+                                <?php endif ?>
+                                <li class="shoppingcartmobile"><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <!--Logged out linking -->
+                            <?php else: ?>
+                                <li><a href="/login">Log In</a></li>
+                                <li class="shoppingcartmobile"><a href="/login"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <?php endif ?>
+                            <!-- End logged in/out linking -->
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->
@@ -64,20 +78,31 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4 footerlinks ">
+                <div class="col-sm-4 newsletter">
+                    <h5>Subscribe now to receive newsletters!</h5>
+                    <form action="" method="post" id="newsletter">
+                        <div class="input-group col-sm-11">
+                           <input type="text" class="form-control" placeholder="example@example.com">
+                           <span class="input-group-btn">
+                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
+                           </span>
+                        </div>
+                    </form>
+                </div><!-- END OF COLUMN -->
+                <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Follow Us</h5>
                     <ul class="socialiconstablet">
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                     <ul class="socialiconsmobile">
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
-                <div class="col-sm-4 footerlinks ">
+                <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Information</h5>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
@@ -87,21 +112,14 @@
                         <li><a href="#">Terms and Conditions</a></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
-                <div class="col-sm-4 newsletter">
-                    <h5>Subscribe now to receive newsletters!</h5>
-                    <form action="" method="post" id="newsletter">
-                        <div class="input-group">
-                           <input type="text" class="form-control" placeholder="example@example.com">
-                           <span class="input-group-btn">
-                                <button class="btn btn-default" name="newsletter" type="button">Submit!</button>
-                           </span>
-                        </div>
-                    </form>
-                    <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
-                </div><!-- END OF COLUMN -->
             </div><!-- END OF ROW -->
         </div><!-- END OF CONTAINER -->
     </footer>
+    <div class="container-fluid bottom-footer">
+        <div class="row text-center">
+            <h6>Copyright &copy; 2015 - Team Tony is Awesome!</h6>
+        </div>
+    </div>
 
     <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
