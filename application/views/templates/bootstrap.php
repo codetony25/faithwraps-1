@@ -1,3 +1,6 @@
+<?php
+    $user = $this->session->userdata('user');
+?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -22,7 +25,7 @@
 
     <!-- NAVBAR FOR MOBILE DEVICES -->
         <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid logo">
+            <div class="container-fluid logo no-gutter">
                 <h1 id="logo-main" class="hidden-xs"><a href="/" alt="FaithWraps Home">FaithWraps</a></h1>
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="container">
@@ -45,9 +48,21 @@
                             <li><a href="/categories/2">Limited Ed.</a></li>        
                             <li><a href="/categories/3">Leather & Feather</a></li>
                             <li><a href="/categories/4">Affirmations in a Bottle</a></li>
-                            <li><a href="/login">Log In</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i></a></li>
-                            <li class="shoppingcartmobile"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <!-- Begin logged in linking -->
+                            <?php if (isset($user['id']) && isset($user['level'])): ?>
+                                <li><a href="/logout">Log Out</a></li>
+                                <?php if ($user['level'] == 5): // admin ?> 
+                                    <li><a href="/admins"><i class="fa fa-cog"></i></a></li>
+                                <?php else: ?>
+                                    <li><a href="/profile"><i class="fa fa-cog"></i></a></li>
+                                <?php endif ?>
+                                <li class="shoppingcartmobile"><a href="/cart"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <!--Logged out linking -->
+                            <?php else: ?>
+                                <li><a href="/login">Log In</a></li>
+                                <li class="shoppingcartmobile"><a href="/login"><i class="fa fa-shopping-cart"></i></a></li>                  
+                            <?php endif ?>
+                            <!-- End logged in/out linking -->
                           </ul>                      
                     </div><!-- END OF END OF SHOPPINGCARTTABLET -->
                 </div><!-- /.navbar-collapse -->
@@ -77,14 +92,14 @@
                 <div class="col-xs-6 col-sm-4 footerlinks ">
                     <h5>Follow Us</h5>
                     <ul class="socialiconstablet">
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                     <ul class="socialiconsmobile">
-                        <li><a href="#" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/faithwraps" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://www.facebook.com/FaithWraps" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><!--<a href="#" target="_blank">--><i class="fa fa-instagram"></i><!--</a>--></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
                 <div class="col-xs-6 col-sm-4 footerlinks ">
