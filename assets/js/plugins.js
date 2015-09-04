@@ -430,16 +430,14 @@ $(function(){
             // Check for errors
             if (fwStripe.validationError) {
                 // Show errors on screen
-                fwStripe.displayError();              
+                fwStripe.displayError();        
+                fwStripe.cache.$checkoutBtn.prop('disabled', false);      
             } else {
                 // Get token. Chained responsehandler submits form
                 fwStripe.createToken();
             }
-        }).always(function(){
-            fwStripe.cache.$checkoutBtn.prop('disabled', false);
         })
 
-        
         return false;
     });
     /********* End Stripe *********/
