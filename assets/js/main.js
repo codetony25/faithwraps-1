@@ -1,5 +1,10 @@
 $(function(){
 
+
+//Slide Title when on scroll in categories
+ 	$('.titlebanner').sticky({ topSpacing: 90 });
+
+
 // Hooking up subscribing to the newsletter
 	$('#newsletter').submit(function(e) {
 		$.post('/newsletter', $(this).serialize(), function(res) {

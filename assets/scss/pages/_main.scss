@@ -2,6 +2,7 @@
 =            Main Page            =
 =================================*/
 
+
 .mainpics {
     display: block;
     img {
@@ -44,7 +45,7 @@
         margin-top: 7px; 
     }
     a {
-        color: $pink;
+        color: $darkpink;
         transition: 0.2s;
         &:hover {
             color: $gray;
@@ -59,7 +60,7 @@
 }
 
 
-
+//Masonry Styles
 .banner {
     position: relative;
     margin-top: 50px;
@@ -153,6 +154,8 @@
 .randomScroll {
     background-color: #F7F7F7;
 }
+
+
 .explore {
     font-family: 'Alex Brush', cursive;
     margin: 0;

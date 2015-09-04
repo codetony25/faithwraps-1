@@ -1,25 +1,36 @@
-<div class="container">
-    <div class="categorydesc">
-        <h2><?= $category['name'] ?></h2>
-        <p><?= $category['desc'] ?></p>
-    </div><!-- END OF PRODUCTDESC -->
-
-    <div class="items">
-        <div class="row">
-            <?php
-                foreach ($products as $product) {
-            ?>      
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="itembox">
-                        <a href='/products/<?= xss_clean($product['id']); ?>'>
-                        <img src='/assets/img/products/<?= xss_clean($product['image']); ?>'  />
-                        <h4><?= xss_clean(ucwords($product['name'])); ?></h4>
-                        </a>
-                        <p>$<?= xss_clean($product['price']); ?></p>
-                    </div>
-            </div><!-- END OF COLUMN -->
-            <?php   } ?>
-                    
+<div class="category-banner">
+    <div class="container">
+        <div class="categorydesc">
+            <h2><?= $category['name'] ?></h2>
+            <p><?= $category['desc'] ?></p>
         </div>
-    </div><!-- END OF ITEMS -->    
+    </div>
+</div>
+
+<div class="titlebanner" id="sticky-menu">
+    <h1 class="text-center"><?= $category['name'] ?></h1>
+</div>
+
+<!-- Masonry for categories-->
+<div class="container">
+    <div class="masonry-container">
+        <div class="masonry">
+            <!-- for masonry positioning purposes -->
+            <div class="grid-sizer"></div>
+
+            <?php foreach($products as $product): ?>
+                <div class="mason-item categorymason">
+                    <img src="/assets/img/products/<?= $product['image']; ?>"/>
+                    <div class="categorymason">
+                        <a href="/products/<?= $product['id'] ;?>" class="overlay" id="masonryoverlay">
+                        <div class="overlay-inner">
+                            <h4 class="product-title"><?= $product['name']; ?></h4>
+                        </div>
+                        </a>
+                    </div>
+                    <p class="text-center">$<?=$product['price'];?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div><!-- /.masonry-container -->
 </div>

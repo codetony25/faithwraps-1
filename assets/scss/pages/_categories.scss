@@ -2,6 +2,123 @@
 =            Categories Page            =
 =======================================*/
 
+.titlebanner {
+	display: none;
+		@media (min-width: $break-small) {
+			display: block;
+			font-family: 'Alex Brush', cursive;
+			background-color: white;
+			z-index: 10;
+			position: relative;
+			padding: 10px;
+			-webkit-box-shadow: -1px 20px 5px -19px rgba(0,0,0,0.75);
+			-moz-box-shadow: -1px 20px 5px -19px rgba(0,0,0,0.75);
+			box-shadow: -1px 20px 5px -19px rgba(0,0,0,0.75);
+		h1 {
+			margin: 0;
+		}
+	}
+}
+
+.category-banner {
+	z-index: -10;
+}
+
+#sticky-menu {
+	opacity: 0;
+	transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+}
+
+.is-sticky #sticky-menu {
+    opacity: 1;
+}
+
+
+#sticky-wrapper {
+	height: 0 !important;
+}
+.sticky-wrapper {
+	height: 0 !important;
+}
+
+.visible {opacity:1;}
+
+.categorydesc {
+	h2 {
+		opacity: 0.9;
+		color: white;
+		font-family: 'Alex Brush', cursive;
+		font-size: 3em;
+		font-weight: bold;
+		@media (min-width: $break-small) {
+			margin-top: 68px;
+			font-size: 5em;
+		}
+		@media (min-width: $break-large) {
+			font-size: 6em;
+		}
+		// margin-top: 68px;
+		// opacity: 0.9;
+		// font-weight: bold;
+		// color: white;
+		// font-family: 'Alex Brush', cursive;
+		// font-weight: bold;
+		// font-size: 6em;
+	}
+	p {
+		color: white;
+		opacity: 0.9;
+		@media (min-width: $break-small) {
+			font-size: 1.4em;
+		}
+	}
+}
+
+.category-banner {
+	position: relative;
+    margin-top: 50px;
+    background-image: url('/assets/img/categorybanner.jpg');
+    background-size: cover;
+    height: 450px;
+}
+
+.categorymason p {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: $gray;
+}
+
+#masonryoverlay {
+	height: 90.5%;
+	@media (min-width: 490px) {
+		height: 86%;
+	}
+	@media (min-width: 580px) {
+		height: 88%;
+	}
+	@media (min-width: 680px) {
+		height: 89.8%;
+	}
+	@media (min-width: 720px) {
+		height: 86.7%;
+	}
+	@media (min-width: $break-medium) {
+		height: 89.8%;
+	}
+	@media (min-width: 1200px) {
+		height: 91.4%;
+	}
+	@media (min-width: 1244px) {
+		height: 86%;
+	}
+	// @media (min-width: 490px) {
+	// 	height: 86%;
+	// }
+}
+
 .categorydesc {
 	text-align: center;
 	color: $darkpink;
