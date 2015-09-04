@@ -33,18 +33,18 @@
                 <tr>
                     <td>
                         <address>
-                            <?= $billing['first_name'] . ' ' . $billing['last_name']; ?><br/>
-                            <?= $billing['address']; ?><br/>
-                            <?= $billing['address_2']; ?><br/>
-                            <?= $billing['city'] . ' ' . $billing['state'] . ', ' . $billing['zip_code']; ?>
-                        </address>
-                    </td>
-                    <td>
-                        <address>
                             <?= $mailing['first_name'] . ' ' . $mailing['last_name']; ?><br/>
                             <?= $mailing['address']; ?><br/>
                             <?= $mailing['address_2']; ?><br/>
                             <?= $mailing['city'] . ' ' . $mailing['state'] . ', ' . $mailing['zip_code']; ?>
+                        </address>
+                    </td>
+                    <td>
+                        <address>
+                            <?= $billing['first_name'] . ' ' . $billing['last_name']; ?><br/>
+                            <?= $billing['address']; ?><br/>
+                            <?= $billing['address_2']; ?><br/>
+                            <?= $billing['city'] . ' ' . $billing['state'] . ', ' . $billing['zip_code']; ?>
                         </address>
                     </td>
                     <td>****-****-****-<?= $this->session->userdata('last_4'); ?></td>

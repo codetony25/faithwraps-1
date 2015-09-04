@@ -52,7 +52,8 @@ class Carts extends CI_controller {
 	public function billing() {
 		if ($user = $this->session->userdata('user')) {
 			$this->template->load('bootstrap', 'carts/billing', array(
-				'title' => 'FaithWraps Checkout'
+				'title' => 'FaithWraps Checkout',
+				'billing' => $this->Billing_Address->get_billing()
 			));
 		} else {
 			$this->session->set_userdata('target_page', 'shipping');
@@ -79,6 +80,8 @@ class Carts extends CI_controller {
 	function checkout()
 	{	
 		$post = $this->input->post();
+
+		$this->Billing_Address->save_billing($post);
 
 		if ($token = $post['stripeToken'])
 		{
