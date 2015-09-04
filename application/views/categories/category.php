@@ -18,7 +18,7 @@
                 <div class="mason-item categorymason">
                 <?= $product['qty'] == 0 ? '<div class="sold"><span>SOLD OUT</span></div>' : ''; ?>
                     <img src="/assets/img/products/<?= $product['image']; ?>"/>
-                    <div class="categorymason">
+                    <div class="categorymason center-text">
                         <a href="/products/<?= $product['id'] ;?>" class="overlay" id="masonryoverlay">
                         <div class="overlay-inner">
                             <h4 class="product-title"><?= $product['name']; ?></h4>
