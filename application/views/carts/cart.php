@@ -62,7 +62,7 @@
                             <h4 class="text-right">Total <strong>$<?= $cart['total'] ?></strong></h4>
                         </div>
                         <div class="col-xs-6">
-                            <form method="post" action="/checkout">
+                            <form method="post" action="/shipping">
                                 <button class="btn btn-success btn-block">
                                     Checkout
                                 </button>

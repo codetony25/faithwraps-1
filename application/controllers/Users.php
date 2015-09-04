@@ -88,8 +88,8 @@ class Users extends CI_Controller {
 				}
 
 				if ($target_page = $this->session->userdata('target_page')) {
-					if ($target_page == "checkout") {
-						redirect('/checkout');
+					if ($target_page == "shipping") {
+						redirect('/shipping');
 					}
 				} else {
 					redirect('/users/login');
