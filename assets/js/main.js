@@ -124,6 +124,7 @@ $(function(){
 		fwBanner.measurements = {
 			windowHeight: fwBanner.cache.$win.height(),
 			navHeight: fwBanner.cache.$nav.height(),
+			headerHeight: fwBanner.cache.$header.height()
 		}
 	}
 
@@ -131,7 +132,9 @@ $(function(){
 		fwBanner.cache = {
 			$win: $(window),
 			$nav: $('nav'),
-			$header: $('header')
+			$header: $('header'),
+			$outerBanner: $('.header-display-wrapper'),
+			$innerBanner: $('.header-display')
 		}
 	}
 
