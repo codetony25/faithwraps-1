@@ -1570,7 +1570,7 @@ form label.error {
 =======================================*/
 .categorydesc {
   text-align: center;
-  color: #FFC0CB;
+  color: #ff8da1;
   margin-bottom: 20px;
   margin-top: 80px; }
   @media (min-width: 768px) {
@@ -1646,12 +1646,15 @@ form label.error {
 .similaritems {
   margin-top: 50px; }
 
+.similaritems h2 {
+  color: #ff8da1;
+  font-family: 'Alex Brush', cursive; }
+
 .productdesc h2 {
   margin-top: 0;
   font-size: 3em;
   text-align: left;
-  font-family: 'Alex Brush', cursive;
-  color: #FFC0CB; }
+  font-family: 'Alex Brush', cursive; }
 
 .productdesc p {
   letter-spacing: 1px;
@@ -1689,8 +1692,8 @@ form label.error {
   font-size: 3em;
   font-weight: bold;
   padding: 15px;
-  color: #FFC0CB;
-  border-color: #FFC0CB;
+  color: #777777;
+  border-color: #777777;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -1704,7 +1707,7 @@ form label.error {
 #main_nav {
   font-size: 1.2em;
   cursor: pointer;
-  color: #FFC0CB;
+  color: #777777;
   font-weight: bold;
   background-color: #F8F8F8;
   padding: 20px;
@@ -1725,7 +1728,7 @@ form label.error {
       opacity: 0.3; }
 
 #sub_nav {
-  color: #FFC0CB;
+  color: #777777;
   background-color: #F8F8F8;
   width: 100%;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -1743,7 +1746,7 @@ form label.error {
     cursor: pointer; }
 
 #form_holder {
-  color: #FFC0CB;
+  color: #777777;
   background-color: #F8F8F8;
   width: 100%;
   margin-top: 20px;
@@ -1791,6 +1794,10 @@ a:hover img.imagedropshadow {
 /*====================================
 =            Profile Page            =
 ====================================*/
+.profile {
+  margin-top: 120px;
+  margin-bottom: 120px; }
+
 /*=====  End of Profile Page  ======*/
 
 /*# sourceMappingURL=main.css.map */
