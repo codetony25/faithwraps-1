@@ -47,5 +47,32 @@ $config = array(
 			'label' => 'Quantity',
 			'rules' => 'required|trim|integer|greater_than[0]'
 		)
+	),
+	'billing' => array(
+		array(
+			'field' => 'first_name',
+			'label' => 'First Name',
+			'rules' => 'required|trim|alpha_numeric_spaces'
+		),
+		array(
+			'field' => 'last_name',
+			'label' => 'Last Name',
+			'rules' => 'required|trim|alpha_numeric_spaces'
+		),
+		array(
+			'field' => 'address1',
+			'label' => 'Billing Address Line 1',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'city',
+			'label' => 'City',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'zip_code',
+			'label' => 'Zip Code',
+			'rules' => 'required|trim|integer'
+		)
 	)
 );

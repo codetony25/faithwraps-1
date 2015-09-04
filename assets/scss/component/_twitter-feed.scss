@@ -29,6 +29,18 @@
     color: pink;
 }
 
+#twitter-feed {
+    i.fa-twitter:hover,
+    h5 a:hover,
+    .tweet a:hover {
+        color: $darkpink;
+        text-decoration: none;
+        transition: color .5s linear;
+         -moz-transition: color .5s linear;
+         -webkit-transition: color .5s linear;
+    }
+}
+
 #twitter-feed .nav {
     position: absolute;
     bottom: 7%;
@@ -63,7 +75,7 @@
     max-width: 75%;
     margin: 0 auto;
     padding: 15px;
-    color: #B1B1B1;
+    color: $gray;
     font-size: 1em;
 }
 
