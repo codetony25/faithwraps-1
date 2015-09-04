@@ -1768,7 +1768,7 @@ form label.error {
 .sold {
   position: absolute;
   left: -5px;
-  top: -5px;
+  top: -1px;
   z-index: 1;
   overflow: hidden;
   width: 75px;
@@ -1786,7 +1786,7 @@ form label.error {
   width: 100px;
   display: block;
   background: #79A70A;
-  background: linear-gradient(#FFC0CB 0%, #FFC0CB 100%);
+  background: #ff8da1;
   box-shadow: 0 3px 10px -5px black;
   position: absolute;
   top: 19px;

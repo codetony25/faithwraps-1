@@ -31,5 +31,3 @@
         </div>
     </div><!-- /.masonry-container -->
 </div>
-
-<?php var_dump($products); ?>
