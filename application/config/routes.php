@@ -68,3 +68,4 @@ $route['cart'] = '/carts';
 
 /* Info and Footer routes */
 $route['newsletter'] = '/infos/newsletter';
+$route['about'] = '/info';

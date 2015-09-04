@@ -10,5 +10,6 @@ class Infos extends CI_controller {
 	public function newsletter() {
 		echo $this->Info->do_newsletter();
 	}
+
 }
 
