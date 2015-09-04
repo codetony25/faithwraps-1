@@ -16,6 +16,7 @@
 
             <?php foreach($products as $product): ?>
                 <div class="mason-item categorymason">
+                <?= $product['qty'] == 0 ? '<div class="sold"><span>SOLD OUT</span></div>' : ''; ?>
                     <img src="/assets/img/products/<?= $product['image']; ?>"/>
                     <div class="categorymason">
                         <a href="/products/<?= $product['id'] ;?>" class="overlay" id="masonryoverlay">
@@ -30,3 +31,5 @@
         </div>
     </div><!-- /.masonry-container -->
 </div>
+
+<?php var_dump($products); ?>
