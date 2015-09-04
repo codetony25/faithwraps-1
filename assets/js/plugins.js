@@ -306,11 +306,11 @@ $(function(){
 
     fwStripe.getBillingInfo = function() {
       fwStripe.billing = {
-        address1: fwStripe.cache.$address1(),
-        address2: fwStripe.cache.$address2(),
-        city: fwStripe.cache.$city(),
-        state: fwStripe.cache.$state(),
-        zip: fwStripe.cache.$zip().toString(),
+        address1: fwStripe.cache.$address1.val(),
+        address2: fwStripe.cache.$address2.val(),
+        city: fwStripe.cache.$city.val(),
+        state: fwStripe.cache.$state.val(),
+        zip: fwStripe.cache.$zip.val().toString(),
       }
     }
 
@@ -356,8 +356,6 @@ $(function(){
     fwStripe.stripeResponseHandler = function(status, response) {
       if (response.error) {
         fwStripe.errorMsgs.push(response.error.message);
-        fwStripe.displayError();
-        return false;
       } else { // No errors. Submit form
         var token = response.id;
         var last4 = $('#card-number').val().substr( $('#card-number').val().length - 4 );
@@ -406,7 +404,7 @@ $(function(){
                 fwStripe.errorMsgs.push(response);
             }
         }).then(function(response){
-            fwStripe.getBillingInfo
+            fwStripe.getBillingInfo();
 
             // Get Card Values
             fwStripe.getCardInfo();
@@ -423,10 +421,10 @@ $(function(){
                 fwStripe.createToken();
             }
         }).always(function(){
-            // Re-enable button
             fwStripe.cache.$checkoutBtn.prop('disabled', false);
-        });
+        })
 
+        
         return false;
     });
     /********* End Stripe *********/
