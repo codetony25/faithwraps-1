@@ -109,7 +109,7 @@
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Privacy</a></li>
                         <li><a href="#">Terms and Conditions</a></li>
-                        <li><a href="#">Meet the Developers</a></li>
+                        <li><a href="/developers">Meet the Developers</a></li>
                     </ul>
                 </div><!-- END OF COLUMN -->
             </div><!-- END OF ROW -->

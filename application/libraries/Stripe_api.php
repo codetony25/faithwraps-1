@@ -69,7 +69,7 @@ class Stripe_API
 		$data = array( 
 			'currency' => 'usd',
 			'metadata' => array(
-				'Address_1' => $billing_info['address_1'],
+				'Address_1' => $billing_info['address'],
 				'Address_2' => $billing_info['address_2'],
 				'City' => $billing_info['city'],
 				'State' => $billing_info['state'],

@@ -12,7 +12,7 @@
                 <img src="/assets/img/products/<?= $product['image']; ?>"/>
 
                 <a href="/products/<?= $product['id'] ;?>" class="overlay">
-                    <div class="overlay-inner">
+                    <div class="overlay-inner text-center">
                         <h4 class="product-title"><?= $product['name']; ?></h4>
                         <div class="price">$<?=$product['price'];?></div>
                     </div>
