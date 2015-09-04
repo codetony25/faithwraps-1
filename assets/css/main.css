@@ -1055,9 +1055,11 @@ footer .socialiconsmobile li i:last-child:hover {
   margin-bottom: 0; }
 
 .twitter_feed_container {
-  padding: 20px 0;
   background-color: #fff;
   width: 100%; }
+
+.twitter_feed_container .row {
+  padding: 20px 0; }
 
 #twitter-feed .fa-twitter {
   font-size: 7em;
@@ -1073,6 +1075,15 @@ footer .socialiconsmobile li i:last-child:hover {
 #twitter-feed h5 a {
   position: relative;
   color: pink; }
+
+#twitter-feed i.fa-twitter:hover,
+#twitter-feed h5 a:hover,
+#twitter-feed .tweet a:hover {
+  color: #ff8da1;
+  text-decoration: none;
+  transition: color .5s linear;
+  -moz-transition: color .5s linear;
+  -webkit-transition: color .5s linear; }
 
 #twitter-feed .nav {
   position: absolute;
@@ -1103,7 +1114,7 @@ footer .socialiconsmobile li i:last-child:hover {
   max-width: 75%;
   margin: 0 auto;
   padding: 15px;
-  color: #B1B1B1;
+  color: #777777;
   font-size: 1em; }
 
 .tweet a {

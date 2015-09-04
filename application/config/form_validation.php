@@ -52,7 +52,34 @@ $config = array(
 		array(
 			'field' => 'email',
 			'label' => 'E-Mail',
-			'rules' => 'required|trim|valid_email|is_unique[newsletters.email]',
+			'rules' => 'required|trim|valid_email|is_unique[newsletters.email]'
+		)
+	),
+	'billing' => array(
+		array(
+			'field' => 'name',
+			'label' => 'Name on Card',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'address_1',
+			'label' => 'Billing Address Line 1',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'city',
+			'label' => 'City',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'state',
+			'label' => 'State',
+			'rules' => 'required|trim'
+		),
+		array(
+			'field' => 'zip_code',
+			'label' => 'Zip Code',
+			'rules' => 'required|trim|integer'
 		)
 	)
 );
