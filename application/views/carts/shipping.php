@@ -1,3 +1,4 @@
+<div class="container">
 <div class="row billingslide">
     <h2 class="text-center">Checkout</h2>
     <div class="col-xs-12">
@@ -45,7 +46,7 @@
         <button class="btn btn-info form-control">Continue</button>
     </form>
 </div><!-- END OF SHIPPING -->
-
+</div>
 
 
 

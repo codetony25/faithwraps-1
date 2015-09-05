@@ -301,7 +301,7 @@ $(function(){
         $cvc: $('#cc #cvc'),
         $expMonth: $('#cc #exp-month'),
         $expYear: $('#cc #exp-year'),
-        $address1: $('#address_1'),
+        $address1: $('#address'),
         $address2: $('#address_2'),
         $city: $('#city'),
         $state: $('#state'),
