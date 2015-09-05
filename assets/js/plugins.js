@@ -441,6 +441,8 @@ $(function(){
         return false;
     });
     /********* End Stripe *********/
+
+    
     
 });//end of ready
 

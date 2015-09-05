@@ -19,7 +19,7 @@
                 </div>
                 <div class="panel-body">
                     
-					<?php foreach($cart['items'] as $item): ?>
+                    <?php foreach($cart['items'] as $item): ?>
                     <div class="row">
                         <div class="col-sm-2 hidden-xs">
                             <a href="/products/<?= $item['product_id'] ?>">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <hr>
-					<?php endforeach ?>
+                    <?php endforeach ?>
 
                     <div class="row">
                         <div class="text-center">
@@ -81,3 +81,5 @@
     </div>    
 </div>
 </div>
+
+
