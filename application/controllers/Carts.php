@@ -9,6 +9,9 @@ class Carts extends CI_controller {
 		$this->output->enable_profiler();
 	}
 
+	/**
+	 * Loads default cart view: carts/cart
+	 */
 	public function index() {
 		$this->template->load('bootstrap', 'carts/cart', array(
 			'title' => 'FaithWraps Shopping Cart',
@@ -16,6 +19,9 @@ class Carts extends CI_controller {
 		));
 	}
 
+	/**
+	 * Adds a single item from a post form to the user's cart
+	 */
 	public function add_to_cart() {
 	// Adds an item to the cart
 		$user = $this->session->userdata('user');
@@ -30,6 +36,9 @@ class Carts extends CI_controller {
 		redirect('/carts');
 	}
 
+	/**
+	 * Saves the shipping information from the shipping form in step 1 of checkout
+	 */
 	public function save_shipping() {
 		/* NEEDS FORM VALIDATION */
 		$this->Mailing_Address->save_shipping($this->input->post());
@@ -37,7 +46,11 @@ class Carts extends CI_controller {
 		redirect('/billing');
 	}
 
+	/**
+	 * Loads the 1st step of the checkout process: carts/shipping
+	 */
 	public function shipping() {
+		// If the user isn't logged in, redirect them to login and set a target page
 		if ($user = $this->session->userdata('user')) {
 			$this->template->load('bootstrap', 'carts/shipping', array(
 				'title' => 'FaithWraps Checkout',
@@ -49,6 +62,9 @@ class Carts extends CI_controller {
 		}
 	}
 
+	/**
+	 * Loads the 2nd step of the checkout process: carts/billing
+	 */
 	public function billing() {
 		if ($user = $this->session->userdata('user')) {
 			$this->template->load('bootstrap', 'carts/billing', array(
@@ -62,7 +78,7 @@ class Carts extends CI_controller {
 	}
 
 	/**
-	 * 
+	 * @return json repsonse for validating billing info
 	 */
 	function billing_info_validate()
 	{
@@ -98,6 +114,9 @@ class Carts extends CI_controller {
 		redirect('/carts/billing');
 	}
 
+	/**
+	 * Loads the review step of the checkout process: carts/review
+	 */
 	function review()
 	{
 		$user = $this->session->userdata('user');
@@ -110,6 +129,10 @@ class Carts extends CI_controller {
 		));
 	}
 
+	/**
+	 * Submits the order to the stripe api
+	 * and directs the user according to the response
+	 */
 	function submit_order()
 	{
 		$user = $this->session->userdata('user');
@@ -133,12 +156,18 @@ class Carts extends CI_controller {
 		}
 	}
 
+	/**
+	 * Loads the confirmation page after an order was successful
+	 */
 	public function confirmation() {
 		$this->template->load('bootstrap', 'carts/confirmation', array(
 				'title' => 'Confirmation'
 		));
 	}
 
+	/**
+	 * Deletes an item from the cart and redirects back to the cart page
+	 */
 	public function del_item() {
 		$item_id = $this->input->post('item_id');
 		$this->Cart->del_cart_item($item_id);
