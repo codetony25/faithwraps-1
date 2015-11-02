@@ -64,9 +64,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
+	'hostname' => 'faithwrapsdb.cguq5eyhzpuf.us-west-2.rds.amazonaws.com',
+	'username' => 'faithwraps',
+	'password' => 'lucky123',
 	'database' => 'faithwraps',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
